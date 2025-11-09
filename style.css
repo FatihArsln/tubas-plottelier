@@ -1,0 +1,958 @@
+/* CSS-Variablen für das neue Design */
+:root {
+    --altrosa: #D9A5B3; /* Altrosa */
+    --creme: #FFF9F7; /* Creme */
+    --warmbeige: #EBD9C5; /* Warmbeige */
+    --mint: #B9E3C6; /* Mint */
+    --koralle: #F8AFA6; /* Koralle */
+    --anthrazit: #4B4B4B; /* Anthrazit */
+}
+
+/* Basis-Styling für die gesamte Seite */
+* {
+    margin: 0; /* Entfernt Standard-Außenabstände */
+    padding: 0; /* Entfernt Standard-Innenabstände */
+    box-sizing: border-box; /* Berücksichtigt Padding und Border in der Breite */
+}
+
+/* Körper der Seite */
+body {
+    margin: 0; /* Kein Außenabstand */
+    font-family: 'Open Sans', sans-serif; /* Schriftart Open Sans */
+    background: var(--creme); /* Creme Hintergrund */
+    color: var(--anthrazit); /* Anthrazit Textfarbe */
+    min-height: 100vh; /* Mindesthöhe = gesamte Viewport-Höhe */
+}
+
+/* Header-Bereich */
+header {
+    background: white; /* Weißer Hintergrund */
+    border-bottom: 1px solid rgba(75,75,75,0.06); /* Dünne untere Linie */
+    padding: 1rem 2rem; /* Innenabstand */
+    display: flex; /* Flexbox für Layout */
+    justify-content: space-between; /* Platz zwischen Logo und Navigation */
+    align-items: center; /* Vertikale Zentrierung */
+    flex-wrap: wrap; /* Erlaubt Umbrechen bei Platzmangel */
+    gap: 1rem; /* Abstand zwischen Elementen */
+}
+
+/* Logo-Container */
+header .logo {
+    display: flex; /* Flexbox für Layout */
+    align-items: center; /* Vertikale Zentrierung */
+    gap: 0.75rem; /* Abstand zwischen Icon und Text */
+}
+
+/* Logo-Icon (Kreis mit "T") */
+header .logo-icon {
+    width: 48px; /* Breite */
+    height: 48px; /* Höhe */
+    border-radius: 50%; /* Runder Kreis */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    background: linear-gradient(135deg, var(--altrosa), var(--koralle)); /* Farbverlauf */
+    color: white; /* Weiße Schrift */
+    font-family: 'Allura', cursive; /* Schriftart Allura */
+    font-size: 1.5rem; /* Schriftgröße */
+    font-weight: bold; /* Fette Schrift */
+}
+
+/* Logo-Text "Tuba's" */
+header .script {
+    font-family: 'Allura', cursive; /* Schriftart Allura */
+    font-size: 1.25rem; /* Schriftgröße */
+    color: var(--altrosa); /* Altrosa Farbe */
+}
+
+/* Logo-Untertitel "Plottelier" */
+header .logo-subtitle {
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+    font-size: 0.75rem; /* Schriftgröße */
+    letter-spacing: 2px; /* Buchstabenabstand */
+    text-transform: uppercase; /* Großbuchstaben */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+}
+
+/* Navigation im Header */
+header nav {
+    display: flex; /* Flexbox für Layout */
+    gap: 1rem; /* Abstand zwischen Elementen */
+    align-items: center; /* Vertikale Zentrierung */
+}
+
+/* Navigation-Links */
+header nav a {
+    text-decoration: none; /* Keine Unterstreichung */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    font-weight: 500; /* Mittlere Schriftdicke */
+    transition: color 0.3s ease; /* Sanfte Farbänderung */
+}
+
+/* Hover-Effekt für Navigation-Links */
+header nav a:hover {
+    color: var(--altrosa); /* Altrosa beim Hover */
+}
+
+/* Aktiver Navigation-Link */
+header nav a.active {
+    color: var(--altrosa); /* Altrosa für aktiven Link */
+    font-weight: 600; /* Fette Schrift */
+}
+
+/* Button im Header (Warenkorb) */
+header .btn {
+    padding: 0.5rem 1rem; /* Innenabstand */
+    border: none; /* Kein Rahmen */
+    border-radius: 6px; /* Abgerundete Ecken */
+    background: var(--altrosa); /* Altrosa Hintergrund */
+    color: white; /* Weiße Schrift */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    font-weight: 600; /* Fette Schrift */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    gap: 0.5rem; /* Abstand zwischen Icon und Zahl */
+    transition: background 0.3s ease; /* Sanfte Hintergrundänderung */
+    font-family: 'Open Sans', sans-serif; /* Schriftart */
+}
+
+/* Hover-Effekt für Button */
+header .btn:hover {
+    background: var(--mint); /* Mint beim Hover */
+}
+
+/* Warenkorb-Header Button */
+.cart-header {
+    background: var(--altrosa); /* Altrosa Hintergrund */
+    color: white; /* Weiße Schrift */
+    border: none; /* Kein Rahmen */
+    padding: 0.5rem 1rem; /* Innenabstand */
+    border-radius: 6px; /* Abgerundete Ecken */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    gap: 0.5rem; /* Abstand zwischen Icon und Zahl */
+}
+
+/* Warenkorb-Icon */
+.cart-icon {
+    font-size: 1.2rem; /* Größe des Icons */
+}
+
+/* Anzahl der Artikel im Warenkorb */
+.cart-count {
+    background: white; /* Weißer Hintergrund */
+    color: var(--altrosa); /* Altrosa Schrift */
+    padding: 2px 8px; /* Innenabstand */
+    border-radius: 12px; /* Abgerundete Ecken */
+    font-weight: bold; /* Fette Schrift */
+    font-size: 0.9rem; /* Schriftgröße */
+    min-width: 20px; /* Minimale Breite */
+    text-align: center; /* Text zentriert */
+}
+
+/* Hauptbereich */
+main {
+    max-width: 1100px; /* Maximale Breite */
+    margin: 0 auto; /* Zentriert den Container */
+    padding: 2rem; /* Innenabstand */
+}
+
+/* Seiten-Sektionen (versteckt standardmäßig) */
+.page-section {
+    display: none; /* Versteckt standardmäßig */
+}
+
+/* Aktive Seite */
+.page-section.active {
+    display: block; /* Zeigt die aktive Seite */
+}
+
+/* Überschrift H1 */
+h1 {
+    font-family: 'Allura', cursive; /* Schriftart Allura */
+    color: var(--altrosa); /* Altrosa Farbe */
+    font-size: 3rem; /* Schriftgröße */
+    margin-bottom: 0.5rem; /* Abstand nach unten */
+}
+
+/* Span in H1 (für "Plottelier") */
+h1 span {
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+    text-transform: uppercase; /* Großbuchstaben */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    font-size: 1rem; /* Schriftgröße */
+}
+
+/* Überschrift H2 */
+h2 {
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    font-size: 2rem; /* Schriftgröße */
+    margin-bottom: 1rem; /* Abstand nach unten */
+    margin-top: 2rem; /* Abstand nach oben */
+}
+
+/* Einführungstext */
+.intro-text {
+    line-height: 1.6; /* Zeilenhöhe */
+    margin-bottom: 2rem; /* Abstand nach unten */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    font-size: 1.1rem; /* Schriftgröße */
+}
+
+/* Buttons-Container */
+.buttons {
+    margin: 2rem 0; /* Abstand oben und unten */
+}
+
+/* Button-Links */
+.buttons a {
+    display: inline-block; /* Inline-Block für Padding */
+    margin-right: 1rem; /* Abstand nach rechts */
+    text-decoration: none; /* Keine Unterstreichung */
+    padding: 0.75rem 1.5rem; /* Innenabstand */
+    border-radius: 8px; /* Abgerundete Ecken */
+    font-weight: 600; /* Fette Schrift */
+    transition: all 0.3s ease; /* Sanfte Animationen */
+    font-family: 'Open Sans', sans-serif; /* Schriftart */
+}
+
+/* Primary Button */
+.btn-primary {
+    background: var(--altrosa); /* Altrosa Hintergrund */
+    color: white; /* Weiße Schrift */
+}
+
+/* Hover-Effekt für Primary Button */
+.btn-primary:hover {
+    background: var(--mint); /* Mint beim Hover */
+    transform: translateY(-2px); /* Leichtes Anheben */
+}
+
+/* Outline Button */
+.btn-outline {
+    border: 2px solid var(--altrosa); /* Altrosa Rahmen */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    background: white; /* Weißer Hintergrund */
+}
+
+/* Hover-Effekt für Outline Button */
+.btn-outline:hover {
+    background: var(--warmbeige); /* Warmbeige beim Hover */
+}
+
+/* Leistungen-Container */
+.leistungen {
+    display: grid; /* Grid-Layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive Grid */
+    gap: 1rem; /* Abstand zwischen Karten */
+    margin-top: 2rem; /* Abstand nach oben */
+}
+
+/* Leistungs-Artikel */
+.leistungen article {
+    background: white; /* Weißer Hintergrund */
+    border-radius: 10px; /* Abgerundete Ecken */
+    padding: 1rem; /* Innenabstand */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Leichter Schatten */
+    text-align: center; /* Text zentriert */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Sanfte Animationen */
+}
+
+/* Hover-Effekt für Leistungs-Artikel */
+.leistungen article:hover {
+    transform: translateY(-5px); /* Hebt die Karte an */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Stärkerer Schatten */
+}
+
+/* Überschrift in Leistungs-Artikel */
+.leistungen h3 {
+    margin-top: 0.5rem; /* Abstand nach oben */
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    font-size: 1.2rem; /* Schriftgröße */
+}
+
+/* Text in Leistungs-Artikel */
+.leistungen p {
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    opacity: 0.8; /* Leicht transparent */
+    font-size: 0.9rem; /* Schriftgröße */
+}
+
+/* Farbpalette-Container */
+.palette {
+    display: flex; /* Flexbox */
+    flex-wrap: wrap; /* Erlaubt Umbrechen */
+    gap: 1rem; /* Abstand zwischen Farben */
+    margin-top: 1rem; /* Abstand nach oben */
+}
+
+/* Farbpalette-Farbfeld */
+.palette div {
+    width: 80px; /* Breite */
+    height: 80px; /* Höhe */
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.1); /* Innen-Schatten */
+}
+
+/* Kontakt-Formular */
+form {
+    display: grid; /* Grid-Layout */
+    gap: 1rem; /* Abstand zwischen Feldern */
+    margin-top: 1rem; /* Abstand nach oben */
+    max-width: 500px; /* Maximale Breite */
+}
+
+/* Formular-Eingabefelder */
+input, textarea {
+    padding: 0.75rem; /* Innenabstand */
+    border-radius: 6px; /* Abgerundete Ecken */
+    border: 1px solid rgba(75,75,75,0.1); /* Dünner Rahmen */
+    font-size: 1rem; /* Schriftgröße */
+    font-family: 'Open Sans', sans-serif; /* Schriftart */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+}
+
+/* Focus-Effekt für Eingabefelder */
+input:focus, textarea:focus {
+    outline: none; /* Entfernt Standard-Outline */
+    border-color: var(--altrosa); /* Altrosa Rahmen */
+    box-shadow: 0 0 0 2px rgba(217, 165, 179, 0.2); /* Altrosa Schatten */
+}
+
+/* Submit-Button */
+button.submit {
+    background: var(--altrosa); /* Altrosa Hintergrund */
+    color: white; /* Weiße Schrift */
+    border: none; /* Kein Rahmen */
+    border-radius: 6px; /* Abgerundete Ecken */
+    padding: 0.75rem 1.5rem; /* Innenabstand */
+    font-weight: 600; /* Fette Schrift */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    transition: background 0.3s ease, transform 0.2s ease; /* Sanfte Animationen */
+    font-family: 'Open Sans', sans-serif; /* Schriftart */
+}
+
+/* Hover-Effekt für Submit-Button */
+button.submit:hover {
+    background: var(--mint); /* Mint beim Hover */
+    transform: translateY(-2px); /* Leichtes Anheben */
+}
+
+/* Produktgrid */
+.products-grid {
+    display: grid; /* Grid-Layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive Grid */
+    gap: 1.5rem; /* Abstand zwischen Karten */
+    margin-top: 2rem; /* Abstand nach oben */
+}
+
+/* Produktkarte */
+.product-card {
+    background: white; /* Weißer Hintergrund */
+    border-radius: 10px; /* Abgerundete Ecken */
+    padding: 1rem; /* Innenabstand */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Leichter Schatten */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Sanfte Animationen */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Vertikale Anordnung */
+}
+
+/* Hover-Effekt für Produktkarte */
+.product-card:hover {
+    transform: translateY(-5px); /* Hebt die Karte an */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Stärkerer Schatten */
+}
+
+/* Produktbild-Container */
+.product-image {
+    width: 100%; /* Volle Breite */
+    height: 200px; /* Feste Höhe */
+    border-radius: 8px; /* Abgerundete Ecken */
+    overflow: hidden; /* Verhindert Überlauf */
+    margin-bottom: 1rem; /* Abstand nach unten */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    background: var(--warmbeige); /* Warmbeige Hintergrund */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+}
+
+/* Produktbild */
+.product-img {
+    width: 100%; /* Volle Breite */
+    height: 100%; /* Volle Höhe */
+    object-fit: cover; /* Bild füllt den Container */
+    border-radius: 8px; /* Abgerundete Ecken */
+}
+
+/* Produktname */
+.product-name {
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+    font-weight: 600; /* Fette Schrift */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    font-size: 1.1rem; /* Schriftgröße */
+    margin-bottom: 0.5rem; /* Abstand nach unten */
+}
+
+/* Produktbeschreibung */
+.product-description {
+    font-size: 0.9rem; /* Schriftgröße */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    opacity: 0.8; /* Leicht transparent */
+    margin-bottom: 0.5rem; /* Abstand nach unten */
+    line-height: 1.4; /* Zeilenhöhe */
+    flex-grow: 1; /* Nimmt verfügbaren Platz ein */
+}
+
+/* Produktpreis */
+.product-price {
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+    font-weight: 700; /* Sehr fette Schrift */
+    color: var(--altrosa); /* Altrosa Farbe */
+    font-size: 1.2rem; /* Schriftgröße */
+    margin-bottom: 1rem; /* Abstand nach unten */
+}
+
+/* Button zum Hinzufügen zum Warenkorb */
+.add-to-cart-btn {
+    padding: 0.75rem 1.5rem; /* Innenabstand */
+    border: none; /* Kein Rahmen */
+    border-radius: 8px; /* Abgerundete Ecken */
+    background: var(--altrosa); /* Altrosa Hintergrund */
+    color: white; /* Weiße Schrift */
+    font-weight: 600; /* Fette Schrift */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    transition: background 0.3s ease, transform 0.2s ease; /* Sanfte Animationen */
+    font-family: 'Open Sans', sans-serif; /* Schriftart */
+    font-size: 0.9rem; /* Schriftgröße */
+}
+
+/* Hover-Effekt für Hinzufügen-Button */
+.add-to-cart-btn:hover {
+    background: var(--mint); /* Mint beim Hover */
+    transform: translateY(-2px); /* Leichtes Anheben */
+}
+
+/* Button wenn bereits im Warenkorb */
+.add-to-cart-btn.added {
+    background: var(--mint); /* Mint Hintergrund */
+}
+
+/* Footer */
+footer {
+    background: white; /* Weißer Hintergrund */
+    border-top: 1px solid rgba(75,75,75,0.06); /* Dünne obere Linie */
+    padding: 1rem 2rem; /* Innenabstand */
+    text-align: center; /* Text zentriert */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    margin-top: 3rem; /* Abstand nach oben */
+}
+
+/* Popup-Fenster für Bild (standardmäßig versteckt) */
+.image-popup {
+    display: none; /* Versteckt das Popup standardmäßig */
+    position: fixed; /* Fixierte Position */
+    top: 0; /* Am oberen Rand */
+    left: 0; /* Am linken Rand */
+    width: 100%; /* Volle Breite */
+    height: 100%; /* Volle Höhe */
+    z-index: 1000; /* Sehr hoher z-index, damit es über allem liegt */
+    opacity: 0; /* Startet unsichtbar für Animation */
+    transition: opacity 0.3s ease; /* Sanfte Fade-In-Animation */
+}
+
+/* Popup sichtbar machen */
+.image-popup.active {
+    display: flex; /* Zeigt das Popup als Flexbox */
+    align-items: center; /* Zentriert vertikal */
+    justify-content: center; /* Zentriert horizontal */
+    opacity: 1; /* Vollständig sichtbar */
+}
+
+/* Hintergrund-Overlay (Freeze-Mode) */
+.popup-background {
+    position: absolute; /* Absolute Positionierung */
+    top: 0; /* Am oberen Rand */
+    left: 0; /* Am linken Rand */
+    width: 100%; /* Volle Breite */
+    height: 100%; /* Volle Höhe */
+    background: rgba(75, 75, 75, 0.8); /* Dunkler halbtransparenter Hintergrund */
+    backdrop-filter: blur(5px); /* Blur-Effekt für den Hintergrund */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+}
+
+/* Container für Popup-Inhalt */
+.popup-content {
+    position: relative; /* Relative Positionierung */
+    z-index: 1001; /* Höher als Hintergrund, damit es darüber liegt */
+    max-width: 90%; /* Maximale Breite 90% des Bildschirms */
+    max-height: 90%; /* Maximale Höhe 90% des Bildschirms */
+    background: white; /* Weißer Hintergrund */
+    border-radius: 15px; /* Abgerundete Ecken */
+    padding: 20px; /* Innenabstand */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Starker Schatten */
+    animation: popupScale 0.3s ease; /* Scale-Animation beim Öffnen */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Vertikale Anordnung */
+    align-items: center; /* Zentriert horizontal */
+    pointer-events: auto; /* Erlaubt Interaktionen mit dem Popup-Inhalt */
+}
+
+/* Animation für Popup-Erscheinen */
+@keyframes popupScale {
+    from {
+        transform: scale(0.8); /* Startet kleiner */
+        opacity: 0; /* Startet unsichtbar */
+    }
+    to {
+        transform: scale(1); /* Endet in normaler Größe */
+        opacity: 1; /* Endet sichtbar */
+    }
+}
+
+/* Vergrößertes Bild im Popup */
+.popup-image {
+    max-width: 100%; /* Maximale Breite 100% des Containers */
+    max-height: 70vh; /* Maximale Höhe 70% der Viewport-Höhe */
+    border-radius: 10px; /* Abgerundete Ecken */
+    margin-bottom: 15px; /* Abstand nach unten */
+    font-size: 8rem; /* Sehr große Schrift für Emoji-Platzhalter */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    background: linear-gradient(135deg, var(--altrosa), var(--koralle)); /* Platzhalter-Farbverlauf */
+    color: white; /* Weiße Schrift */
+    min-height: 300px; /* Minimale Höhe */
+    width: 100%; /* Volle Breite */
+    overflow: hidden; /* Verhindert, dass gezoomtes Bild über den Container hinausragt */
+    position: relative; /* Relative Positionierung für absolute Buttons */
+    touch-action: none; /* Verhindert Standard-Touch-Gesten */
+}
+
+/* Bild innerhalb des Popup-Containers */
+.popup-img {
+    max-width: 100%; /* Maximale Breite 100% des Containers */
+    max-height: 70vh; /* Maximale Höhe 70% der Viewport-Höhe */
+    object-fit: contain; /* Bild behält Seitenverhältnis */
+    border-radius: 10px; /* Abgerundete Ecken */
+    transition: transform 0.1s ease-out; /* Sanfte Transform-Animation */
+    user-select: none; /* Verhindert Textauswahl */
+    -webkit-user-drag: none; /* Verhindert Drag auf WebKit-Browsern */
+    cursor: grab; /* Zeigt Grab-Cursor */
+}
+
+/* Cursor beim Ziehen */
+.popup-img:active {
+    cursor: grabbing; /* Zeigt Grabbing-Cursor beim Ziehen */
+}
+
+/* Zoom-Controls Container */
+.zoom-controls {
+    position: absolute; /* Absolute Positionierung */
+    top: 10px; /* Abstand vom oberen Rand */
+    right: 10px; /* Abstand vom rechten Rand */
+    display: flex; /* Flexbox */
+    gap: 5px; /* Abstand zwischen Buttons */
+    z-index: 1002; /* Sehr hoher z-index, damit Buttons über dem Bild liegen */
+    background: rgba(255, 255, 255, 0.9); /* Fast weißer Hintergrund */
+    padding: 5px; /* Innenabstand */
+    border-radius: 8px; /* Abgerundete Ecken */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Schatten */
+}
+
+/* Zoom-Button */
+.zoom-btn {
+    width: 35px; /* Breite des Buttons */
+    height: 35px; /* Höhe des Buttons */
+    border: none; /* Kein Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken */
+    background: var(--altrosa); /* Altrosa Hintergrund */
+    color: white; /* Weiße Schrift */
+    font-size: 1.2rem; /* Schriftgröße */
+    font-weight: bold; /* Fette Schrift */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    transition: background 0.2s ease, transform 0.2s ease; /* Sanfte Animationen */
+    user-select: none; /* Verhindert Textauswahl */
+}
+
+/* Hover-Effekt für Zoom-Button */
+.zoom-btn:hover {
+    transform: scale(1.1); /* Leichte Vergrößerung */
+    background: var(--mint); /* Mint beim Hover */
+}
+
+/* Active-Effekt für Zoom-Button */
+.zoom-btn:active {
+    transform: scale(0.95); /* Leichte Verkleinerung beim Klicken */
+}
+
+/* Reset-Button */
+.zoom-reset {
+    font-size: 1rem; /* Etwas kleinere Schriftgröße */
+}
+
+/* Produktname im Popup */
+.popup-product-name {
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+    font-size: 1.5rem; /* Große Schriftgröße */
+    font-weight: 600; /* Fette Schrift */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    text-align: center; /* Text zentriert */
+}
+
+/* Body ohne Scrollbar, wenn Popup aktiv ist */
+body.popup-open {
+    overflow: hidden; /* Verhindert Scrollen */
+}
+
+/* Warenkorb-Popup (standardmäßig versteckt) */
+.cart-popup {
+    display: none; /* Versteckt das Popup standardmäßig */
+    position: fixed; /* Fixierte Position */
+    top: 0; /* Am oberen Rand */
+    left: 0; /* Am linken Rand */
+    width: 100%; /* Volle Breite */
+    height: 100%; /* Volle Höhe */
+    z-index: 1000; /* Sehr hoher z-index, damit es über allem liegt */
+    opacity: 0; /* Startet unsichtbar für Animation */
+    transition: opacity 0.3s ease; /* Sanfte Fade-In-Animation */
+}
+
+/* Warenkorb-Popup sichtbar machen */
+.cart-popup.active {
+    display: flex; /* Zeigt das Popup als Flexbox */
+    align-items: center; /* Zentriert vertikal */
+    justify-content: center; /* Zentriert horizontal */
+    opacity: 1; /* Vollständig sichtbar */
+}
+
+/* Hintergrund-Overlay für Warenkorb-Popup */
+.cart-popup-background {
+    position: absolute; /* Absolute Positionierung */
+    top: 0; /* Am oberen Rand */
+    left: 0; /* Am linken Rand */
+    width: 100%; /* Volle Breite */
+    height: 100%; /* Volle Höhe */
+    background: rgba(75, 75, 75, 0.7); /* Dunkler halbtransparenter Hintergrund */
+    backdrop-filter: blur(5px); /* Blur-Effekt für den Hintergrund */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+}
+
+/* Container für Warenkorb-Popup-Inhalt */
+.cart-popup-content {
+    position: relative; /* Relative Positionierung */
+    z-index: 1001; /* Höher als Hintergrund, damit es darüber liegt */
+    width: 90%; /* Breite 90% des Bildschirms */
+    max-width: 500px; /* Maximale Breite */
+    max-height: 80vh; /* Maximale Höhe 80% der Viewport-Höhe */
+    background: white; /* Weißer Hintergrund */
+    border-radius: 15px; /* Abgerundete Ecken */
+    padding: 0; /* Kein Innenabstand */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Starker Schatten */
+    animation: popupScale 0.3s ease; /* Scale-Animation beim Öffnen */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Vertikale Anordnung */
+    overflow: hidden; /* Verhindert Überlauf */
+    pointer-events: auto; /* Erlaubt Interaktionen mit dem Popup-Inhalt */
+}
+
+/* Header im Warenkorb-Popup */
+.cart-popup-header {
+    display: flex; /* Flexbox für Layout */
+    justify-content: space-between; /* Platz zwischen Titel und Button */
+    align-items: center; /* Vertikale Ausrichtung */
+    padding: 20px; /* Innenabstand */
+    background: linear-gradient(135deg, var(--altrosa), var(--koralle)); /* Farbverlauf */
+    color: white; /* Weiße Schrift */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Untere Linie */
+}
+
+/* Überschrift im Warenkorb-Popup-Header */
+.cart-popup-header h2 {
+    margin: 0; /* Kein Außenabstand */
+    font-size: 1.5rem; /* Schriftgröße */
+    font-weight: 600; /* Fette Schrift */
+    color: white; /* Weiße Schrift */
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+}
+
+/* Schließen-Button im Warenkorb-Popup */
+.close-cart-btn {
+    background: rgba(255, 255, 255, 0.2); /* Halbtransparenter Hintergrund */
+    color: white; /* Weiße Schrift */
+    border: none; /* Kein Rahmen */
+    border-radius: 50%; /* Runder Button */
+    width: 35px; /* Breite */
+    height: 35px; /* Höhe */
+    font-size: 1.5rem; /* Große Schriftgröße */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    transition: background 0.2s ease, transform 0.2s ease; /* Sanfte Animationen */
+    line-height: 1; /* Zeilenhöhe */
+}
+
+/* Hover-Effekt für Schließen-Button */
+.close-cart-btn:hover {
+    background: rgba(255, 255, 255, 0.3); /* Hellerer Hintergrund */
+    transform: scale(1.1); /* Leichte Vergrößerung */
+}
+
+/* Scrollbar-Container für Warenkorb-Artikel */
+.cart-popup-content .cart-items {
+    padding: 20px; /* Innenabstand */
+    overflow-y: auto; /* Vertikales Scrollen */
+    flex: 1; /* Nimmt verfügbaren Platz ein */
+    max-height: calc(80vh - 280px); /* Maximale Höhe minus Header, Hinweis und Footer */
+}
+
+/* Hinweis bei leerem Warenkorb */
+.empty-cart {
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    text-align: center; /* Text zentriert */
+    padding: 20px; /* Innenabstand */
+    font-style: italic; /* Kursiver Text */
+    opacity: 0.6; /* Leicht transparent */
+}
+
+/* Einzelner Artikel im Warenkorb */
+.cart-item {
+    background: var(--creme); /* Creme Hintergrund */
+    padding: 15px; /* Innenabstand */
+    border-radius: 8px; /* Abgerundete Ecken */
+    margin-bottom: 10px; /* Abstand nach unten */
+    display: flex; /* Flexbox für Layout */
+    justify-content: space-between; /* Platz zwischen Info und Actions */
+    align-items: center; /* Vertikale Ausrichtung */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Leichter Schatten */
+    gap: 15px; /* Abstand zwischen Info und Actions */
+}
+
+/* Container für Artikel-Info */
+.cart-item-info {
+    display: flex; /* Flexbox für Layout */
+    flex-direction: column; /* Vertikale Anordnung */
+    flex: 1; /* Nimmt verfügbaren Platz ein */
+    gap: 5px; /* Abstand zwischen Name und Menge */
+}
+
+/* Name des Artikels im Warenkorb */
+.cart-item-name {
+    font-weight: 600; /* Fette Schrift */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    font-size: 1rem; /* Schriftgröße */
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+}
+
+/* Menge des Artikels im Warenkorb */
+.cart-item-quantity {
+    font-size: 0.85rem; /* Kleinere Schriftgröße */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    opacity: 0.7; /* Leicht transparent */
+}
+
+/* Container für Artikel-Aktionen */
+.cart-item-actions {
+    display: flex; /* Flexbox für Layout */
+    align-items: center; /* Vertikale Ausrichtung */
+    gap: 10px; /* Abstand zwischen Preis und Button */
+}
+
+/* Preis des Artikels im Warenkorb */
+.cart-item-price {
+    color: var(--altrosa); /* Altrosa Farbe */
+    font-weight: 600; /* Fette Schrift */
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+}
+
+/* Button zum Entfernen aus dem Warenkorb */
+.remove-item-btn {
+    background: var(--koralle); /* Koralle Hintergrund */
+    color: white; /* Weiße Schrift */
+    border: none; /* Kein Rahmen */
+    border-radius: 50%; /* Runder Button */
+    width: 28px; /* Breite */
+    height: 28px; /* Höhe */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    font-size: 1.2rem; /* Schriftgröße */
+    font-weight: bold; /* Fette Schrift */
+    transition: background 0.2s ease, transform 0.2s ease; /* Sanfte Animationen */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    line-height: 1; /* Zeilenhöhe */
+}
+
+/* Hover-Effekt für Entfernen-Button */
+.remove-item-btn:hover {
+    background: var(--altrosa); /* Altrosa beim Hover */
+    transform: scale(1.1); /* Leichte Vergrößerung */
+}
+
+/* Hinweis für personalisierte Produkte */
+.cart-notice {
+    padding: 15px; /* Innenabstand */
+    background: var(--warmbeige); /* Warmbeige Hintergrund */
+    border-left: 4px solid var(--altrosa); /* Altrosa linker Rand */
+    border-radius: 5px; /* Abgerundete Ecken */
+    margin: 15px 20px; /* Außenabstand */
+}
+
+/* Text im Hinweis */
+.cart-notice p {
+    margin: 5px 0; /* Außenabstand */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    font-size: 0.9rem; /* Schriftgröße */
+    line-height: 1.5; /* Zeilenhöhe */
+}
+
+/* Gesamtsumme des Warenkorbs */
+.cart-total {
+    padding: 15px 20px; /* Innenabstand */
+    background: var(--creme); /* Creme Hintergrund */
+    text-align: center; /* Text zentriert */
+    font-size: 1.2rem; /* Große Schriftgröße */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Vertikale Anordnung */
+    gap: 5px; /* Abstand zwischen Elementen */
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+}
+
+/* Kleiner Text in der Gesamtsumme */
+.cart-total small {
+    font-size: 0.85rem; /* Kleinere Schriftgröße */
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    opacity: 0.7; /* Leicht transparent */
+    font-weight: normal; /* Normale Schriftdicke */
+}
+
+/* Button zum Senden der Anfrage */
+.send-request-btn {
+    width: calc(100% - 40px); /* Volle Breite minus Außenabstand */
+    margin: 0 20px 15px 20px; /* Außenabstand */
+    padding: 15px; /* Innenabstand */
+    background: linear-gradient(135deg, var(--altrosa), var(--koralle)); /* Farbverlauf */
+    color: white; /* Weiße Schrift */
+    border: none; /* Kein Rahmen */
+    border-radius: 8px; /* Abgerundete Ecken */
+    font-size: 1.1rem; /* Schriftgröße */
+    font-weight: 600; /* Schriftdicke */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    transition: all 0.3s ease; /* Sanfte Animationen */
+    box-shadow: 0 4px 15px rgba(217, 165, 179, 0.3); /* Schatten */
+    font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
+}
+
+/* Hover-Effekt für Anfrage-Button */
+.send-request-btn:hover {
+    transform: translateY(-2px); /* Hebt den Button an */
+    box-shadow: 0 6px 20px rgba(217, 165, 179, 0.4); /* Stärkerer Schatten */
+    background: linear-gradient(135deg, var(--mint), var(--altrosa)); /* Farbverlauf ändern */
+}
+
+/* Active-Effekt für Anfrage-Button */
+.send-request-btn:active {
+    transform: translateY(0); /* Setzt Button zurück */
+}
+
+/* Button zum Leeren des Warenkorbs */
+.clear-cart-btn {
+    width: calc(100% - 40px); /* Volle Breite minus Außenabstand */
+    margin: 0 20px 20px 20px; /* Außenabstand */
+    padding: 12px; /* Innenabstand */
+    background: var(--koralle); /* Koralle Hintergrund */
+    color: white; /* Weiße Schrift */
+    border: none; /* Kein Rahmen */
+    border-radius: 8px; /* Abgerundete Ecken */
+    font-size: 1rem; /* Schriftgröße */
+    font-weight: 600; /* Schriftdicke */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    transition: background 0.2s ease, transform 0.2s ease; /* Sanfte Animationen */
+    font-family: 'Open Sans', sans-serif; /* Schriftart */
+}
+
+/* Hover-Effekt für Leeren-Button */
+.clear-cart-btn:hover {
+    background: var(--altrosa); /* Altrosa beim Hover */
+    transform: translateY(-1px); /* Leichtes Anheben */
+}
+
+/* Responsive Design für kleinere Bildschirme */
+@media (max-width: 768px) {
+    /* Header auf mobilen Geräten */
+    header {
+        flex-direction: column; /* Vertikale Anordnung */
+        align-items: flex-start; /* Ausrichtung nach links */
+        padding: 1rem; /* Weniger Innenabstand */
+    }
+
+    /* Logo auf mobilen Geräten */
+    header .logo {
+        width: 100%; /* Volle Breite */
+        justify-content: center; /* Zentriert */
+    }
+
+    /* Navigation auf mobilen Geräten */
+    header nav {
+        width: 100%; /* Volle Breite */
+        justify-content: center; /* Zentriert Buttons */
+    }
+
+    /* Hauptbereich auf mobilen Geräten */
+    main {
+        padding: 1rem; /* Weniger Innenabstand */
+    }
+
+    /* Überschrift H1 auf mobilen Geräten */
+    h1 {
+        font-size: 2rem; /* Kleinere Schriftgröße */
+    }
+
+    /* Produktgrid mit weniger Spalten */
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Kleinere Karten */
+        gap: 1rem; /* Weniger Abstand */
+    }
+
+    /* Popup-Inhalt auf mobilen Geräten */
+    .popup-content {
+        max-width: 95%; /* Etwas weniger Breite auf mobilen Geräten */
+        padding: 15px; /* Weniger Innenabstand */
+    }
+
+    /* Popup-Bild auf mobilen Geräten */
+    .popup-image {
+        max-height: 60vh; /* Etwas weniger Höhe auf mobilen Geräten */
+        font-size: 6rem; /* Kleinere Schrift für Emoji */
+        min-height: 200px; /* Kleinere minimale Höhe */
+    }
+
+    /* Zoom-Buttons auf mobilen Geräten */
+    .zoom-controls {
+        top: 5px; /* Weniger Abstand vom oberen Rand */
+        right: 5px; /* Weniger Abstand vom rechten Rand */
+        padding: 3px; /* Weniger Innenabstand */
+        gap: 3px; /* Weniger Abstand zwischen Buttons */
+    }
+
+    /* Zoom-Button auf mobilen Geräten */
+    .zoom-btn {
+        width: 30px; /* Kleinere Breite */
+        height: 30px; /* Kleinere Höhe */
+        font-size: 1rem; /* Kleinere Schriftgröße */
+    }
+
+    /* Warenkorb-Popup auf mobilen Geräten */
+    .cart-popup-content {
+        width: 95%; /* Etwas weniger Breite */
+        max-height: 90vh; /* Mehr Höhe */
+    }
+}

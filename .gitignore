@@ -1,0 +1,24 @@
+# Ignoriere diese Dateien beim Upload zu Git
+
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor-Dateien
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporäre Dateien
+*.tmp
+*.log
+*.cache
+
+# Private Dateien (falls vorhanden)
+.env
+config.local.js
+secrets.txt
+
