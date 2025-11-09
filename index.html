@@ -1,149 +1,170 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tuba's Plottelier</title>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Header-Bereich -->
     <header>
-        <div class="logo">
-            <div class="logo-icon">T</div>
-            <div>
-                <div class="script">Tuba's</div>
-                <div class="logo-subtitle">Plottelier</div>
-            </div>
+      <div class="logo">
+        <div class="logo-icon">T</div>
+        <div>
+          <div class="script">Tuba's</div>
+          <div class="logo-subtitle">Plottelier</div>
         </div>
-        <nav>
-            <a href="#home" class="nav-link" id="homeLink">Startseite</a>
-            <a href="#shop" class="nav-link" id="shopLinkNav">Shop</a>
-            <button class="btn cart-header" id="cartHeaderBtn">
-                <span class="cart-icon">🛒</span>
-                <span class="cart-count" id="cartCount">0</span>
-            </button>
-        </nav>
+      </div>
+      <nav>
+        <a href="#home" class="nav-link" id="homeLink">Startseite</a>
+        <a href="#shop" class="nav-link" id="shopLinkNav">Shop</a>
+        <button class="btn cart-header" id="cartHeaderBtn">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </nav>
     </header>
 
     <!-- Hauptinhalt -->
     <main>
-        <!-- Startseite -->
-        <section id="home" class="page-section active">
-            <h1>Tuba's <span>Plottelier</span></h1>
-            <p>Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen für Kinder & Zuhause — liebevoll gestaltet und sorgfältig verarbeitet.</p>
-            <div class="buttons">
-                <a href="#shop" class="btn-primary" id="shopLink">Zum Shop</a>
-                <a href="#leistungen" class="btn-outline">Leistungen</a>
-            </div>
+      <!-- Startseite -->
+      <section id="home" class="page-section active">
+        <h1>Tuba's <span>Plottelier</span></h1>
+        <p>
+          Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen
+          für Kinder & Zuhause — liebevoll gestaltet und sorgfältig verarbeitet.
+        </p>
+        <div class="buttons">
+          <a href="#shop" class="btn-primary" id="shopLink">Zum Shop</a>
+          <a href="#leistungen" class="btn-outline">Leistungen</a>
+        </div>
 
-            <section id="leistungen">
-                <h2>Unsere Leistungen</h2>
-                <div class="leistungen">
-                    <article>
-                        <div style="font-size:2rem;">✂</div>
-                        <h3>Aufkleber & Sticker</h3>
-                        <p>Wasserfest, hochwertiges Vinyl, personalisiert</p>
-                    </article>
-                    <article>
-                        <div style="font-size:2rem;">👕</div>
-                        <h3>Textilplots</h3>
-                        <p>Shirts, Taschen & mehr – langlebige Folie</p>
-                    </article>
-                    <article>
-                        <div style="font-size:2rem;">✉</div>
-                        <h3>Papeterie</h3>
-                        <p>Karten, Etiketten & Geschenkanhänger</p>
-                    </article>
-                </div>
-            </section>
-
-            <section id="farben">
-                <h2>Farbpalette</h2>
-                <div class="palette">
-                    <div style="background:var(--altrosa)"></div>
-                    <div style="background:var(--creme)"></div>
-                    <div style="background:var(--warmbeige)"></div>
-                    <div style="background:var(--mint)"></div>
-                    <div style="background:var(--koralle)"></div>
-                </div>
-            </section>
-
-            <section id="kontakt">
-                <h2>Kontakt</h2>
-                <p>Fragen? Schreib mir eine Nachricht — ich melde mich schnellstmöglich.</p>
-                <form id="contactForm">
-                    <input type="text" placeholder="Name" id="contactName">
-                    <input type="email" placeholder="E-Mail" id="contactEmail">
-                    <textarea rows="5" placeholder="Deine Anfrage" id="contactMessage"></textarea>
-                    <button type="submit" class="submit">Absenden</button>
-                </form>
-            </section>
+        <section id="leistungen">
+          <h2>Unsere Leistungen</h2>
+          <div class="leistungen">
+            <article>
+              <div style="font-size: 2rem">✂</div>
+              <h3>Aufkleber & Sticker</h3>
+              <p>Wasserfest, hochwertiges Vinyl, personalisiert</p>
+            </article>
+            <article>
+              <div style="font-size: 2rem">👕</div>
+              <h3>Textilplots</h3>
+              <p>Shirts, Taschen & mehr – langlebige Folie</p>
+            </article>
+            <article>
+              <div style="font-size: 2rem">✉</div>
+              <h3>Papeterie</h3>
+              <p>Karten, Etiketten & Geschenkanhänger</p>
+            </article>
+          </div>
         </section>
 
-        <!-- Shop-Seite -->
-        <section id="shop" class="page-section">
-            <h1>Tuba's <span>Plottelier</span></h1>
-            <p class="intro-text">Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen für Kinder & Zuhause — liebevoll gestaltet und sorgfältig verarbeitet.</p>
-            <!-- Container für alle Produktkarten -->
-            <div class="products-grid" id="productsGrid">
-                <!-- Produkte werden dynamisch von JavaScript eingefügt -->
-            </div>
+        <section id="kontakt">
+          <h2>Kontakt</h2>
+          <p>
+            Fragen? Schreib mir eine Nachricht — ich melde mich
+            schnellstmöglich.
+          </p>
+          <form id="contactForm">
+            <input type="text" placeholder="Name" id="contactName" />
+            <input type="email" placeholder="E-Mail" id="contactEmail" />
+            <textarea
+              rows="5"
+              placeholder="Deine Anfrage"
+              id="contactMessage"
+            ></textarea>
+            <button type="submit" class="submit">Absenden</button>
+          </form>
         </section>
+      </section>
+
+      <!-- Shop-Seite -->
+      <section id="shop" class="page-section">
+        <h1>Tuba's <span>Plottelier</span></h1>
+        <p class="intro-text">
+          Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen
+          für Kinder & Zuhause — liebevoll gestaltet und sorgfältig verarbeitet.
+        </p>
+        <!-- Container für alle Produktkarten -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Produkte werden dynamisch von JavaScript eingefügt -->
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Tuba's Plottelier — Alle Rechte vorbehalten</p>
+      <p>© 2025 Tuba's Plottelier — Alle Rechte vorbehalten</p>
     </footer>
 
     <!-- Popup-Fenster für größeres Bild -->
     <div class="image-popup" id="imagePopup">
-        <!-- Hintergrund-Overlay (für Freeze-Mode) -->
-        <div class="popup-background" id="popupBackground"></div>
-        <!-- Container für das vergrößerte Bild -->
-        <div class="popup-content">
-            <div class="popup-image" id="popupImage"></div>
-            <!-- Produktname im Popup -->
-            <div class="popup-product-name" id="popupProductName"></div>
-        </div>
+      <!-- Hintergrund-Overlay (für Freeze-Mode) -->
+      <div class="popup-background" id="popupBackground"></div>
+      <!-- Container für das vergrößerte Bild -->
+      <div class="popup-content">
+        <div class="popup-image" id="popupImage"></div>
+        <!-- Produktname im Popup -->
+        <div class="popup-product-name" id="popupProductName"></div>
+      </div>
     </div>
 
     <!-- Popup-Fenster für Warenkorb -->
     <div class="cart-popup" id="cartPopup">
-        <!-- Hintergrund-Overlay -->
-        <div class="cart-popup-background" id="cartPopupBackground"></div>
-        <!-- Container für Warenkorb-Inhalt -->
-        <div class="cart-popup-content">
-            <div class="cart-popup-header">
-                <h2>Ihre Auswahl</h2>
-                <button class="close-cart-btn" id="closeCartBtn" title="Schließen">×</button>
-            </div>
-            <!-- Container für Warenkorb-Artikel -->
-            <div class="cart-items" id="cartItems">
-                <!-- Hinweis, wenn Warenkorb leer ist -->
-                <p class="empty-cart">Ihr Warenkorb ist leer</p>
-            </div>
-            <!-- Hinweis für personalisierte Produkte -->
-            <div class="cart-notice" id="cartNotice" style="display: none;">
-                <p>💝 Diese Produkte werden nach Ihren Wünschen personalisiert gestaltet.</p>
-                <p>Bitte senden Sie mir eine Nachricht mit Ihren Gestaltungswünschen.</p>
-            </div>
-            <!-- Gesamtsumme des Warenkorbs (geschätzt) -->
-            <div class="cart-total" id="cartTotalDiv" style="display: none;">
-                <strong>Geschätzter Gesamtpreis: <span id="cartTotal">0.00</span> €</strong>
-                <small>(Endpreis wird nach Absprache festgelegt)</small>
-            </div>
-            <!-- Button zum Senden der Anfrage -->
-            <button class="send-request-btn" id="sendRequestBtn" style="display: none;">Anfrage senden</button>
-            <!-- Button zum Leeren des Warenkorbs -->
-            <button class="clear-cart-btn" id="clearCartBtn" style="display: none;">Auswahl leeren</button>
+      <!-- Hintergrund-Overlay -->
+      <div class="cart-popup-background" id="cartPopupBackground"></div>
+      <!-- Container für Warenkorb-Inhalt -->
+      <div class="cart-popup-content">
+        <div class="cart-popup-header">
+          <h2>Ihre Auswahl</h2>
+          <button class="close-cart-btn" id="closeCartBtn" title="Schließen">
+            ×
+          </button>
         </div>
+        <!-- Container für Warenkorb-Artikel -->
+        <div class="cart-items" id="cartItems">
+          <!-- Hinweis, wenn Warenkorb leer ist -->
+          <p class="empty-cart">Ihr Warenkorb ist leer</p>
+        </div>
+        <!-- Hinweis für personalisierte Produkte -->
+        <div class="cart-notice" id="cartNotice" style="display: none">
+          <p>
+            💝 Diese Produkte werden nach Ihren Wünschen personalisiert
+            gestaltet.
+          </p>
+          <p>
+            Bitte senden Sie mir eine Nachricht mit Ihren Gestaltungswünschen.
+          </p>
+        </div>
+        <!-- Gesamtsumme des Warenkorbs (geschätzt) -->
+        <div class="cart-total" id="cartTotalDiv" style="display: none">
+          <strong
+            >Geschätzter Gesamtpreis: <span id="cartTotal">0.00</span> €</strong
+          >
+          <small>(Endpreis wird nach Absprache festgelegt)</small>
+        </div>
+        <!-- Button zum Senden der Anfrage -->
+        <button
+          class="send-request-btn"
+          id="sendRequestBtn"
+          style="display: none"
+        >
+          Anfrage senden
+        </button>
+        <!-- Button zum Leeren des Warenkorbs -->
+        <button class="clear-cart-btn" id="clearCartBtn" style="display: none">
+          Auswahl leeren
+        </button>
+      </div>
     </div>
 
     <!-- JavaScript-Datei einbinden -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
-
