@@ -3,26 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tuba's Plottelier</title>
+    <title>Plottelier</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.jpg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="favicon.jpg" type="image/svg+xml" />
   </head>
   <body>
     <!-- Header-Bereich -->
     <header>
-      <div class="logo">
-        <div class="logo-icon">T</div>
-        <div>
-          <div class="script">Tuba's</div>
-          <div class="logo-subtitle">Plottelier</div>
+      <a href="#home" class="logo">
+      
+        <div class="logo-text">
+          <span class="logo-title">Plottelier</span>
         </div>
-      </div>
+      </a>
       <nav>
         <a href="#home" class="nav-link" id="homeLink">Startseite</a>
-        <a href="#shop" class="nav-link" id="shopLinkNav">Shop</a>
+        <a href="#shop" class="nav-link" id="shopLinkNav">Katalog</a>
         <button class="btn cart-header" id="cartHeaderBtn">
           <span class="cart-icon">🛒</span>
           <span class="cart-count" id="cartCount">0</span>
@@ -34,13 +35,20 @@
     <main>
       <!-- Startseite -->
       <section id="home" class="page-section active">
-        <h1>Tuba's <span>Plottelier</span></h1>
+        <!-- Hero-Bild Bereich -->
+        <div class="hero-section">
+          <div class="hero-image-container">
+            <img src="favicon.jpg" alt="Plottelier" class="hero-image">
+          </div>
+        </div>
+        
+     
         <p>
           Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen
-          für Kinder & Zuhause — liebevoll gestaltet und sorgfältig verarbeitet.
+           — liebevoll gestaltet und sorgfältig verarbeitet.
         </p>
         <div class="buttons">
-          <a href="#shop" class="btn-primary" id="shopLink">Zum Shop</a>
+          <a href="#shop" class="btn-primary" id="shopLink">Zum Katalog</a>
           <a href="#leistungen" class="btn-outline">Leistungen</a>
         </div>
 
@@ -68,7 +76,7 @@
         <section id="kontakt">
           <h2>Kontakt</h2>
           <p>
-            Fragen? Schreib mir eine Nachricht — ich melde mich
+            Hast du eine Individuelle idee? Schreib mir eine Nachricht — ich melde mich
             schnellstmöglich.
           </p>
           <form id="contactForm">
@@ -79,18 +87,32 @@
               placeholder="Deine Anfrage"
               id="contactMessage"
             ></textarea>
-            <button type="submit" class="submit">Absenden</button>
+            <button type="submit" class="submit">Per E-Mail senden</button>
           </form>
+          <!-- WhatsApp-Button außerhalb des Formulars -->
+          <a href="#" class="whatsapp-direct-btn" id="whatsappDirectBtn" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="#25D366"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
         </section>
       </section>
 
-      <!-- Shop-Seite -->
+      <!-- Katalog-Seite -->
       <section id="shop" class="page-section">
-        <h1>Tuba's <span>Plottelier</span></h1>
+        <h1>Plottelier</h1>
         <p class="intro-text">
           Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen
           für Kinder & Zuhause — liebevoll gestaltet und sorgfältig verarbeitet.
         </p>
+        <!-- Filter-Buttons für Kategorien -->
+        <div class="category-filters">
+          <button class="filter-btn active" data-category="all" id="filterAll">Alle</button>
+          <button class="filter-btn" data-category="taschen" id="filterTaschen">Taschen</button>
+          <button class="filter-btn" data-category="textilien" id="filterTextilien">Textilien</button>
+          <button class="filter-btn" data-category="geschenke" id="filterGeschenke">Geschenke</button>
+        </div>
         <!-- Container für alle Produktkarten -->
         <div class="products-grid" id="productsGrid">
           <!-- Produkte werden dynamisch von JavaScript eingefügt -->
@@ -100,7 +122,17 @@
 
     <!-- Footer -->
     <footer>
-      <p>© 2025 Tuba's Plottelier — Alle Rechte vorbehalten</p>
+      <div class="footer-content">
+        <div class="footer-copyright">
+          <p>© 2025 Plottelier — Alle Rechte vorbehalten</p>
+        </div>
+        <div class="display-none">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+          <a href="widerruf.html">Widerrufsrecht</a>
+        </div>
+      </div>
     </footer>
 
     <!-- Popup-Fenster für größeres Bild -->
@@ -109,6 +141,11 @@
       <div class="popup-background" id="popupBackground"></div>
       <!-- Container für das vergrößerte Bild -->
       <div class="popup-content">
+        <!-- Navigation-Buttons für mehrere Bilder -->
+        <button class="image-nav-btn image-nav-prev" id="prevImageBtn" style="display: none;">‹</button>
+        <button class="image-nav-btn image-nav-next" id="nextImageBtn" style="display: none;">›</button>
+        <!-- Bild-Indikator (Punkte) -->
+        <div class="image-indicators" id="imageIndicators"></div>
         <div class="popup-image" id="popupImage"></div>
         <!-- Produktname im Popup -->
         <div class="popup-product-name" id="popupProductName"></div>
@@ -142,21 +179,21 @@
             Bitte senden Sie mir eine Nachricht mit Ihren Gestaltungswünschen.
           </p>
         </div>
-        <!-- Gesamtsumme des Warenkorbs (geschätzt) -->
-        <div class="cart-total" id="cartTotalDiv" style="display: none">
-          <strong
-            >Geschätzter Gesamtpreis: <span id="cartTotal">0.00</span> €</strong
+        <!-- Buttons zum Senden der Anfrage -->
+        <div class="request-buttons" id="requestButtons" style="display: none">
+          <button
+            class="send-request-btn"
+            id="sendRequestBtn"
           >
-          <small>(Endpreis wird nach Absprache festgelegt)</small>
+            📧 Per E-Mail senden
+          </button>
+          <button
+            class="send-request-btn whatsapp-request-btn"
+            id="whatsappRequestBtn"
+          >
+            📱 Per WhatsApp senden
+          </button>
         </div>
-        <!-- Button zum Senden der Anfrage -->
-        <button
-          class="send-request-btn"
-          id="sendRequestBtn"
-          style="display: none"
-        >
-          Anfrage senden
-        </button>
         <!-- Button zum Leeren des Warenkorbs -->
         <button class="clear-cart-btn" id="clearCartBtn" style="display: none">
           Auswahl leeren

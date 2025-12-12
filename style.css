@@ -41,21 +41,42 @@ header .logo {
     display: flex; /* Flexbox für Layout */
     align-items: center; /* Vertikale Zentrierung */
     gap: 0.75rem; /* Abstand zwischen Icon und Text */
+    text-decoration: none; /* Keine Unterstreichung */
+    color: inherit; /* Erbt Textfarbe */
 }
 
-/* Logo-Icon (Kreis mit "T") */
+/* Logo-Icon (Pusteblume) */
 header .logo-icon {
-    width: 48px; /* Breite */
-    height: 48px; /* Höhe */
-    border-radius: 50%; /* Runder Kreis */
+    width: 100px; /* Kleinere Breite */
+    height: 80px; /* Kleinere Höhe */
     display: flex; /* Flexbox */
     align-items: center; /* Vertikale Zentrierung */
     justify-content: center; /* Horizontale Zentrierung */
-    background: linear-gradient(135deg, var(--altrosa), var(--koralle)); /* Farbverlauf */
-    color: white; /* Weiße Schrift */
-    font-family: 'Allura', cursive; /* Schriftart Allura */
-    font-size: 1.5rem; /* Schriftgröße */
-    font-weight: bold; /* Fette Schrift */
+    background: transparent; /* Transparenter Hintergrund */
+    color: white; /* Farbe für SVG */
+    padding: 0; /* Kein Innenabstand */
+    transition: transform 0.3s ease; /* Sanfte Animationen */
+}
+
+/* Bild im Logo-Icon */
+header .logo-icon img {
+    width: 100%; /* Volle Breite des Containers */
+    height: 100%; /* Volle Höhe des Containers */
+    object-fit: contain; /* Bild behält Seitenverhältnis */
+    display: block; /* Block-Element */
+    margin: 0 auto; /* Zentriert das Bild */
+}
+
+/* Hover-Effekt für Logo */
+header .logo:hover .logo-icon {
+    transform: scale(1.05); /* Leichte Vergrößerung */
+    box-shadow: 0 4px 12px rgba(217, 165, 179, 0.4); /* Stärkerer Schatten */
+}
+
+/* SVG innerhalb des Logo-Icons */
+header .logo-icon svg {
+    width: 100%; /* Volle Breite */
+    height: 100%; /* Volle Höhe */
 }
 
 /* Logo-Text "Tuba's" */
@@ -68,10 +89,27 @@ header .script {
 /* Logo-Untertitel "Plottelier" */
 header .logo-subtitle {
     font-family: 'Montserrat', sans-serif; /* Schriftart Montserrat */
-    font-size: 0.75rem; /* Schriftgröße */
+    font-size: 1.2rem; /* Größere Schriftgröße */
     letter-spacing: 2px; /* Buchstabenabstand */
     text-transform: uppercase; /* Großbuchstaben */
     color: var(--anthrazit); /* Anthrazit Farbe */
+    font-weight: 700; /* Sehr fette Schrift */
+}
+
+/* Logo-Text Container */
+.logo-text {
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Vertikale Anordnung */
+    justify-content: center; /* Vertikale Zentrierung */
+}
+
+/* Logo-Titel */
+.logo-title {
+    font-family: 'Allura', cursive; /* Schriftart Allura */
+    font-size: 1.8rem; /* Schriftgröße */
+    color: var(--altrosa); /* Altrosa Farbe */
+    font-weight: 400; /* Normale Schriftdicke */
+    line-height: 1.2; /* Zeilenhöhe */
 }
 
 /* Navigation im Header */
@@ -158,6 +196,38 @@ main {
     padding: 2rem; /* Innenabstand */
 }
 
+/* Hero-Bereich */
+.hero-section {
+    width: 100%; /* Volle Breite */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center; /* Zentriert vertikal */
+    margin: 2rem 0 3rem 0; /* Abstand oben und unten */
+}
+
+/* Hero-Bild Container */
+.hero-image-container {
+    width: 100%; /* Volle Breite */
+    max-width: 600px; /* Maximale Breite */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center; /* Zentriert vertikal */
+    background: white; /* Weißer Hintergrund */
+    border-radius: 20px; /* Abgerundete Ecken */
+    padding: 2rem; /* Innenabstand */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Schatten */
+}
+
+/* Hero-Bild */
+.hero-image {
+    width: 100%; /* Volle Breite des Containers */
+    max-width: 500px; /* Maximale Breite */
+    height: auto; /* Automatische Höhe */
+    object-fit: contain; /* Bild behält Seitenverhältnis */
+    display: block; /* Block-Element */
+    border-radius: 15px; /* Abgerundete Ecken */
+}
+
 /* Seiten-Sektionen (versteckt standardmäßig) */
 .page-section {
     display: none; /* Versteckt standardmäßig */
@@ -174,6 +244,7 @@ h1 {
     color: var(--altrosa); /* Altrosa Farbe */
     font-size: 3rem; /* Schriftgröße */
     margin-bottom: 0.5rem; /* Abstand nach unten */
+    text-align: center; /* Text zentriert */
 }
 
 /* Span in H1 (für "Plottelier") */
@@ -199,17 +270,69 @@ h2 {
     margin-bottom: 2rem; /* Abstand nach unten */
     color: var(--anthrazit); /* Anthrazit Farbe */
     font-size: 1.1rem; /* Schriftgröße */
+    text-align: center; /* Text zentriert */
+}
+
+/* Filter-Buttons Container */
+.category-filters {
+    display: flex; /* Flexbox für Layout */
+    justify-content: center; /* Zentriert die Buttons */
+    gap: 1rem; /* Abstand zwischen Buttons */
+    margin-bottom: 2rem; /* Abstand nach unten */
+    flex-wrap: wrap; /* Erlaubt Umbrechen bei Platzmangel */
+}
+
+/* Filter-Button */
+.filter-btn {
+    padding: 0.75rem 1.5rem; /* Innenabstand */
+    border: 2px solid var(--altrosa); /* Altrosa Rahmen */
+    background: white; /* Weißer Hintergrund */
+    color: var(--altrosa); /* Altrosa Schriftfarbe */
+    border-radius: 25px; /* Abgerundete Ecken */
+    font-family: 'Open Sans', sans-serif; /* Schriftart */
+    font-weight: 600; /* Fette Schrift */
+    font-size: 1rem; /* Schriftgröße */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    transition: all 0.3s ease; /* Sanfte Animationen */
+}
+
+/* Hover-Effekt für Filter-Button */
+.filter-btn:hover {
+    background: var(--altrosa); /* Altrosa Hintergrund beim Hover */
+    color: white; /* Weiße Schrift beim Hover */
+    transform: translateY(-2px); /* Leichtes Anheben */
+    box-shadow: 0 4px 12px rgba(217, 165, 179, 0.3); /* Schatten */
+}
+
+/* Aktiver Filter-Button */
+.filter-btn.active {
+    background: var(--altrosa); /* Altrosa Hintergrund */
+    color: white; /* Weiße Schrift */
+    box-shadow: 0 4px 12px rgba(217, 165, 179, 0.4); /* Schatten */
+}
+
+/* Text in Startseite */
+#home > p {
+    text-align: center; /* Text zentriert */
+    max-width: 700px; /* Maximale Breite */
+    margin: 0 auto 2rem auto; /* Zentriert mit Abstand */
+    font-size: 1.1rem; /* Schriftgröße */
+    line-height: 1.7; /* Zeilenhöhe */
 }
 
 /* Buttons-Container */
 .buttons {
     margin: 2rem 0; /* Abstand oben und unten */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Zentriert die Buttons */
+    gap: 1rem; /* Abstand zwischen Buttons */
+    flex-wrap: wrap; /* Erlaubt Umbrechen */
 }
 
 /* Button-Links */
 .buttons a {
     display: inline-block; /* Inline-Block für Padding */
-    margin-right: 1rem; /* Abstand nach rechts */
+    margin: 0; /* Kein Außenabstand (wird durch gap im Container gehandhabt) */
     text-decoration: none; /* Keine Unterstreichung */
     padding: 0.75rem 1.5rem; /* Innenabstand */
     border-radius: 8px; /* Abgerundete Ecken */
@@ -322,6 +445,59 @@ input:focus, textarea:focus {
     box-shadow: 0 0 0 2px rgba(217, 165, 179, 0.2); /* Altrosa Schatten */
 }
 
+/* Direkter WhatsApp-Button außerhalb des Formulars */
+.whatsapp-direct-btn {
+    display: inline-flex; /* Flexbox für Layout */
+    align-items: center; /* Vertikale Zentrierung */
+    gap: 0.75rem; /* Abstand zwischen Logo und Text */
+    background: #25D366; /* WhatsApp-Grün */
+    color: white; /* Weiße Schrift */
+    padding: 0.75rem 1.5rem; /* Innenabstand */
+    border-radius: 25px; /* Abgerundete Ecken */
+    text-decoration: none; /* Keine Unterstreichung */
+    font-weight: 600; /* Fette Schrift */
+    font-family: 'Open Sans', sans-serif; /* Schriftart */
+    margin-top: 1.5rem; /* Abstand nach oben */
+    transition: all 0.3s ease; /* Sanfte Animationen */
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); /* Schatten */
+}
+
+/* Hover-Effekt für direkten WhatsApp-Button */
+.whatsapp-direct-btn:hover {
+    background: #20BA5A; /* Dunkleres WhatsApp-Grün */
+    transform: translateY(-2px); /* Leichtes Anheben */
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); /* Stärkerer Schatten */
+}
+
+/* WhatsApp-Logo SVG im Button */
+.whatsapp-direct-btn svg {
+    width: 24px; /* Breite des Logos */
+    height: 24px; /* Höhe des Logos */
+    flex-shrink: 0; /* Verhindert, dass Logo schrumpft */
+}
+
+/* Container für Anfrage-Buttons im Warenkorb */
+.request-buttons {
+    display: flex; /* Flexbox für Layout */
+    gap: 1rem; /* Abstand zwischen Buttons */
+    flex-direction: column; /* Vertikale Anordnung */
+    width: 100%; /* Volle Breite */
+}
+
+/* WhatsApp-Button */
+.whatsapp-btn,
+.whatsapp-request-btn {
+    background: #25D366 !important; /* WhatsApp-Grün */
+    color: white !important; /* Weiße Schrift */
+}
+
+/* Hover-Effekt für WhatsApp-Button */
+.whatsapp-btn:hover,
+.whatsapp-request-btn:hover {
+    background: #20BA5A !important; /* Dunkleres WhatsApp-Grün */
+    transform: translateY(-2px); /* Leichtes Anheben */
+}
+
 /* Submit-Button */
 button.submit {
     background: var(--altrosa); /* Altrosa Hintergrund */
@@ -349,6 +525,31 @@ button.submit:hover {
     margin-top: 2rem; /* Abstand nach oben */
 }
 
+/* Größenübersicht-Karte (spannt über mehrere Spalten und ist mittig) */
+.size-guide-card {
+    grid-column: 1 / -1; /* Spannt über alle Spalten */
+    max-width: 800px; /* Maximale Breite */
+    margin: 0 auto; /* Zentriert die Karte */
+    justify-self: center; /* Zentriert im Grid */
+}
+
+/* Größenübersicht-Bild (höher für bessere Darstellung) */
+.size-guide-card .product-image {
+    height: 400px; /* Höhere Darstellung für Größenübersicht */
+}
+
+/* Größenübersicht-Name (größere Schrift) */
+.size-guide-card .product-name {
+    font-size: 1.5rem; /* Größere Schriftgröße */
+    text-align: center; /* Text zentriert */
+    margin-bottom: 0.5rem; /* Abstand nach unten */
+}
+
+/* Größenübersicht-Beschreibung (zentriert) */
+.size-guide-card .product-description {
+    text-align: center; /* Text zentriert */
+}
+
 /* Produktkarte */
 .product-card {
     background: white; /* Weißer Hintergrund */
@@ -366,18 +567,39 @@ button.submit:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Stärkerer Schatten */
 }
 
+/* Produktbild-Container (Wrapper) */
+.product-image-container {
+    position: relative; /* Relative Positionierung für Badge */
+    width: 100%; /* Volle Breite */
+    margin-bottom: 1rem; /* Abstand nach unten */
+}
+
 /* Produktbild-Container */
 .product-image {
     width: 100%; /* Volle Breite */
     height: 200px; /* Feste Höhe */
     border-radius: 8px; /* Abgerundete Ecken */
     overflow: hidden; /* Verhindert Überlauf */
-    margin-bottom: 1rem; /* Abstand nach unten */
     cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
     background: var(--warmbeige); /* Warmbeige Hintergrund */
     display: flex; /* Flexbox */
     align-items: center; /* Vertikale Zentrierung */
     justify-content: center; /* Horizontale Zentrierung */
+}
+
+/* Badge für Anzahl der Bilder */
+.image-count-badge {
+    position: absolute; /* Absolute Positionierung */
+    top: 8px; /* Abstand vom oberen Rand */
+    right: 8px; /* Abstand vom rechten Rand */
+    background: rgba(217, 165, 179, 0.9); /* Altrosa Hintergrund mit Transparenz */
+    color: white; /* Weiße Schrift */
+    padding: 4px 8px; /* Innenabstand */
+    border-radius: 12px; /* Abgerundete Ecken */
+    font-size: 0.75rem; /* Kleine Schriftgröße */
+    font-weight: 600; /* Fette Schrift */
+    z-index: 10; /* Über dem Bild */
+    pointer-events: none; /* Verhindert, dass Klicks blockiert werden */
 }
 
 /* Produktbild */
@@ -445,10 +667,46 @@ button.submit:hover {
 footer {
     background: white; /* Weißer Hintergrund */
     border-top: 1px solid rgba(75,75,75,0.06); /* Dünne obere Linie */
-    padding: 1rem 2rem; /* Innenabstand */
-    text-align: center; /* Text zentriert */
+    padding: 1.5rem 2rem; /* Innenabstand */
     color: var(--anthrazit); /* Anthrazit Farbe */
     margin-top: 3rem; /* Abstand nach oben */
+}
+
+/* Footer-Content Container */
+.footer-content {
+    max-width: 1100px; /* Maximale Breite */
+    margin: 0 auto; /* Zentriert */
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Platz zwischen Copyright und Links */
+    align-items: center; /* Vertikale Zentrierung */
+    flex-wrap: wrap; /* Erlaubt Umbrechen */
+    gap: 1rem; /* Abstand zwischen Elementen */
+}
+
+/* Footer Copyright */
+.footer-copyright {
+    text-align: left; /* Text links ausrichten */
+}
+
+/* Footer Links Container */
+.footer-links {
+    display: flex; /* Flexbox */
+    gap: 1.5rem; /* Abstand zwischen Links */
+    flex-wrap: wrap; /* Erlaubt Umbrechen */
+}
+
+/* Footer Links */
+.footer-links a {
+    color: var(--anthrazit); /* Anthrazit Farbe */
+    text-decoration: none; /* Keine Unterstreichung */
+    font-size: 0.9rem; /* Schriftgröße */
+    transition: color 0.3s ease; /* Sanfte Farbänderung */
+    font-weight: 500; /* Mittlere Schriftdicke */
+}
+
+/* Hover-Effekt für Footer Links */
+.footer-links a:hover {
+    color: var(--altrosa); /* Altrosa beim Hover */
 }
 
 /* Popup-Fenster für Bild (standardmäßig versteckt) */
@@ -499,6 +757,67 @@ footer {
     flex-direction: column; /* Vertikale Anordnung */
     align-items: center; /* Zentriert horizontal */
     pointer-events: auto; /* Erlaubt Interaktionen mit dem Popup-Inhalt */
+}
+
+/* Navigation-Buttons für mehrere Bilder */
+.image-nav-btn {
+    position: absolute; /* Absolute Positionierung */
+    top: 50%; /* Vertikal zentriert */
+    transform: translateY(-50%); /* Zentriert vertikal */
+    background: rgba(217, 165, 179, 0.9); /* Altrosa Hintergrund mit Transparenz */
+    color: white; /* Weiße Schrift */
+    border: none; /* Kein Rahmen */
+    width: 50px; /* Breite */
+    height: 50px; /* Höhe */
+    border-radius: 50%; /* Runder Button */
+    font-size: 2rem; /* Große Schriftgröße */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    z-index: 1002; /* Über dem Bild */
+    display: flex; /* Flexbox */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    transition: background 0.3s ease, transform 0.3s ease; /* Sanfte Animationen */
+    user-select: none; /* Verhindert Textauswahl */
+}
+
+/* Vorheriger-Button */
+.image-nav-prev {
+    left: 10px; /* Abstand vom linken Rand */
+}
+
+/* Nächster-Button */
+.image-nav-next {
+    right: 10px; /* Abstand vom rechten Rand */
+}
+
+/* Hover-Effekt für Navigation-Buttons */
+.image-nav-btn:hover {
+    background: var(--altrosa); /* Altrosa beim Hover */
+    transform: translateY(-50%) scale(1.1); /* Leichte Vergrößerung */
+}
+
+/* Bild-Indikatoren Container */
+.image-indicators {
+    display: flex; /* Flexbox */
+    gap: 8px; /* Abstand zwischen Indikatoren */
+    margin-bottom: 10px; /* Abstand nach unten */
+    z-index: 1002; /* Über dem Bild */
+}
+
+/* Bild-Indikator (Punkt) */
+.image-indicator {
+    width: 10px; /* Breite */
+    height: 10px; /* Höhe */
+    border-radius: 50%; /* Runder Punkt */
+    background: rgba(217, 165, 179, 0.5); /* Altrosa mit Transparenz */
+    cursor: pointer; /* Zeigt Mauszeiger als Zeigefinger */
+    transition: background 0.3s ease, transform 0.3s ease; /* Sanfte Animationen */
+}
+
+/* Aktiver Bild-Indikator */
+.image-indicator.active {
+    background: var(--altrosa); /* Altrosa Hintergrund */
+    transform: scale(1.3); /* Leichte Vergrößerung */
 }
 
 /* Animation für Popup-Erscheinen */
@@ -900,6 +1219,17 @@ body.popup-open {
         justify-content: center; /* Zentriert */
     }
 
+    /* Logo-Icon auf mobilen Geräten */
+    header .logo-icon {
+        width: 80px; /* Noch kleiner auf mobilen Geräten */
+        height: 64px; /* Proportionale Höhe */
+    }
+
+    /* Logo-Titel auf mobilen Geräten */
+    .logo-title {
+        font-size: 1.4rem; /* Kleinere Schrift auf mobilen Geräten */
+    }
+
     /* Navigation auf mobilen Geräten */
     header nav {
         width: 100%; /* Volle Breite */
@@ -909,6 +1239,23 @@ body.popup-open {
     /* Hauptbereich auf mobilen Geräten */
     main {
         padding: 1rem; /* Weniger Innenabstand */
+    }
+
+    /* Hero-Bereich auf mobilen Geräten */
+    .hero-section {
+        margin: 1rem 0 2rem 0; /* Weniger Abstand */
+    }
+
+    /* Hero-Bild Container auf mobilen Geräten */
+    .hero-image-container {
+        max-width: 100%; /* Volle Breite auf mobilen Geräten */
+        padding: 1rem; /* Weniger Innenabstand */
+        border-radius: 15px; /* Weniger abgerundete Ecken */
+    }
+
+    /* Hero-Bild auf mobilen Geräten */
+    .hero-image {
+        max-width: 100%; /* Volle Breite */
     }
 
     /* Überschrift H1 auf mobilen Geräten */
@@ -955,4 +1302,22 @@ body.popup-open {
         width: 95%; /* Etwas weniger Breite */
         max-height: 90vh; /* Mehr Höhe */
     }
+
+    /* Footer auf mobilen Geräten */
+    .footer-content {
+        flex-direction: column; /* Vertikale Anordnung */
+        text-align: center; /* Text zentriert */
+    }
+
+    .footer-copyright {
+        text-align: center; /* Text zentriert */
+    }
+
+    .footer-links {
+        justify-content: center; /* Links zentriert */
+    }
+}
+
+.display-none{
+    display: none;
 }

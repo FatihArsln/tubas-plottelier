@@ -52,7 +52,7 @@ Deine Seite ist jetzt unter erreichbar:
 
 ---
 
-## Methode 2: Netlify Drop (2 Minuten)
+## Methode 2: Netlify Drop (2 Minuten) ⭐ EMPFOHLEN - Kein Username sichtbar!
 
 ### Schritt 1: Vorbereitung
 1. Komprimiere deinen Verkauf-Ordner zu einer ZIP-Datei
@@ -63,6 +63,8 @@ Deine Seite ist jetzt unter erreichbar:
 3. Fertig! Deine Seite ist sofort online
 
 **URL:** Netlify gibt dir eine zufällige URL (z.B. `amazing-site-123.netlify.app`)
+
+**Vorteil:** ✅ Kein GitHub-Username in der URL sichtbar!
 
 ---
 

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widerrufsrecht — Plottelier</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+    <style>
+      .legal-page {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      }
+      .legal-page h1 {
+        color: var(--altrosa);
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
+      }
+      .legal-page h2 {
+        color: var(--anthrazit);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+      .legal-page p {
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        color: var(--anthrazit);
+      }
+      .legal-page .widerrufsformular {
+        background: var(--creme);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 2rem 0;
+        border-left: 4px solid var(--altrosa);
+      }
+      .legal-page .important-notice {
+        background: #fff3cd;
+        border: 2px solid #ffc107;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        color: #856404;
+      }
+      .legal-page .important-notice h3 {
+        color: #856404;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      .legal-page .important-notice ul {
+        margin-top: 1rem;
+        padding-left: 2rem;
+      }
+      .legal-page .important-notice li {
+        margin-bottom: 0.5rem;
+      }
+      .legal-page .placeholder {
+        background: #fff3cd;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #856404;
+      }
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: var(--altrosa);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 130L100 75" stroke="#4B4B4B" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="100" cy="60" r="16" fill="#D9A5B3" opacity="0.95"/>
+            <circle cx="100" cy="44" r="2" fill="#4B4B4B"/>
+            <path d="M100 42L97 37L103 37" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="115" cy="50" r="2" fill="#4B4B4B"/>
+            <path d="M115 48L112.5 43L117.5 43" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="120" cy="60" r="2" fill="#4B4B4B"/>
+            <path d="M120 58L117.5 53L122.5 53" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="115" cy="70" r="2" fill="#4B4B4B"/>
+            <path d="M115 68L112.5 63L117.5 63" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="100" cy="76" r="2" fill="#4B4B4B"/>
+            <path d="M100 74L97 69L103 69" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="85" cy="70" r="2" fill="#4B4B4B"/>
+            <path d="M85 68L82.5 63L87.5 63" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="80" cy="60" r="2" fill="#4B4B4B"/>
+            <path d="M80 58L77.5 53L82.5 53" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="85" cy="50" r="2" fill="#4B4B4B"/>
+            <path d="M85 48L82.5 43L87.5 43" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="108" cy="46" r="1.5" fill="#4B4B4B"/>
+            <path d="M108 44.5L106 40L110 40" stroke="#4B4B4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="92" cy="46" r="1.5" fill="#4B4B4B"/>
+            <path d="M92 44.5L90 40L94 40" stroke="#4B4B4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="110" cy="55" r="1.5" fill="#4B4B4B"/>
+            <path d="M110 53.5L108 49L112 49" stroke="#4B4B4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="110" cy="65" r="1.5" fill="#4B4B4B"/>
+            <path d="M110 63.5L108 59L112 59" stroke="#4B4B4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="90" cy="55" r="1.5" fill="#4B4B4B"/>
+            <path d="M90 53.5L88 49L92 49" stroke="#4B4B4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="90" cy="65" r="1.5" fill="#4B4B4B"/>
+            <path d="M90 63.5L88 59L92 59" stroke="#4B4B4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="100" cy="72" r="1.5" fill="#4B4B4B"/>
+            <path d="M100 70.5L98 66L102 66" stroke="#4B4B4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <g transform="translate(145, 20)">
+              <circle cx="0" cy="0" r="2.5" fill="#D9A5B3"/>
+              <path d="M0 -2.5L-3.5 -7L3.5 -7" stroke="#4B4B4B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(165, 45)">
+              <circle cx="0" cy="0" r="2" fill="#D9A5B3"/>
+              <path d="M0 -2L-3 -6L3 -6" stroke="#4B4B4B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <div class="logo-subtitle">Plottelier</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html" class="nav-link">Startseite</a>
+        <a href="index.html#shop" class="nav-link">Shop</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="legal-page">
+        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+        
+        <h1>Widerrufsrecht</h1>
+        
+        <div class="important-notice">
+          <h3>⚠️ Wichtiger Hinweis zu personalisierten Produkten</h3>
+          <p>
+            <strong>Bei allen personalisierten Produkten besteht kein Widerrufsrecht!</strong>
+          </p>
+          <p>
+            Gemäß § 312g Abs. 2 Nr. 1 BGB erlischt das Widerrufsrecht bei Waren, die nicht vorgefertigt sind und für deren 
+            Herstellung eine individuelle Auswahl oder Bestimmung durch den Verbraucher maßgeblich ist oder die eindeutig auf 
+            die persönlichen Bedürfnisse des Verbrauchers zugeschnitten sind.
+          </p>
+          <p>
+            <strong>Zu unseren personalisierten Produkten zählen:</strong>
+          </p>
+          <ul>
+            <li>Individuell gestaltete Aufkleber und Sticker mit persönlichen Texten, Namen oder Motiven</li>
+            <li>Textilplots (Shirts, Taschen, etc.) mit personalisierten Aufdrucken</li>
+            <li>Karten, Etiketten und Geschenkanhänger mit individuellen Texten oder Namen</li>
+            <li>Alle anderen Produkte, die nach Ihren spezifischen Wünschen angefertigt werden</li>
+          </ul>
+          <p>
+            <strong>Bitte beachten Sie:</strong> Sobald wir mit der Herstellung Ihres personalisierten Produkts begonnen haben, 
+            kann der Kaufvertrag nicht mehr widerrufen werden. Bei Standardprodukten ohne Personalisierung besteht das 
+            Widerrufsrecht in vollem Umfang.
+          </p>
+        </div>
+        
+        <h2>Widerrufsbelehrung</h2>
+        
+        <h3>Widerrufsrecht</h3>
+        <p>
+          Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.
+        </p>
+        <p>
+          Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der 
+          Beförderer ist, die Waren in Besitz genommen haben bzw. hat.
+        </p>
+        <p>
+          Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (<span class="placeholder">[VORNAME NACHNAME]</span>, 
+          <span class="placeholder">[STRAßE HAUSNUMMER]</span>, <span class="placeholder">[POSTLEITZAHL ORT]</span>, 
+          E-Mail: <span class="placeholder">[E-MAIL-ADRESSE]</span>) mittels einer eindeutigen Erklärung (z. B. ein mit der 
+          Post versandter Brief, Telefax oder E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. 
+          Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.
+        </p>
+        <p>
+          Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor 
+          Ablauf der Widerrufsfrist absenden.
+        </p>
+
+        <h3>Folgen des Widerrufs</h3>
+        <p>
+          Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich 
+          der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass Sie eine andere Art der 
+          Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt haben), unverzüglich und spätestens binnen 
+          vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen 
+          ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt 
+          haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser 
+          Rückzahlung Entgelte berechnet.
+        </p>
+        <p>
+          Wir können die Rückzahlung verweigern, bis wir die Waren wieder zurückerhalten haben oder bis Sie den Nachweis erbracht 
+          haben, dass Sie die Waren zurückgesandt haben, je nachdem, welches der frühere Zeitpunkt ist.
+        </p>
+        <p>
+          Sie haben die Waren unverzüglich und in jedem Fall spätestens binnen vierzehn Tagen ab dem Tag, an dem Sie uns über den 
+          Widerruf dieses Vertrags unterrichten, an uns zurückzusenden oder zu übergeben. Die Frist ist gewahrt, wenn Sie die 
+          Waren vor Ablauf der Frist von vierzehn Tagen absenden.
+        </p>
+        <p>
+          Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.
+        </p>
+        <p>
+          Sie müssen für einen etwaigen Wertverlust der Waren nur aufkommen, wenn dieser Wertverlust auf einen zur Prüfung der 
+          Beschaffenheit, Eigenschaften und Funktionsweise der Waren nicht notwendigen Umgang mit ihnen zurückzuführen ist.
+        </p>
+
+        <h3>Ausschluss bzw. Erlöschen des Widerrufsrechts</h3>
+        <p>
+          <strong>Kein Widerrufsrecht bei personalisierten Produkten:</strong>
+        </p>
+        <p>
+          Das Widerrufsrecht erlischt gemäß § 312g Abs. 2 Nr. 1 BGB bei Verträgen zur Lieferung von Waren, die nicht vorgefertigt 
+          sind und für deren Herstellung eine individuelle Auswahl oder Bestimmung durch den Verbraucher maßgeblich ist oder die 
+          eindeutig auf die persönlichen Bedürfnisse des Verbrauchers zugeschnitten sind.
+        </p>
+        <p>
+          <strong>Dies betrifft alle unsere personalisierten Produkte:</strong>
+        </p>
+        <ul>
+          <li>Produkte mit individuellen Texten, Namen, Daten oder Motiven</li>
+          <li>Produkte, die nach Ihren spezifischen Wünschen und Vorgaben angefertigt werden</li>
+          <li>Produkte, die auf Ihre persönlichen Bedürfnisse zugeschnitten sind</li>
+          <li>Produkte, bei denen Sie Farbe, Größe, Text oder Design individuell bestimmen</li>
+        </ul>
+        <p>
+          <strong>Wann beginnt der Ausschluss des Widerrufsrechts?</strong><br>
+          Das Widerrufsrecht erlischt, sobald wir mit der Herstellung des personalisierten Produkts begonnen haben. 
+          Dies geschieht in der Regel unmittelbar nach Bestätigung Ihrer Bestellung und den von Ihnen mitgeteilten 
+          Personalisierungswünschen.
+        </p>
+        <p>
+          <strong>Bei Standardprodukten:</strong><br>
+          Falls wir auch nicht-personalisierte Standardprodukte anbieten, besteht bei diesen das Widerrufsrecht in vollem Umfang 
+          gemäß den oben genannten Bedingungen.
+        </p>
+        <p>
+          <strong>Rechtliche Grundlage:</strong><br>
+          Diese Regelung entspricht § 312g Abs. 2 Nr. 1 BGB (Bürgerliches Gesetzbuch) und ist gesetzlich vorgeschrieben.
+        </p>
+
+        <h2>Muster-Widerrufsformular</h2>
+        <div class="widerrufsformular">
+          <p>
+            <strong>Wenn Sie den Vertrag widerrufen möchten, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.</strong>
+          </p>
+          <p>
+            An:<br>
+            <span class="placeholder">[VORNAME NACHNAME]</span><br>
+            <span class="placeholder">[STRAßE HAUSNUMMER]</span><br>
+            <span class="placeholder">[POSTLEITZAHL ORT]</span><br>
+            E-Mail: <span class="placeholder">[E-MAIL-ADRESSE]</span>
+          </p>
+          <p>
+            Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*)/ 
+            die Erbringung der folgenden Dienstleistung (*):
+          </p>
+          <p>
+            _____________________________________________________<br>
+            (Artikel/Produktbezeichnung)
+          </p>
+          <p>
+            Bestellt am (*)/erhalten am (*):<br>
+            _____________________________________________________
+          </p>
+          <p>
+            Name des/der Verbraucher(s):<br>
+            _____________________________________________________
+          </p>
+          <p>
+            Anschrift des/der Verbraucher(s):<br>
+            _____________________________________________________
+          </p>
+          <p>
+            Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier):<br>
+            _____________________________________________________
+          </p>
+          <p>
+            Datum:<br>
+            _____________________________________________________
+          </p>
+          <p>
+            (*) Unzutreffendes streichen.
+          </p>
+        </div>
+
+        <h2>Ende der Widerrufsbelehrung</h2>
+        <p>
+          <em>Stand: <span class="placeholder">[DATUM]</span></em>
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-copyright">
+          <p>© 2025 Plottelier — Alle Rechte vorbehalten</p>
+        </div>
+        <div class="footer-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+          <a href="widerruf.html">Widerrufsrecht</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
