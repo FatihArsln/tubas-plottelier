@@ -46,6 +46,19 @@ function getProductImages(product) {
   return [];
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function formatPrice(price) {
+  if (typeof price !== "number") return "auf Anfrage";
+  return price.toFixed(2) + " €";
+}
+
 function renderProducts() {
   const grid = document.getElementById("productsGrid");
   if (!grid || typeof products === "undefined") return;
@@ -57,16 +70,18 @@ function renderProducts() {
     card.className = product.isSizeGuide ? "product-card size-guide-card" : "product-card";
     const imgs = getProductImages(product);
     const first = imgs[0] || "";
+    const safeName = escapeHtml(product.name);
+    const safeDescription = escapeHtml(product.description);
     let imageHTML = "";
-    if (first.startsWith("http") || first.startsWith("/") || first.startsWith("./") || first.startsWith("img/")) {
-      imageHTML = '<img src="' + first + '" alt="' + product.name + '" class="product-img">';
+    if (first.startsWith("img/")) {
+      imageHTML = '<img src="' + escapeHtml(first) + '" alt="' + safeName + '" class="product-img">';
     } else {
-      imageHTML = first;
+      imageHTML = escapeHtml(first);
     }
     if (product.isSizeGuide) {
-      card.innerHTML = '<div class="product-image-container" data-product-id="' + product.id + '"><div class="product-image">' + imageHTML + '</div></div><div class="product-info"><div class="product-name">' + product.name + '</div><div class="product-description">' + product.description + '</div></div>';
+      card.innerHTML = '<div class="product-image-container" data-product-id="' + product.id + '"><div class="product-image">' + imageHTML + '</div></div><div class="product-info"><div class="product-name">' + safeName + '</div><div class="product-description">' + safeDescription + '</div></div>';
     } else {
-      card.innerHTML = '<div class="product-image-container" data-product-id="' + product.id + '"><div class="product-image">' + imageHTML + '</div></div><div class="product-info"><div class="product-name">' + product.name + '</div><div class="product-description">' + product.description + '</div><div class="product-price">' + product.price.toFixed(2) + ' €</div><button class="add-to-cart-btn" type="button" data-id="' + product.id + '">In die Auswahl</button></div>';
+      card.innerHTML = '<div class="product-image-container" data-product-id="' + product.id + '"><div class="product-image">' + imageHTML + '</div></div><div class="product-info"><div class="product-name">' + safeName + '</div><div class="product-description">' + safeDescription + '</div><div class="product-price">' + escapeHtml(formatPrice(product.price)) + '</div><button class="add-to-cart-btn" type="button" data-id="' + product.id + '">In die Auswahl</button></div>';
     }
     grid.appendChild(card);
   });
@@ -108,12 +123,12 @@ function setupEventListeners() {
   const wa = document.getElementById("whatsappDirectBtn");
   if (wa) wa.href = "https://wa.me/" + WHATSAPP_NUMBER;
   document.getElementById("sendRequestBtn")?.addEventListener("click", () => {
-    const lines = cart.map(i => "- " + i.name + " (" + i.price.toFixed(2) + " €) x" + (i.quantity||1));
+    const lines = cart.map(i => "- " + i.name + " (" + formatPrice(i.price) + ") x" + (i.quantity||1));
     const body = encodeURIComponent("Hallo, ich möchte folgende Artikel anfragen:\n\n" + lines.join("\n") + "\n\nBitte um Rückmeldung zur Personalisierung.");
     window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Produktanfrage Plottelier") + "&body=" + body;
   });
   document.getElementById("whatsappRequestBtn")?.addEventListener("click", () => {
-    const lines = cart.map(i => "- " + i.name + " (" + i.price.toFixed(2) + " €) x" + (i.quantity||1));
+    const lines = cart.map(i => "- " + i.name + " (" + formatPrice(i.price) + ") x" + (i.quantity||1));
     const text = encodeURIComponent("Hallo, ich möchte folgende Artikel anfragen:\n\n" + lines.join("\n"));
     window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text, "_blank");
   });
@@ -129,7 +144,7 @@ function openCart() {
     document.getElementById("requestButtons").style.display = "none";
     document.getElementById("clearCartBtn").style.display = "none";
   } else {
-    items.innerHTML = cart.map(i => '<div class="cart-item"><div class="cart-item-info"><div class="cart-item-name">' + i.name + '</div><div class="cart-item-price">' + i.price.toFixed(2) + ' € × ' + (i.quantity||1) + '</div></div></div>').join("");
+    items.innerHTML = cart.map(i => '<div class="cart-item"><div class="cart-item-info"><div class="cart-item-name">' + escapeHtml(i.name) + '</div><div class="cart-item-price">' + escapeHtml(formatPrice(i.price)) + " × " + (i.quantity||1) + '</div></div></div>').join("");
     document.getElementById("cartNotice").style.display = "block";
     document.getElementById("requestButtons").style.display = "flex";
     document.getElementById("clearCartBtn").style.display = "block";
