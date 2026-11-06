@@ -69,19 +69,21 @@ function renderProducts() {
     const card = document.createElement("div");
     card.className = product.isSizeGuide ? "product-card size-guide-card" : "product-card";
     const imgs = getProductImages(product);
-    const first = imgs[0] || "";
     const safeName = escapeHtml(product.name);
     const safeDescription = escapeHtml(product.description);
-    let imageHTML = "";
-    if (first.startsWith("img/")) {
-      imageHTML = '<img src="' + escapeHtml(first) + '" alt="' + safeName + '" class="product-img">';
-    } else {
-      imageHTML = escapeHtml(first);
-    }
+    const natural = imgs.length > 1;
+    const imageHTML = imgs.map((src, index) => {
+      const alt = (product.alts && product.alts[index]) || product.name;
+      if (typeof src === "string" && src.startsWith("img/")) {
+        return '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '" class="product-img">';
+      }
+      return escapeHtml(src);
+    }).join("");
+    const imageClass = natural ? "product-image product-image-natural" : "product-image";
     if (product.isSizeGuide) {
-      card.innerHTML = '<div class="product-image-container" data-product-id="' + product.id + '"><div class="product-image">' + imageHTML + '</div></div><div class="product-info"><div class="product-name">' + safeName + '</div><div class="product-description">' + safeDescription + '</div></div>';
+      card.innerHTML = '<div class="product-image-container" data-product-id="' + product.id + '"><div class="' + imageClass + '">' + imageHTML + '</div></div><div class="product-info"><div class="product-name">' + safeName + '</div><div class="product-description">' + safeDescription + '</div></div>';
     } else {
-      card.innerHTML = '<div class="product-image-container" data-product-id="' + product.id + '"><div class="product-image">' + imageHTML + '</div></div><div class="product-info"><div class="product-name">' + safeName + '</div><div class="product-description">' + safeDescription + '</div><div class="product-price">' + escapeHtml(formatPrice(product.price)) + '</div><button class="add-to-cart-btn" type="button" data-id="' + product.id + '">In die Auswahl</button></div>';
+      card.innerHTML = '<div class="product-image-container" data-product-id="' + product.id + '"><div class="' + imageClass + '">' + imageHTML + '</div></div><div class="product-info"><div class="product-name">' + safeName + '</div><div class="product-description">' + safeDescription + '</div><div class="product-price">' + escapeHtml(formatPrice(product.price)) + '</div><button class="add-to-cart-btn" type="button" data-id="' + product.id + '">In die Auswahl</button></div>';
     }
     grid.appendChild(card);
   });
