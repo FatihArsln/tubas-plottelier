@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Plottelier – Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen. Liebevoll gestaltet und sorgfältig verarbeitet." />
+    <meta name="description" content="Plottelier – personalisierte Plots für Taschen, Textilien, Geschenke und Events." />
     <title>Plottelier – Handgemachte Plot-Aufträge</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap"
@@ -15,104 +15,71 @@
   </head>
   <body>
     <header>
-      <a href="#home" class="logo">
-        <div class="logo-text">
-          <span class="logo-title">Plottelier</span>
-        </div>
+        <a href="./" class="logo" id="homeLink">
+        <span class="logo-title">Plottelier</span>
       </a>
-      <nav>
-        <a href="#home" class="nav-link" id="homeLink">Startseite</a>
-        <a href="#shop" class="nav-link" id="shopLinkNav">Katalog</a>
-        <button class="btn cart-header" id="cartHeaderBtn" type="button" aria-label="Warenkorb">
-          <span class="cart-icon">🛒</span>
+      <nav aria-label="Seite">
+        <a href="#anfrage">E-Mail</a>
+        <button class="selection-link" id="cartHeaderBtn" type="button" aria-label="Deine Auswahl, 0 Stücke">
+          Auswahl
           <span class="cart-count" id="cartCount">0</span>
         </button>
       </nav>
     </header>
 
     <main>
-      <section id="home" class="page-section active">
-        <div class="hero-section">
-          <div class="hero-image-container">
-            <img src="favicon.jpg" alt="Plottelier Logo – Pusteblume" class="hero-image" />
+      <section id="uebersicht">
+        <div class="hero">
+          <div class="hero-photo">
+            <img
+              src="img/standspiegel-hochzeit.jpg"
+              width="804"
+              height="1447"
+              alt="Weißer Standspiegel mit Blumen und Hochzeitsbeschriftung"
+            />
+          </div>
+          <div class="hero-copy">
+            <h1>Personalisierte Plots</h1>
+            <p>Taschen, Textilien, Geschenke und Events. Schreib mir, was du dir vorstellst.</p>
+            <div class="hero-actions">
+              <a href="https://wa.me/905388343974" class="whatsapp-direct-btn" id="whatsappDirectBtn" target="_blank" rel="noopener">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+                </svg>
+                <span>Per WhatsApp anfragen</span>
+              </a>
+              <a href="#anfrage" class="text-link">Lieber per E-Mail</a>
+            </div>
           </div>
         </div>
 
-        <p>
-          Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen
-          — liebevoll gestaltet und sorgfältig verarbeitet.
-        </p>
-        <div class="buttons">
-          <a href="#shop" class="btn-primary" id="shopLink">Zum Katalog</a>
-          <a href="#leistungen" class="btn-outline">Leistungen</a>
-        </div>
-
-        <section id="leistungen">
-          <h2>Unsere Leistungen</h2>
-          <div class="leistungen">
-            <article>
-              <div>✂</div>
-              <h3>Aufkleber & Sticker</h3>
-              <p>Wasserfest, hochwertiges Vinyl, personalisiert</p>
-            </article>
-            <article>
-              <div>👕</div>
-              <h3>Textilplots</h3>
-              <p>Shirts, Taschen & mehr – langlebige Folie</p>
-            </article>
-            <article>
-              <div>✉</div>
-              <h3>Papeterie</h3>
-              <p>Karten, Etiketten & Geschenkanhänger</p>
-            </article>
-            <article>
-              <div>💍</div>
-              <h3>Events</h3>
-              <p>Verlobungstablets, Spiegel, Schilder & mehr</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="kontakt">
-          <h2>Kontakt</h2>
-          <p>
-            Hast du eine individuelle Idee? Schreib mir eine Nachricht — ich
-            melde mich schnellstmöglich.
-          </p>
-          <form id="contactForm">
-            <input type="text" placeholder="Name" id="contactName" required />
-            <input type="email" placeholder="E-Mail" id="contactEmail" required />
-            <textarea
-              rows="5"
-              placeholder="Deine Anfrage"
-              id="contactMessage"
-              required
-            ></textarea>
-            <button type="submit" class="submit">Per E-Mail senden</button>
-          </form>
-          <a href="#" class="whatsapp-direct-btn" id="whatsappDirectBtn" target="_blank" rel="noopener">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="#25D366"/>
-            </svg>
-            <span>WhatsApp</span>
-          </a>
+        <section class="examples" aria-labelledby="examplesTitle">
+          <h2 id="examplesTitle">Beispiele</h2>
+          <p class="lede">Ein Beispiel aus jedem Bereich. Weitere Bilder öffnest du in der Kategorie.</p>
+          <div class="entry-grid" id="entryGrid"></div>
         </section>
       </section>
 
-      <section id="shop" class="page-section">
-        <h1>Plottelier</h1>
-        <p class="intro-text">
-          Handgemachte Plot-Aufträge, personalisierte Geschenke und bunte Ideen
-          für Kinder & Zuhause — liebevoll gestaltet und sorgfältig verarbeitet.
-        </p>
-        <div class="category-filters">
-          <button class="filter-btn active" data-category="all" id="filterAll" type="button">Alle</button>
-          <button class="filter-btn" data-category="taschen" id="filterTaschen" type="button">Taschen</button>
-          <button class="filter-btn" data-category="textilien" id="filterTextilien" type="button">Textilien</button>
-          <button class="filter-btn" data-category="geschenke" id="filterGeschenke" type="button">Geschenke</button>
-          <button class="filter-btn" data-category="events" id="filterEvents" type="button">Events</button>
-        </div>
+      <section id="kategorie" class="category-view" hidden>
+        <button class="back-link" id="backToOverview" type="button">Zurück zur Übersicht</button>
+        <h2 id="categoryTitle"></h2>
+        <p class="lede" id="categoryLead"></p>
+        <div class="category-switch" id="categorySwitch" role="navigation" aria-label="Bereiche"></div>
         <div class="products-grid" id="productsGrid"></div>
+      </section>
+
+      <section id="anfrage" aria-labelledby="anfrageTitle">
+        <h2 id="anfrageTitle">Per E-Mail</h2>
+        <p>Schreib mir Name, E-Mail und deine Idee.</p>
+        <form id="contactForm">
+          <label for="contactName">Name</label>
+          <input type="text" id="contactName" name="name" autocomplete="name" required />
+          <label for="contactEmail">E-Mail</label>
+          <input type="email" id="contactEmail" name="email" autocomplete="email" required />
+          <label for="contactMessage">Deine Anfrage</label>
+          <textarea rows="5" id="contactMessage" name="message" required></textarea>
+          <button type="submit" class="submit">Per E-Mail senden</button>
+        </form>
       </section>
     </main>
 
@@ -130,34 +97,23 @@
       </div>
     </footer>
 
-    <div class="image-popup" id="imagePopup">
-      <div class="popup-background" id="popupBackground"></div>
-      <div class="popup-content">
-        <button class="image-nav-btn image-nav-prev" id="prevImageBtn" type="button" style="display: none;" aria-label="Vorheriges Bild">‹</button>
-        <button class="image-nav-btn image-nav-next" id="nextImageBtn" type="button" style="display: none;" aria-label="Nächstes Bild">›</button>
-        <div class="image-indicators" id="imageIndicators"></div>
-        <div class="popup-image" id="popupImage"></div>
-        <div class="popup-product-name" id="popupProductName"></div>
-      </div>
-    </div>
-
     <div class="cart-popup" id="cartPopup">
       <div class="cart-popup-background" id="cartPopupBackground"></div>
-      <div class="cart-popup-content">
+      <div class="cart-popup-content" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
         <div class="cart-popup-header">
-          <h2>Ihre Auswahl</h2>
-          <button class="close-cart-btn" id="closeCartBtn" type="button" title="Schließen" aria-label="Schließen">×</button>
+          <h2 id="cartTitle">Deine Auswahl</h2>
+          <button class="close-cart-btn" id="closeCartBtn" type="button" aria-label="Schließen">×</button>
         </div>
         <div class="cart-items" id="cartItems">
-          <p class="empty-cart">Ihr Warenkorb ist leer</p>
+          <p class="empty-cart">Deine Auswahl ist leer</p>
         </div>
         <div class="cart-notice" id="cartNotice" style="display: none">
-          <p>💝 Diese Produkte werden nach Ihren Wünschen personalisiert gestaltet.</p>
-          <p>Bitte senden Sie mir eine Nachricht mit Ihren Gestaltungswünschen.</p>
+          <p>Diese Stücke werden nach deinen Wünschen gestaltet.</p>
+          <p>Schreib mir dazu kurz, was du dir vorstellst.</p>
         </div>
         <div class="request-buttons" id="requestButtons" style="display: none">
-          <button class="send-request-btn" id="sendRequestBtn" type="button">📧 Per E-Mail senden</button>
-          <button class="send-request-btn whatsapp-request-btn" id="whatsappRequestBtn" type="button">📱 Per WhatsApp senden</button>
+          <button class="send-request-btn" id="sendRequestBtn" type="button">Per E-Mail senden</button>
+          <button class="send-request-btn whatsapp-request-btn" id="whatsappRequestBtn" type="button">Per WhatsApp senden</button>
         </div>
         <button class="clear-cart-btn" id="clearCartBtn" type="button" style="display: none">Auswahl leeren</button>
       </div>

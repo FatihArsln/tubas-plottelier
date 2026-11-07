@@ -189,7 +189,7 @@ header .btn:hover,
 main {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 1.25rem 1.5rem 4rem;
 }
 
 .page-section {
@@ -538,6 +538,7 @@ button.submit:hover {
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
   margin-top: 0.5rem;
+  align-items: start;
 }
 
 .product-card {
@@ -1254,27 +1255,335 @@ footer {
   }
 }
 
-@media (max-width: 400px) {
-  .hero-image-container {
-    max-width: 160px;
-    padding: 0.55rem;
+/* ---------- Ruhige Übersicht ---------- */
+.selection-link {
+  background: transparent;
+  color: var(--anthrazit-soft);
+  border: none;
+  border-radius: var(--radius-pill);
+  box-shadow: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.selection-link:hover {
+  background: var(--altrosa-soft);
+  color: var(--altrosa-dark);
+  transform: none;
+  box-shadow: none;
+}
+
+.selection-link .cart-count {
+  background: var(--creme-deep);
+  color: var(--anthrazit);
+}
+
+.selection-link.has-items .cart-count {
+  background: var(--altrosa);
+  color: white;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: auto minmax(260px, 1fr);
+  gap: clamp(2rem, 6vw, 5.5rem);
+  align-items: center;
+  padding: 1.25rem 0 0.5rem;
+}
+
+.hero-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-photo img {
+  width: auto;
+  height: auto;
+  max-width: min(100%, 380px);
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: 22px;
+  display: block;
+}
+
+.hero-copy h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.1rem, 4.4vw, 3.35rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--anthrazit);
+  text-align: left;
+  margin: 0 0 0.9rem;
+}
+
+.hero-copy p {
+  max-width: 34ch;
+  margin: 0 0 1.6rem;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--anthrazit-soft);
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.hero-actions .whatsapp-direct-btn {
+  width: auto;
+  margin-top: 0;
+  padding: 0.95rem 1.35rem;
+  color: white;
+}
+
+.text-link {
+  color: var(--anthrazit);
+  font-weight: 600;
+  text-underline-offset: 0.2em;
+}
+
+.text-link:hover {
+  color: var(--altrosa-dark);
+}
+
+.examples {
+  padding: 1.35rem 0 1rem;
+}
+
+.examples h2,
+.category-view h2,
+#anfrage h2 {
+  margin: 0 0 0.45rem;
+  text-align: left;
+}
+
+.lede {
+  max-width: 46ch;
+  color: var(--anthrazit-soft);
+  margin-bottom: 0.9rem;
+}
+
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.15rem;
+}
+
+.entry-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(61, 61, 61, 0.06);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.entry-card img {
+  width: 100%;
+  height: 128px;
+  object-fit: contain;
+  background: var(--creme-deep);
+}
+
+.entry-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  padding: 0.75rem 0.85rem 0.9rem;
+}
+
+.entry-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--altrosa-dark);
+}
+
+.entry-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.entry-price {
+  font-weight: 700;
+  color: var(--altrosa-dark);
+}
+
+.entry-action {
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.category-view {
+  padding-top: 1.4rem;
+}
+
+.back-link {
+  background: none;
+  border: none;
+  padding: 0.35rem 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--anthrazit);
+  cursor: pointer;
+}
+
+.category-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
+  margin: 0 0 1.4rem;
+}
+
+.switch-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.25rem 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--anthrazit-soft);
+  cursor: pointer;
+}
+
+.switch-btn[aria-current="true"] {
+  color: var(--anthrazit);
+  border-bottom-color: var(--altrosa);
+}
+
+.product-name {
+  margin: 0;
+}
+
+.product-emoji {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+#anfrage {
+  margin: 5rem 0 1rem;
+  max-width: 520px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+#anfrage > p {
+  text-align: left;
+  color: var(--anthrazit-soft);
+  margin-bottom: 0.4rem;
+}
+
+#anfrage label {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+#anfrage,
+.category-view,
+.examples {
+  scroll-margin-top: 5.5rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--altrosa-dark);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .entry-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    gap: 1.35rem;
+    padding-top: 0.35rem;
   }
 
-  .hero-image {
-    max-width: 140px;
+  .hero-photo img {
+    max-height: 34vh;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+
+  .hero-copy h1 {
+    font-size: 2rem;
+  }
+
+  .hero-copy p {
+    font-size: 1.02rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .hero-actions .whatsapp-direct-btn {
+    width: 100%;
+  }
+
+  .examples {
+    padding-top: 1.6rem;
+  }
+
+  .entry-card img {
+    height: 132px;
   }
 
   .products-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
+    grid-template-columns: 1fr;
   }
 
   .product-image {
-    height: 120px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 400px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
-  .filter-btn {
-    padding: 0.45rem 0.85rem;
-    font-size: 0.8rem;
+  .product-image {
+    height: 260px;
   }
 }
