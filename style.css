@@ -592,6 +592,23 @@ button.submit:hover {
   transform: scale(1.04);
 }
 
+.product-image.product-image-natural {
+  height: auto;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-image.product-image-natural img,
+.product-card:hover .product-image.product-image-natural img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  transform: none;
+}
+
 .product-image-wrapper {
   overflow: hidden;
   position: relative;
