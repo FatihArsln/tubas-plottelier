@@ -13,6 +13,7 @@ const CATEGORIES = [
 function init() {
   const wa = document.getElementById("whatsappDirectBtn");
   if (wa) wa.href = "https://wa.me/" + WHATSAPP_NUMBER;
+  setupSlideshow();
   renderEntries();
   setupEventListeners();
   updateCartDisplay();
@@ -25,6 +26,83 @@ function init() {
     showOverview({ historyMode: "none" });
     if (start === "anfrage") document.getElementById("anfrage")?.scrollIntoView();
   }
+}
+
+function setupSlideshow() {
+  const root = document.getElementById("heroSlideshow");
+  const dots = document.getElementById("heroDots");
+  const pauseBtn = document.getElementById("heroPause");
+  if (!root || !dots || !pauseBtn) return;
+  const slides = [...root.querySelectorAll(".hero-slide")];
+  if (slides.length < 2) return;
+  let index = Math.max(0, slides.findIndex(slide => slide.classList.contains("is-active")));
+  let timer = null;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let paused = reduce;
+
+  slides.forEach((slide, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "hero-dot";
+    dot.setAttribute("aria-label", "Bild " + (i + 1) + " von " + slides.length);
+    dot.addEventListener("click", () => show(i));
+    dots.append(dot);
+  });
+
+  function show(next) {
+    index = (next + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const active = i === index;
+      slide.classList.toggle("is-active", active);
+      slide.toggleAttribute("aria-hidden", !active);
+    });
+    [...dots.children].forEach((dot, i) => {
+      if (i === index) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+    if (timer) restart();
+  }
+
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  function start() {
+    if (paused || reduce) return;
+    stop();
+    timer = setInterval(() => show(index + 1), 5000);
+  }
+
+  function restart() {
+    stop();
+    start();
+  }
+
+  function setPaused(next) {
+    paused = next;
+    pauseBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+    pauseBtn.textContent = paused ? "Weiter" : "Pause";
+    if (paused) stop();
+    else start();
+  }
+
+  document.getElementById("heroPrev")?.addEventListener("click", () => show(index - 1));
+  document.getElementById("heroNext")?.addEventListener("click", () => show(index + 1));
+  pauseBtn.addEventListener("click", () => setPaused(!paused));
+  root.addEventListener("mouseenter", stop);
+  root.addEventListener("mouseleave", () => { if (!root.contains(document.activeElement)) start(); });
+  root.addEventListener("focusin", stop);
+  root.addEventListener("focusout", event => {
+    if (!root.contains(event.relatedTarget)) start();
+  });
+  root.addEventListener("keydown", event => {
+    if (event.key === "ArrowRight") { event.preventDefault(); show(index + 1); }
+    if (event.key === "ArrowLeft") { event.preventDefault(); show(index - 1); }
+  });
+  show(index);
+  if (reduce) setPaused(true);
+  else start();
 }
 
 function getProductImages(product) {

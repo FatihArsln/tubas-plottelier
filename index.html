@@ -30,13 +30,19 @@
     <main>
       <section id="uebersicht">
         <div class="hero">
-          <div class="hero-photo">
-            <img
-              src="img/standspiegel-hochzeit.jpg"
-              width="804"
-              height="1447"
-              alt="Weißer Standspiegel mit Blumen und Hochzeitsbeschriftung"
-            />
+          <div class="hero-photo" id="heroSlideshow">
+            <div class="hero-slides">
+              <img class="hero-slide is-active" src="img/standspiegel-hochzeit.jpg" width="804" height="1447" alt="Weißer Standspiegel mit Blumen und Hochzeitsbeschriftung" />
+              <img class="hero-slide" src="img/IMG-20251108-WA0006.jpg" width="1200" height="1600" alt="Personalisierte Jutetasche mit Initiale und Namen" />
+              <img class="hero-slide" src="img/IMG-20251108-WA0012.jpg" width="1200" height="1600" alt="T-Shirt mit individuellem Plot-Motiv" />
+              <img class="hero-slide" src="img/IMG-20251108-WA0035.jpg" width="1200" height="1600" alt="Schmuckkästchen mit Blumenmotiv" />
+            </div>
+            <div class="hero-slide-ui">
+              <button class="hero-nav" id="heroPrev" type="button" aria-label="Vorheriges Bild">‹</button>
+              <div class="hero-dots" id="heroDots" role="group" aria-label="Bild wählen"></div>
+              <button class="hero-nav" id="heroNext" type="button" aria-label="Nächstes Bild">›</button>
+              <button class="hero-pause" id="heroPause" type="button" aria-pressed="false">Pause</button>
+            </div>
           </div>
           <div class="hero-copy">
             <h1>Personalisierte Plots</h1>
