@@ -4,6 +4,10 @@
 :root {
   --altrosa: #D4A0AE;
   --altrosa-dark: #C4899A;
+  --altrosa-ink: #8E4D63;
+  --altrosa-ink-hover: #7A3E52;
+  --whatsapp: #0E7A4C;
+  --whatsapp-hover: #0B6B43;
   --altrosa-soft: rgba(212, 160, 174, 0.15);
   --creme: #FDF8F6;
   --creme-deep: #F7EDE9;
@@ -34,6 +38,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 body {
@@ -93,7 +101,7 @@ header .logo:hover .logo-icon {
 header .script {
   font-family: 'Allura', cursive;
   font-size: 1.25rem;
-  color: var(--altrosa);
+  color: var(--altrosa-ink);
 }
 
 header .logo-subtitle {
@@ -114,7 +122,7 @@ header .logo-subtitle {
 .logo-title {
   font-family: 'Allura', cursive;
   font-size: 1.85rem;
-  color: var(--altrosa);
+  color: var(--altrosa-ink);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: 0.5px;
@@ -137,7 +145,7 @@ header nav a {
 }
 
 header nav a:hover {
-  color: var(--altrosa-dark);
+  color: var(--altrosa-ink);
   background: var(--altrosa-soft);
 }
 
@@ -151,7 +159,7 @@ header .btn,
   padding: 0.55rem 1.1rem;
   border: none;
   border-radius: var(--radius-pill);
-  background: var(--altrosa);
+  background: var(--altrosa-ink);
   color: white;
   cursor: pointer;
   font-weight: 600;
@@ -165,7 +173,7 @@ header .btn,
 
 header .btn:hover,
 .cart-header:hover {
-  background: var(--altrosa-dark);
+  background: var(--altrosa-ink-hover);
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(212, 160, 174, 0.45);
 }
@@ -447,7 +455,7 @@ textarea:focus {
 }
 
 button.submit {
-  background: var(--altrosa);
+  background: var(--altrosa-ink);
   color: white;
   border: none;
   border-radius: var(--radius-pill);
@@ -461,7 +469,7 @@ button.submit {
 }
 
 button.submit:hover {
-  background: var(--altrosa-dark);
+  background: var(--altrosa-ink-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 160, 174, 0.45);
 }
@@ -471,7 +479,7 @@ button.submit:hover {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  background: #25D366;
+  background: var(--whatsapp);
   color: white;
   padding: 0.85rem 1.5rem;
   border-radius: var(--radius-pill);
@@ -485,7 +493,7 @@ button.submit:hover {
 }
 
 .whatsapp-direct-btn:hover {
-  background: #20BA5A;
+  background: var(--whatsapp-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
@@ -520,15 +528,15 @@ button.submit:hover {
 
 .filter-btn:hover {
   background: var(--altrosa-soft);
-  color: var(--altrosa-dark);
+  color: var(--altrosa-ink);
   border-color: var(--altrosa);
   transform: translateY(-1px);
 }
 
 .filter-btn.active {
-  background: var(--altrosa);
+  background: var(--altrosa-ink);
   color: white;
-  border-color: var(--altrosa);
+  border-color: var(--altrosa-ink);
   box-shadow: 0 4px 14px rgba(212, 160, 174, 0.35);
 }
 
@@ -578,6 +586,12 @@ button.submit:hover {
 }
 
 /* Ganzes Produkt sichtbar – nicht abgeschnitten */
+.product-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .product-image img,
 .product-img {
   width: 100%;
@@ -640,7 +654,7 @@ button.submit:hover {
 
 .product-price {
   font-weight: 700;
-  color: var(--altrosa-dark);
+  color: var(--altrosa-ink);
   font-size: 1.05rem;
   margin: 0.25rem 0 0.5rem;
 }
@@ -650,7 +664,7 @@ button.submit:hover {
   padding: 0.7rem 1rem;
   border: none;
   border-radius: var(--radius-pill);
-  background: var(--altrosa);
+  background: var(--altrosa-ink);
   color: white;
   font-weight: 600;
   font-size: 0.9rem;
@@ -661,7 +675,7 @@ button.submit:hover {
 }
 
 .add-to-cart-btn:hover {
-  background: var(--altrosa-dark);
+  background: var(--altrosa-ink-hover);
   transform: translateY(-1px);
 }
 
@@ -823,7 +837,7 @@ body.popup-open {
 }
 
 .image-nav-btn:hover {
-  background: var(--altrosa);
+  background: var(--altrosa-ink);
   color: white;
 }
 
@@ -1034,7 +1048,7 @@ body.popup-open {
   padding: 0.85rem 1rem;
   border: none;
   border-radius: var(--radius-pill);
-  background: var(--altrosa);
+  background: var(--altrosa-ink);
   color: white;
   font-weight: 600;
   cursor: pointer;
@@ -1044,19 +1058,19 @@ body.popup-open {
 }
 
 .send-request-btn:hover {
-  background: var(--altrosa-dark);
+  background: var(--altrosa-ink-hover);
   transform: translateY(-1px);
 }
 
 .whatsapp-btn,
 .whatsapp-request-btn {
-  background: #25D366 !important;
+  background: var(--whatsapp) !important;
   color: white !important;
 }
 
 .whatsapp-btn:hover,
 .whatsapp-request-btn:hover {
-  background: #20BA5A !important;
+  background: var(--whatsapp-hover) !important;
   transform: translateY(-2px);
 }
 
@@ -1319,7 +1333,7 @@ footer {
 }
 
 .selection-link.has-items .cart-count {
-  background: var(--altrosa);
+  background: var(--altrosa-ink);
   color: white;
 }
 
@@ -1352,9 +1366,14 @@ footer {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
   opacity: 0;
   transition: opacity 0.55s ease;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .hero-slide.is-active {
@@ -1421,7 +1440,7 @@ footer {
 
 .hero-dot[aria-current="true"] {
   width: 18px;
-  background: var(--altrosa-dark);
+  background: var(--altrosa-ink);
 }
 
 .hero-copy h1 {
@@ -1464,7 +1483,7 @@ footer {
 }
 
 .text-link:hover {
-  color: var(--altrosa-dark);
+  color: var(--altrosa-ink);
 }
 
 .examples {
@@ -1505,6 +1524,10 @@ footer {
   cursor: pointer;
   font: inherit;
   color: inherit;
+}
+
+.entry-card picture {
+  display: block;
 }
 
 .entry-card img,
@@ -1577,7 +1600,7 @@ footer {
 
 .entry-price {
   font-weight: 700;
-  color: var(--altrosa-dark);
+  color: var(--altrosa-ink);
 }
 
 .entry-action {
@@ -1746,4 +1769,168 @@ textarea:focus-visible {
   .product-image {
     height: 260px;
   }
+}
+
+.product-note {
+  margin: 0;
+  color: var(--anthrazit);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.shipping-note {
+  margin: -0.6rem 0 1.2rem;
+  max-width: 36ch;
+  color: var(--anthrazit);
+  font-size: 0.98rem;
+}
+
+.info-block {
+  padding: 0.4rem 0 1.4rem;
+}
+
+.info-block h2 {
+  margin: 0 0 0.7rem;
+  text-align: left;
+}
+
+.info-block h3 {
+  margin: 1.2rem 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.info-block p,
+.shipping-list,
+.faq-list p {
+  max-width: 62ch;
+  color: var(--anthrazit);
+}
+
+.steps,
+.shipping-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.steps li,
+.shipping-list li {
+  margin: 0 0 0.55rem;
+}
+
+.steps a,
+.faq-list a,
+.info-block a {
+  color: var(--altrosa-ink);
+  font-weight: 600;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: 720px;
+}
+
+.faq-list details {
+  background: var(--white);
+  border: 1px solid rgba(61, 61, 61, 0.08);
+  border-radius: 14px;
+  padding: 0.75rem 0.95rem;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--anthrazit);
+}
+
+.faq-list details p {
+  margin: 0.55rem 0 0.15rem;
+}
+
+.legal-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.legal-page h1 {
+  color: var(--altrosa-ink);
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.legal-page h2 {
+  color: var(--anthrazit);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.legal-page h3 {
+  color: var(--anthrazit);
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-page p,
+.legal-page li {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--anthrazit);
+}
+
+.legal-page ul {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.legal-page a {
+  color: var(--altrosa-ink);
+}
+
+.legal-page .placeholder {
+  background: #fff3cd;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #5c4300;
+}
+
+.legal-page .back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--altrosa-ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.legal-page .back-link:hover {
+  text-decoration: underline;
+}
+
+.legal-page .widerrufsformular {
+  background: var(--creme);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  border-left: 4px solid var(--altrosa-ink);
+}
+
+.legal-page .important-notice {
+  background: #fff3cd;
+  border: 2px solid #8a6d00;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  color: #3d2e00;
+}
+
+.legal-page .important-notice h3 {
+  color: #3d2e00;
+  margin-top: 0;
 }

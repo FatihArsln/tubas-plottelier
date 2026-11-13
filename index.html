@@ -3,15 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Plottelier – personalisierte Plots für Taschen, Textilien, Geschenke und Events." />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'self'; form-action 'self' mailto:" />
     <title>Plottelier – Handgemachte Plot-Aufträge</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="description" content="Personalisierte Plots für Taschen, Textilien, Geschenke, Events und Aufkleber zum Selbstanbringen. Du bekommst vorher einen Entwurf. Versand mit DHL innerhalb von 3 Werktagen nach Bestellung." />
+    <link rel="canonical" href="https://fatiharsln.github.io/tubas-plottelier/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Plottelier" />
+    <meta property="og:title" content="Plottelier – personalisierte Plots" />
+    <meta property="og:description" content="Taschen, Textilien, Geschenke, Events und Aufkleber zum Selbstanbringen. Entwurf vor der Fertigung, Versand mit DHL innerhalb von 3 Werktagen nach Bestellung." />
+    <meta property="og:url" content="https://fatiharsln.github.io/tubas-plottelier/" />
+    <meta property="og:image" content="https://fatiharsln.github.io/tubas-plottelier/img/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Plottelier – personalisierte Plots" />
+    <meta name="twitter:description" content="Taschen, Textilien, Geschenke, Events und Aufkleber zum Selbstanbringen. Entwurf vor der Fertigung, Versand mit DHL innerhalb von 3 Werktagen nach Bestellung." />
+    <meta name="twitter:image" content="https://fatiharsln.github.io/tubas-plottelier/img/og-image.jpg" />
+    <link rel="preload" href="fonts/open-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/allura-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="fonts.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.jpg" type="image/jpeg" />
-    <link rel="shortcut icon" href="favicon.jpg" type="image/jpeg" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   </head>
   <body>
     <header>
@@ -32,10 +44,10 @@
         <div class="hero">
           <div class="hero-photo" id="heroSlideshow">
             <div class="hero-slides">
-              <img class="hero-slide is-active" src="img/standspiegel-hochzeit.jpg" width="804" height="1447" alt="Aufkleber mit Hochzeitsbeschriftung auf einem weißen Standspiegel" />
-              <img class="hero-slide" src="img/IMG-20251108-WA0006.jpg" width="1200" height="1600" alt="Personalisierte Jutetasche mit Initiale und Namen" />
-              <img class="hero-slide" src="img/IMG-20251108-WA0012.jpg" width="1200" height="1600" alt="T-Shirt mit individuellem Plot-Motiv" />
-              <img class="hero-slide" src="img/IMG-20251108-WA0035.jpg" width="1200" height="1600" alt="Schmuckkästchen mit Blumenmotiv" />
+              <picture class="hero-slide is-active">
+                <source type="image/webp" srcset="img/standspiegel-hochzeit-640.webp 640w, img/standspiegel-hochzeit-1280.webp 1280w" sizes="(max-width: 720px) 64vw, 250px" />
+                <img src="img/standspiegel-hochzeit.jpg" width="711" height="1280" alt="Aufkleber mit Hochzeitsbeschriftung auf einem weißen Standspiegel" fetchpriority="high" decoding="async" />
+              </picture>
             </div>
             <div class="hero-slide-ui">
               <button class="hero-nav" id="heroPrev" type="button" aria-label="Vorheriges Bild">‹</button>
@@ -46,7 +58,8 @@
           </div>
           <div class="hero-copy">
             <h1>Personalisierte Plots</h1>
-            <p>Taschen, Textilien, Geschenke und Events. Schreib mir, was du dir vorstellst.</p>
+            <p>Taschen, Textilien, Geschenke, Events und Aufkleber. Schreib mir, was du dir vorstellst.</p>
+            <p class="shipping-note">Versand innerhalb von 3 Werktagen nach Bestellung. Du bekommst vorher einen Entwurf.</p>
             <div class="hero-actions">
               <a href="https://wa.me/905388343974" class="whatsapp-direct-btn" id="whatsappDirectBtn" target="_blank" rel="noopener">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -59,7 +72,7 @@
           </div>
         </div>
 
-        <section class="examples" aria-labelledby="examplesTitle">
+        <section class="examples" id="beispiele" aria-labelledby="examplesTitle">
           <h2 id="examplesTitle">Beispiele</h2>
           <p class="lede">Ein Beispiel aus jedem Bereich. Weitere Bilder öffnest du in der Kategorie.</p>
           <div class="entry-grid" id="entryGrid"></div>
@@ -73,6 +86,71 @@
         <div class="category-offer" id="categoryOffer" hidden></div>
         <div class="category-switch" id="categorySwitch" role="navigation" aria-label="Bereiche"></div>
         <div class="products-grid" id="productsGrid"></div>
+      </section>
+
+      <section id="bestellung" class="info-block" aria-labelledby="bestellungTitle">
+        <h2 id="bestellungTitle">So bestellst du</h2>
+        <ol class="steps">
+          <li>
+            <strong>Idee schicken.</strong>
+            Schreib mir per <a class="js-whatsapp" href="https://wa.me/905388343974" target="_blank" rel="noopener">WhatsApp</a> oder <a href="#anfrage">E-Mail</a>, was du dir vorstellst.
+          </li>
+          <li>
+            <strong>Entwurf freigeben.</strong>
+            Du bekommst vorher einen Entwurf.
+          </li>
+          <li>
+            <strong>Fertigung.</strong>
+            Nach deiner Freigabe wird das Stück gefertigt.
+          </li>
+          <li>
+            <strong>Versand.</strong>
+            Versand mit DHL innerhalb von 3 Werktagen nach Bestellung.
+          </li>
+        </ol>
+        <p>Sitzt etwas nicht wie abgesprochen, arbeite ich nach oder wir finden eine Lösung.</p>
+        <h3>Versand</h3>
+        <p>Versand innerhalb von 3 Werktagen nach Bestellung, innerhalb Deutschlands mit DHL. Der Preis richtet sich nach Größe und Gewicht. Das sind die aktuellen DHL-Privatkundenpreise, Endpreise, abgerufen am 13. November 2026:</p>
+        <ul class="shipping-list">
+          <li>Päckchen S, bis 2 kg, bis 35 × 25 × 10 cm: 4,19 €</li>
+          <li>Päckchen M, bis 2 kg, bis 60 × 30 × 15 cm: 5,19 €</li>
+          <li>Paket bis 5 kg, bis 120 × 60 × 60 cm: 7,69 €</li>
+        </ul>
+        <p>Quelle: <a href="https://www.dhl.de/de/privatkunden/pakete-versenden/deutschlandweit-versenden/preise-national.html" target="_blank" rel="noopener">DHL, Preise für den nationalen Versand</a>. Beim Paket bis 5 kg nennt DHL ein maximales Gurtmaß von 300 cm.</p>
+      </section>
+
+      <section id="faq" class="info-block" aria-labelledby="faqTitle">
+        <h2 id="faqTitle">Fragen</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Wie läuft eine Bestellung ab?</summary>
+            <p>Du schickst mir deine Idee per WhatsApp oder E-Mail. Du bekommst vorher einen Entwurf. Nach deiner Freigabe fertige ich das Stück. Danach geht es mit DHL raus, innerhalb von 3 Werktagen nach Bestellung.</p>
+          </details>
+          <details>
+            <summary>Bekomme ich einen Entwurf?</summary>
+            <p>Du bekommst vorher einen Entwurf und gibst ihn frei, bevor ich fertige.</p>
+          </details>
+          <details>
+            <summary>Wie lange dauert es?</summary>
+            <p>Versand innerhalb von 3 Werktagen nach Bestellung. Wie lange die Sendung danach unterwegs ist, legt DHL fest. Das steht nicht als feste Zusage von mir.</p>
+          </details>
+          <details>
+            <summary>Was kostet der Versand?</summary>
+            <p>Innerhalb Deutschlands mit DHL, je nach Größe und Gewicht. Nach den DHL-Privatkundenpreisen vom 13. November 2026: Päckchen S 4,19 €, Päckchen M 5,19 €, Paket bis 5 kg 7,69 €. Die Quelle ist die Seite <a href="https://www.dhl.de/de/privatkunden/pakete-versenden/deutschlandweit-versenden/preise-national.html" target="_blank" rel="noopener">DHL Preise national</a>.</p>
+          </details>
+          <details>
+            <summary>Kann ich personalisierte Stücke widerrufen?</summary>
+            <p>Bei personalisierten Stücken, die nach deinen Vorgaben gefertigt werden, besteht kein Widerrufsrecht (§ 312g Abs. 2 Nr. 1 BGB). Die Einzelheiten stehen in der <a href="widerruf.html">Widerrufsbelehrung</a>.</p>
+          </details>
+          <details>
+            <summary>Wie wasche ich Textilien?</summary>
+            <p>Am besten auf links und schonend. Wie heiß und wie oft, hängt vom jeweiligen Stoff ab. Eine Pflegeanleitung, die für jeden Stoff gilt, gibt es hier nicht.</p>
+          </details>
+          <details>
+            <summary>Wie bringe ich Aufkleber an?</summary>
+            <p>Zum Selbstanbringen bekommst du den Aufkleber mit Übertragungsfolie und eine kurze Anleitung. Die Fläche sollte sauber, trocken und möglichst glatt sein. Für Aufkleber auf Waschmaschine oder Trockner gilt dasselbe.</p>
+          </details>
+        </div>
       </section>
 
       <section id="anfrage" aria-labelledby="anfrageTitle">
@@ -93,7 +171,7 @@
     <footer>
       <div class="footer-content">
         <div class="footer-copyright">
-          <p>© 2025 Plottelier — Alle Rechte vorbehalten</p>
+          <p>© 2026 Plottelier — Alle Rechte vorbehalten</p>
         </div>
         <div class="footer-links">
           <a href="impressum.html">Impressum</a>
@@ -125,15 +203,15 @@
         <div class="cart-items" id="cartItems">
           <p class="empty-cart">Deine Auswahl ist leer</p>
         </div>
-        <div class="cart-notice" id="cartNotice" style="display: none">
+        <div class="cart-notice" id="cartNotice" hidden>
           <p>Diese Stücke werden nach deinen Wünschen gestaltet.</p>
-          <p>Schreib mir dazu kurz, was du dir vorstellst.</p>
+          <p>Schreib mir dazu kurz, was du dir vorstellst. Du bekommst vorher einen Entwurf.</p>
         </div>
-        <div class="request-buttons" id="requestButtons" style="display: none">
+        <div class="request-buttons" id="requestButtons" hidden>
           <button class="send-request-btn" id="sendRequestBtn" type="button">Per E-Mail senden</button>
           <button class="send-request-btn whatsapp-request-btn" id="whatsappRequestBtn" type="button">Per WhatsApp senden</button>
         </div>
-        <button class="clear-cart-btn" id="clearCartBtn" type="button" style="display: none">Auswahl leeren</button>
+        <button class="clear-cart-btn" id="clearCartBtn" type="button" hidden>Auswahl leeren</button>
       </div>
     </div>
 
