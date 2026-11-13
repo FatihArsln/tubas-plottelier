@@ -52,7 +52,7 @@ const products = [
   {id:47,name:"Tasse mit Korrekturspruch",description:"Tasse mit Spruch und Korrekturzeichen",price:null,image:"img/IMG-20251108-WA0057.jpg",category:"geschenke"},
   {id:48,name:"Erinnerungsbox",description:"Box mit Silhouette und Spruch",price:null,image:"img/IMG-20251108-WA0058.jpg",category:"geschenke"},
 
-  {id:49,name:"Spiegel personalisiert",description:"Beschrifteter Spiegel für Events, Bad oder Flur",price:29.99,images:["img/standspiegel-hochzeit.jpg","img/IMG-20251108-WA0038.jpg"],alts:["Weißer Standspiegel mit Blumen und Hochzeitsbeschriftung","Spiegel personalisiert"],category:"events"},
+  {id:49,name:"Spiegel-Beschriftung (Aufkleber) personalisiert",description:"Personalisierte Beschriftung als Aufkleber für Events, Bad oder Flur. Preis nur für den Aufkleber, Spiegel nicht enthalten.",price:29.99,images:["img/standspiegel-hochzeit.jpg","img/IMG-20251108-WA0038.jpg"],alts:["Aufkleber mit Hochzeitsbeschriftung auf einem weißen Standspiegel","Aufkleber mit Spruch auf einem Spiegel"],category:"events"},
   {id:50,name:"Verlobungstablett",description:"Personalisiertes Verlobungstablett mit Namen, Datum und Spruch",price:24.99,image:"img/IMG-20251108-WA0045.jpg",category:"events"},
   {id:51,name:"Verlobungsband",description:"Personalisiertes Band für den Verlobungsantrag",price:19.99,image:"img/IMG-20251108-WA0047.jpg",category:"events"},
   {id:52,name:"Platzkarten aus Marmor",description:"Platzkarten mit Namen für Hochzeit oder Feier",price:null,image:"img/IMG-20251108-WA0048.jpg",category:"events"},

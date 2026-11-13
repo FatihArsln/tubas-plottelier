@@ -32,7 +32,7 @@
         <div class="hero">
           <div class="hero-photo" id="heroSlideshow">
             <div class="hero-slides">
-              <img class="hero-slide is-active" src="img/standspiegel-hochzeit.jpg" width="804" height="1447" alt="Weißer Standspiegel mit Blumen und Hochzeitsbeschriftung" />
+              <img class="hero-slide is-active" src="img/standspiegel-hochzeit.jpg" width="804" height="1447" alt="Aufkleber mit Hochzeitsbeschriftung auf einem weißen Standspiegel" />
               <img class="hero-slide" src="img/IMG-20251108-WA0006.jpg" width="1200" height="1600" alt="Personalisierte Jutetasche mit Initiale und Namen" />
               <img class="hero-slide" src="img/IMG-20251108-WA0012.jpg" width="1200" height="1600" alt="T-Shirt mit individuellem Plot-Motiv" />
               <img class="hero-slide" src="img/IMG-20251108-WA0035.jpg" width="1200" height="1600" alt="Schmuckkästchen mit Blumenmotiv" />
@@ -102,6 +102,17 @@
         </div>
       </div>
     </footer>
+
+    <div class="image-popup" id="imagePopup" role="dialog" aria-modal="true" aria-labelledby="popupProductName">
+      <div class="popup-background" id="popupBackground"></div>
+      <div class="popup-content">
+        <button class="close-lightbox-btn" id="closeLightboxBtn" type="button" aria-label="Schließen">×</button>
+        <button class="image-nav-btn image-nav-prev" id="prevImageBtn" type="button" aria-label="Vorheriges Bild" hidden>‹</button>
+        <button class="image-nav-btn image-nav-next" id="nextImageBtn" type="button" aria-label="Nächstes Bild" hidden>›</button>
+        <div class="popup-image" id="popupImage"></div>
+        <div class="popup-product-name" id="popupProductName"></div>
+      </div>
+    </div>
 
     <div class="cart-popup" id="cartPopup">
       <div class="cart-popup-background" id="cartPopupBackground"></div>
