@@ -19,7 +19,7 @@ function init() {
   });
   mountHeroSlides();
   setupSlideshow();
-  renderEntries();
+  renderCategoryBar();
   setupEventListeners();
   updateCartDisplay();
   const start = location.hash.replace(/^#/, "");
@@ -29,9 +29,8 @@ function init() {
   } else {
     history.replaceState({ view: "overview" }, "", location.pathname + location.search);
     showOverview({ historyMode: "none" });
-    if (start === "anfrage" || start === "beispiele" || start === "kategorien" || start === "bestellung" || start === "faq") {
-      const target = start === "beispiele" ? "kategorien" : start;
-      document.getElementById(target)?.scrollIntoView();
+    if (start === "anfrage" || start === "bestellung" || start === "faq") {
+      document.getElementById(start)?.scrollIntoView();
     }
   }
 }
@@ -218,45 +217,31 @@ function productsIn(categoryId) {
     .sort((a, b) => (a.isSizeGuide ? -1 : 0) - (b.isSizeGuide ? -1 : 0) || a.id - b.id);
 }
 
-function categoryFromPrice(categoryId) {
-  const amounts = productsIn(categoryId)
-    .filter(product => !product.isSizeGuide && typeof product.price === "number" && product.price > 0)
-    .map(product => product.price);
-  if (!amounts.length) return "auf Anfrage";
-  const lowest = Math.min.apply(null, amounts);
-  return "ab " + lowest.toFixed(2).replace(".", ",") + " €";
-}
-
-function renderEntries() {
-  const grid = document.getElementById("entryGrid");
-  if (!grid || typeof products === "undefined") return;
-  grid.replaceChildren();
+function renderCategoryBar() {
+  const nav = document.getElementById("kategorien");
+  if (!nav) return;
+  nav.replaceChildren();
   CATEGORIES.forEach(category => {
-    const product = products.find(item => item.id === category.exampleId);
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "entry-card";
+    button.className = "category-link";
     button.dataset.category = category.id;
-    const price = categoryFromPrice(category.id);
-    button.setAttribute("aria-label", category.label + ", " + price);
-    if (product) {
-      const images = getProductImages(product);
-      const source = images.find(src => typeof src === "string" && src.startsWith("img/"));
-      if (source) {
-        button.append(photoElement(source, "", { sizes: "(max-width: 900px) 42vw, 180px" }));
-      } else if (images.includes("sticker")) {
-        button.append(stickerMark("entry-sticker-mark"));
-      }
-    }
-    const body = element("span", "entry-body");
-    body.append(
-      element("span", "entry-name", category.label),
-      element("span", "entry-price", price)
-    );
-    button.append(body);
-    button.addEventListener("click", () => openCategory(category.id, { historyMode: "push", focusBack: true }));
-    grid.append(button);
+    button.textContent = category.label;
+    button.addEventListener("click", () => {
+      if (currentCategory !== category.id) openCategory(category.id, { historyMode: "push", focusBack: false });
+    });
+    nav.append(button);
   });
+}
+
+function markCategory(id) {
+  document.querySelectorAll(".category-link").forEach(button => {
+    const active = button.dataset.category === id;
+    if (active) button.setAttribute("aria-current", "true");
+    else button.removeAttribute("aria-current");
+  });
+  if (!id) return;
+  document.querySelector('.category-link[data-category="' + id + '"]')?.scrollIntoView({ inline: "nearest", block: "nearest" });
 }
 
 function stickerMark(className) {
@@ -434,6 +419,7 @@ function openCategory(id, options) {
   document.getElementById("categoryLead").textContent = category.blurb || ("Alle " + countText + " aus diesem Bereich.");
   renderOffer(category);
   renderProducts(list);
+  markCategory(id);
   if (settings.historyMode === "push") {
     history.pushState({ view: "category", category: id }, "", "#" + id);
   }
@@ -445,13 +431,14 @@ function showOverview(options) {
   const settings = options || {};
   const returnTo = settings.focusCategory ? currentCategory : null;
   currentCategory = null;
+  markCategory(null);
   document.getElementById("uebersicht").hidden = false;
   document.getElementById("kategorie").hidden = true;
   document.getElementById("productsGrid")?.replaceChildren();
   if (settings.historyMode === "push") {
     history.pushState({ view: "overview" }, "", location.pathname + location.search);
   }
-  if (returnTo) document.querySelector('.entry-card[data-category="' + returnTo + '"]')?.focus();
+  if (returnTo) document.querySelector('.category-link[data-category="' + returnTo + '"]')?.focus();
   else window.scrollTo(0, 0);
 }
 

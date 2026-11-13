@@ -26,17 +26,20 @@
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   </head>
   <body>
-    <header>
+    <header class="has-categories">
+      <div class="header-bar">
         <a href="./" class="logo" id="homeLink">
-        <span class="logo-title">Plottelier</span>
-      </a>
-      <nav aria-label="Seite">
-        <a href="#anfrage">E-Mail</a>
-        <button class="selection-link" id="cartHeaderBtn" type="button" aria-label="Deine Auswahl, 0 Stücke">
-          Auswahl
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
-      </nav>
+          <span class="logo-title">Plottelier</span>
+        </a>
+        <nav aria-label="Seite">
+          <a href="#anfrage">E-Mail</a>
+          <button class="selection-link" id="cartHeaderBtn" type="button" aria-label="Deine Auswahl, 0 Stücke">
+            Auswahl
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </nav>
+      </div>
+      <nav class="category-bar" id="kategorien" aria-label="Kategorien"></nav>
     </header>
 
     <main>
@@ -57,10 +60,6 @@
             </div>
           </div>
         </div>
-
-        <section class="examples" id="kategorien" aria-label="Kategorien">
-          <div class="entry-grid" id="entryGrid"></div>
-        </section>
 
         <section class="glimpse" aria-label="Einblicke">
           <div class="hero-photo" id="heroSlideshow">
