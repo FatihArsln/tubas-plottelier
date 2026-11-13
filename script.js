@@ -19,7 +19,7 @@ function init() {
   });
   mountHeroSlides();
   setupSlideshow();
-  renderEntries();
+  renderCategoryBar();
   setupEventListeners();
   updateCartDisplay();
   const start = location.hash.replace(/^#/, "");
@@ -29,7 +29,7 @@ function init() {
   } else {
     history.replaceState({ view: "overview" }, "", location.pathname + location.search);
     showOverview({ historyMode: "none" });
-    if (start === "anfrage" || start === "beispiele" || start === "bestellung" || start === "faq") {
+    if (start === "anfrage" || start === "bestellung" || start === "faq") {
       document.getElementById(start)?.scrollIntoView();
     }
   }
@@ -217,35 +217,31 @@ function productsIn(categoryId) {
     .sort((a, b) => (a.isSizeGuide ? -1 : 0) - (b.isSizeGuide ? -1 : 0) || a.id - b.id);
 }
 
-function renderEntries() {
-  const grid = document.getElementById("entryGrid");
-  if (!grid || typeof products === "undefined") return;
-  grid.replaceChildren();
+function renderCategoryBar() {
+  const nav = document.getElementById("kategorien");
+  if (!nav) return;
+  nav.replaceChildren();
   CATEGORIES.forEach(category => {
-    const product = products.find(item => item.id === category.exampleId);
-    if (!product) return;
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "entry-card";
+    button.className = "category-link";
     button.dataset.category = category.id;
-    const images = getProductImages(product);
-    const source = images.find(src => typeof src === "string" && src.startsWith("img/"));
-    if (source) {
-      button.append(photoElement(source, "", { sizes: "(max-width: 900px) 46vw, 250px" }));
-    } else if (images.includes("sticker")) {
-      button.append(stickerMark("entry-sticker-mark"));
-    }
-    const body = element("span", "entry-body");
-    body.append(
-      element("span", "entry-kicker", category.label),
-      element("span", "entry-name", product.name),
-      element("span", "entry-price", formatPrice(product)),
-      element("span", "entry-action", "Kategorie öffnen")
-    );
-    button.append(body);
-    button.addEventListener("click", () => openCategory(category.id, { historyMode: "push", focusBack: true }));
-    grid.append(button);
+    button.textContent = category.label;
+    button.addEventListener("click", () => {
+      if (currentCategory !== category.id) openCategory(category.id, { historyMode: "push", focusBack: false });
+    });
+    nav.append(button);
   });
+}
+
+function markCategory(id) {
+  document.querySelectorAll(".category-link").forEach(button => {
+    const active = button.dataset.category === id;
+    if (active) button.setAttribute("aria-current", "true");
+    else button.removeAttribute("aria-current");
+  });
+  if (!id) return;
+  document.querySelector('.category-link[data-category="' + id + '"]')?.scrollIntoView({ inline: "nearest", block: "nearest" });
 }
 
 function stickerMark(className) {
@@ -277,24 +273,6 @@ function renderOffer(category) {
   actions.append(wa, mail);
   box.append(actions);
   box.hidden = false;
-}
-
-function renderSwitch(activeId) {
-  const nav = document.getElementById("categorySwitch");
-  if (!nav) return;
-  nav.replaceChildren();
-  CATEGORIES.forEach(category => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "switch-btn";
-    button.textContent = category.label;
-    button.dataset.category = category.id;
-    if (category.id === activeId) button.setAttribute("aria-current", "true");
-    button.addEventListener("click", () => {
-      if (category.id !== currentCategory) openCategory(category.id, { historyMode: "push", focusBack: false });
-    });
-    nav.append(button);
-  });
 }
 
 function renderProducts(list) {
@@ -440,8 +418,8 @@ function openCategory(id, options) {
   const countText = list.length === 1 ? "1 Beispiel" : list.length + " Beispiele";
   document.getElementById("categoryLead").textContent = category.blurb || ("Alle " + countText + " aus diesem Bereich.");
   renderOffer(category);
-  renderSwitch(id);
   renderProducts(list);
+  markCategory(id);
   if (settings.historyMode === "push") {
     history.pushState({ view: "category", category: id }, "", "#" + id);
   }
@@ -453,13 +431,14 @@ function showOverview(options) {
   const settings = options || {};
   const returnTo = settings.focusCategory ? currentCategory : null;
   currentCategory = null;
+  markCategory(null);
   document.getElementById("uebersicht").hidden = false;
   document.getElementById("kategorie").hidden = true;
   document.getElementById("productsGrid")?.replaceChildren();
   if (settings.historyMode === "push") {
     history.pushState({ view: "overview" }, "", location.pathname + location.search);
   }
-  if (returnTo) document.querySelector('.entry-card[data-category="' + returnTo + '"]')?.focus();
+  if (returnTo) document.querySelector('.category-link[data-category="' + returnTo + '"]')?.focus();
   else window.scrollTo(0, 0);
 }
 
