@@ -732,6 +732,10 @@ button.submit:hover {
   cursor: pointer;
 }
 
+body.popup-open {
+  overflow: hidden;
+}
+
 .popup-content {
   position: relative;
   z-index: 1;
@@ -739,12 +743,38 @@ button.submit:hover {
   max-height: 90vh;
   background: var(--white);
   border-radius: 20px;
-  padding: 1.25rem;
+  padding: 3.1rem 1.25rem 1.25rem;
   box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
+}
+
+.close-lightbox-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--creme-deep);
+  color: var(--anthrazit);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close-lightbox-btn:hover {
+  background: var(--altrosa-soft);
+  color: var(--altrosa-dark);
+}
+
+.product-image-container[role="button"],
+.hero-slides {
+  cursor: zoom-in;
 }
 
 .popup-image {
@@ -795,6 +825,10 @@ button.submit:hover {
 .image-nav-btn:hover {
   background: var(--altrosa);
   color: white;
+}
+
+.image-nav-btn[hidden] {
+  display: none !important;
 }
 
 .image-nav-prev { left: 12px; }

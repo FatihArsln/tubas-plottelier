@@ -103,6 +103,17 @@
       </div>
     </footer>
 
+    <div class="image-popup" id="imagePopup" role="dialog" aria-modal="true" aria-labelledby="popupProductName">
+      <div class="popup-background" id="popupBackground"></div>
+      <div class="popup-content">
+        <button class="close-lightbox-btn" id="closeLightboxBtn" type="button" aria-label="Schließen">×</button>
+        <button class="image-nav-btn image-nav-prev" id="prevImageBtn" type="button" aria-label="Vorheriges Bild" hidden>‹</button>
+        <button class="image-nav-btn image-nav-next" id="nextImageBtn" type="button" aria-label="Nächstes Bild" hidden>›</button>
+        <div class="popup-image" id="popupImage"></div>
+        <div class="popup-product-name" id="popupProductName"></div>
+      </div>
+    </div>
+
     <div class="cart-popup" id="cartPopup">
       <div class="cart-popup-background" id="cartPopupBackground"></div>
       <div class="cart-popup-content" role="dialog" aria-modal="true" aria-labelledby="cartTitle">

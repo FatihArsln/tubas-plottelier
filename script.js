@@ -97,9 +97,29 @@ function setupSlideshow() {
     if (!root.contains(event.relatedTarget)) start();
   });
   root.addEventListener("keydown", event => {
+    if (lightboxOpen()) return;
     if (event.key === "ArrowRight") { event.preventDefault(); show(index + 1); }
     if (event.key === "ArrowLeft") { event.preventDefault(); show(index - 1); }
   });
+  const stage = root.querySelector(".hero-slides");
+  if (stage) {
+    stage.tabIndex = 0;
+    stage.setAttribute("role", "button");
+    stage.setAttribute("aria-label", "Großansicht des Bildes");
+    const openHero = () => openLightbox({
+      images: slides.map(slide => slide.getAttribute("src")),
+      alts: slides.map(slide => slide.alt),
+      name: slides[index].alt,
+      index: index
+    }, stage);
+    stage.addEventListener("click", openHero);
+    stage.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openHero();
+      }
+    });
+  }
   show(index);
   if (reduce) setPaused(true);
   else start();
@@ -188,13 +208,16 @@ function renderProducts(list) {
     card.className = product.isSizeGuide ? "product-card size-guide-card" : "product-card";
     const images = getProductImages(product);
     const frame = element("div", images.length > 1 ? "product-image product-image-natural" : "product-image");
+    const photos = [];
     images.forEach((src, index) => {
       if (typeof src === "string" && src.startsWith("img/")) {
+        const alt = (product.alts && product.alts[index]) || product.name;
         const image = document.createElement("img");
         image.src = src;
-        image.alt = (product.alts && product.alts[index]) || product.name;
+        image.alt = alt;
         image.className = "product-img";
         frame.append(image);
+        photos.push({ src: src, alt: alt });
       } else {
         frame.append(element("span", "product-emoji", String(src)));
       }
@@ -211,10 +234,84 @@ function renderProducts(list) {
       add.addEventListener("click", () => addToCart(product, add));
       info.append(add);
     }
-    card.append(element("div", "product-image-container"), info);
-    card.querySelector(".product-image-container").append(frame);
+    const container = element("div", "product-image-container");
+    container.append(frame);
+    if (photos.length) {
+      container.tabIndex = 0;
+      container.setAttribute("role", "button");
+      container.setAttribute("aria-label", "Großansicht: " + product.name);
+      const open = () => openLightbox({
+        images: photos.map(photo => photo.src),
+        alts: photos.map(photo => photo.alt),
+        name: product.name,
+        index: 0
+      }, container);
+      container.addEventListener("click", open);
+      container.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          open();
+        }
+      });
+    }
+    card.append(container, info);
     grid.append(card);
   });
+}
+
+let lightboxItems = [];
+let lightboxIndex = 0;
+let lightboxOpener = null;
+
+function lightboxOpen() {
+  return document.getElementById("imagePopup")?.classList.contains("active");
+}
+
+function showLightboxImage() {
+  const popupImage = document.getElementById("popupImage");
+  const item = lightboxItems[lightboxIndex];
+  if (!popupImage || !item) return;
+  const image = document.createElement("img");
+  image.src = item.src;
+  image.alt = item.alt;
+  image.className = "popup-img";
+  popupImage.replaceChildren(image);
+  const multi = lightboxItems.length > 1;
+  document.getElementById("prevImageBtn").hidden = !multi;
+  document.getElementById("nextImageBtn").hidden = !multi;
+}
+
+function openLightbox(detail, opener) {
+  const popup = document.getElementById("imagePopup");
+  if (!popup) return;
+  const items = (detail.images || [])
+    .map((src, index) => ({ src: src, alt: (detail.alts && detail.alts[index]) || detail.name || "" }))
+    .filter(item => typeof item.src === "string" && item.src.startsWith("img/"));
+  if (!items.length) return;
+  lightboxItems = items;
+  lightboxIndex = Math.min(Math.max(detail.index || 0, 0), items.length - 1);
+  lightboxOpener = opener || null;
+  document.getElementById("popupProductName").textContent = detail.name || items[lightboxIndex].alt;
+  showLightboxImage();
+  popup.classList.add("active");
+  document.body.classList.add("popup-open");
+  document.getElementById("closeLightboxBtn")?.focus();
+}
+
+function closeLightbox() {
+  const popup = document.getElementById("imagePopup");
+  popup?.classList.remove("active");
+  document.body.classList.remove("popup-open");
+  document.getElementById("popupImage")?.replaceChildren();
+  lightboxItems = [];
+  if (lightboxOpener) lightboxOpener.focus();
+  lightboxOpener = null;
+}
+
+function stepLightbox(delta) {
+  if (lightboxItems.length < 2) return;
+  lightboxIndex = (lightboxIndex + delta + lightboxItems.length) % lightboxItems.length;
+  showLightboxImage();
 }
 
 function addToCart(product, button) {
@@ -333,7 +430,17 @@ function setupEventListeners() {
     updateCartDisplay();
     openCart();
   });
+  document.getElementById("closeLightboxBtn")?.addEventListener("click", closeLightbox);
+  document.getElementById("popupBackground")?.addEventListener("click", closeLightbox);
+  document.getElementById("prevImageBtn")?.addEventListener("click", () => stepLightbox(-1));
+  document.getElementById("nextImageBtn")?.addEventListener("click", () => stepLightbox(1));
   document.addEventListener("keydown", event => {
+    if (lightboxOpen()) {
+      if (event.key === "Escape") closeLightbox();
+      else if (event.key === "ArrowRight") { event.preventDefault(); stepLightbox(1); }
+      else if (event.key === "ArrowLeft") { event.preventDefault(); stepLightbox(-1); }
+      return;
+    }
     if (event.key === "Escape" && document.getElementById("cartPopup")?.classList.contains("active")) {
       closeCart();
     }
