@@ -60,6 +60,6 @@ const products = [
   {id:54,name:"Hochzeits-Dekoration Plot",description:"Aufkleber und Schriften für Hochzeitsdeko",price:18.99,image:"💒",category:"events"},
   {id:55,name:"Fotobox-Schild",description:"Schilder und Props für Fotobox oder Event",price:14.99,image:"📸",category:"events"},
 
-  {id:56,name:"Aufkleber fürs Auto",description:"Name, Spruch oder Logo, zum Beispiel für die Heckscheibe",price:null,image:"sticker",category:"aufkleber"},
-  {id:57,name:"Aufkleber fürs Zuhause",description:"Für Wand, Tür, Briefkasten, Fenster oder Waschmaschine",price:null,image:"sticker",category:"aufkleber"}
+  {id:56,name:"Aufkleber fürs Auto",description:"Nach Maß, zum Beispiel Name oder Spruch für die Heckscheibe. Einfarbig, mit Transferfolie und Anleitung.",price:9.9,priceFrom:true,image:"sticker",category:"aufkleber"},
+  {id:57,name:"Aufkleber fürs Zuhause",description:"Wandaufkleber nach Maß für Wand, Tür, Briefkasten oder Fenster. Einfarbig, mit Transferfolie und Anleitung.",price:14.9,priceFrom:true,image:"sticker",category:"aufkleber"}
 ];
