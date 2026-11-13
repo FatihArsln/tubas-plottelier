@@ -151,7 +151,7 @@ function ensureSlide(picture) {
   source.type = "image/webp";
   const stem = src.replace(/\.jpe?g$/i, "");
   source.srcset = stem + "-640.webp 640w, " + stem + "-1280.webp 1280w";
-  source.sizes = "(max-width: 720px) 64vw, 250px";
+  source.sizes = "(max-width: 959px) 92vw, 460px";
   const image = document.createElement("img");
   image.src = src;
   image.alt = picture.dataset.alt || "";
