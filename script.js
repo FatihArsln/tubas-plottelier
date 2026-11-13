@@ -29,8 +29,9 @@ function init() {
   } else {
     history.replaceState({ view: "overview" }, "", location.pathname + location.search);
     showOverview({ historyMode: "none" });
-    if (start === "anfrage" || start === "beispiele" || start === "bestellung" || start === "faq") {
-      document.getElementById(start)?.scrollIntoView();
+    if (start === "anfrage" || start === "beispiele" || start === "kategorien" || start === "bestellung" || start === "faq") {
+      const target = start === "beispiele" ? "kategorien" : start;
+      document.getElementById(target)?.scrollIntoView();
     }
   }
 }
@@ -217,30 +218,40 @@ function productsIn(categoryId) {
     .sort((a, b) => (a.isSizeGuide ? -1 : 0) - (b.isSizeGuide ? -1 : 0) || a.id - b.id);
 }
 
+function categoryFromPrice(categoryId) {
+  const amounts = productsIn(categoryId)
+    .filter(product => !product.isSizeGuide && typeof product.price === "number" && product.price > 0)
+    .map(product => product.price);
+  if (!amounts.length) return "auf Anfrage";
+  const lowest = Math.min.apply(null, amounts);
+  return "ab " + lowest.toFixed(2).replace(".", ",") + " €";
+}
+
 function renderEntries() {
   const grid = document.getElementById("entryGrid");
   if (!grid || typeof products === "undefined") return;
   grid.replaceChildren();
   CATEGORIES.forEach(category => {
     const product = products.find(item => item.id === category.exampleId);
-    if (!product) return;
     const button = document.createElement("button");
     button.type = "button";
     button.className = "entry-card";
     button.dataset.category = category.id;
-    const images = getProductImages(product);
-    const source = images.find(src => typeof src === "string" && src.startsWith("img/"));
-    if (source) {
-      button.append(photoElement(source, "", { sizes: "(max-width: 900px) 46vw, 250px" }));
-    } else if (images.includes("sticker")) {
-      button.append(stickerMark("entry-sticker-mark"));
+    const price = categoryFromPrice(category.id);
+    button.setAttribute("aria-label", category.label + ", " + price);
+    if (product) {
+      const images = getProductImages(product);
+      const source = images.find(src => typeof src === "string" && src.startsWith("img/"));
+      if (source) {
+        button.append(photoElement(source, "", { sizes: "(max-width: 900px) 42vw, 180px" }));
+      } else if (images.includes("sticker")) {
+        button.append(stickerMark("entry-sticker-mark"));
+      }
     }
     const body = element("span", "entry-body");
     body.append(
-      element("span", "entry-kicker", category.label),
-      element("span", "entry-name", product.name),
-      element("span", "entry-price", formatPrice(product)),
-      element("span", "entry-action", "Kategorie öffnen")
+      element("span", "entry-name", category.label),
+      element("span", "entry-price", price)
     );
     button.append(body);
     button.addEventListener("click", () => openCategory(category.id, { historyMode: "push", focusBack: true }));
@@ -277,24 +288,6 @@ function renderOffer(category) {
   actions.append(wa, mail);
   box.append(actions);
   box.hidden = false;
-}
-
-function renderSwitch(activeId) {
-  const nav = document.getElementById("categorySwitch");
-  if (!nav) return;
-  nav.replaceChildren();
-  CATEGORIES.forEach(category => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "switch-btn";
-    button.textContent = category.label;
-    button.dataset.category = category.id;
-    if (category.id === activeId) button.setAttribute("aria-current", "true");
-    button.addEventListener("click", () => {
-      if (category.id !== currentCategory) openCategory(category.id, { historyMode: "push", focusBack: false });
-    });
-    nav.append(button);
-  });
 }
 
 function renderProducts(list) {
@@ -440,7 +433,6 @@ function openCategory(id, options) {
   const countText = list.length === 1 ? "1 Beispiel" : list.length + " Beispiele";
   document.getElementById("categoryLead").textContent = category.blurb || ("Alle " + countText + " aus diesem Bereich.");
   renderOffer(category);
-  renderSwitch(id);
   renderProducts(list);
   if (settings.historyMode === "push") {
     history.pushState({ view: "category", category: id }, "", "#" + id);

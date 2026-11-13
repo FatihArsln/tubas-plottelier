@@ -1338,11 +1338,8 @@ footer {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: auto minmax(260px, 1fr);
-  gap: clamp(2rem, 6vw, 5.5rem);
-  align-items: center;
-  padding: 1.25rem 0 0.5rem;
+  display: block;
+  padding: 1.05rem 0 0.15rem;
 }
 
 .hero-photo {
@@ -1354,10 +1351,10 @@ footer {
 
 .hero-slides {
   position: relative;
-  width: 250px;
-  height: 334px;
+  width: 168px;
+  height: 224px;
   background: var(--creme-deep);
-  border-radius: 22px;
+  border-radius: 18px;
   overflow: hidden;
 }
 
@@ -1455,10 +1452,10 @@ footer {
 }
 
 .hero-copy p {
-  max-width: 34ch;
-  margin: 0 0 1.6rem;
-  font-size: 1.12rem;
-  line-height: 1.6;
+  max-width: 42ch;
+  margin: 0 0 0.55rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
   color: var(--anthrazit-soft);
 }
 
@@ -1487,7 +1484,13 @@ footer {
 }
 
 .examples {
-  padding: 1.35rem 0 1rem;
+  padding: 0.85rem 0 0.35rem;
+}
+
+.glimpse {
+  display: flex;
+  justify-content: center;
+  padding: 0.85rem 0 1.1rem;
 }
 
 .examples h2,
@@ -1505,8 +1508,8 @@ footer {
 
 .entry-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.15rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
 }
 
 .entry-card {
@@ -1533,7 +1536,7 @@ footer {
 .entry-card img,
 .entry-sticker-mark {
   width: 100%;
-  height: 128px;
+  height: 88px;
   object-fit: contain;
   background: var(--creme-deep);
 }
@@ -1579,8 +1582,8 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.15rem;
-  padding: 0.75rem 0.85rem 0.9rem;
+  gap: 0.1rem;
+  padding: 0.6rem 0.75rem 0.7rem;
 }
 
 .entry-kicker {
@@ -1678,6 +1681,7 @@ footer {
 }
 
 #anfrage,
+#kategorien,
 .category-view,
 .examples {
   scroll-margin-top: 5.5rem;
@@ -1703,35 +1707,28 @@ textarea:focus-visible {
   .entry-grid {
     grid-template-columns: 1fr 1fr;
   }
-
-  .entry-card[data-category="aufkleber"] {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (max-width: 720px) {
   .hero {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
-    gap: 1.35rem;
     padding-top: 0.35rem;
   }
 
-  .hero-slides {
-    width: min(64vw, 220px);
-    height: auto;
-    aspect-ratio: 3 / 4;
-    max-height: 32vh;
-    border-radius: 16px;
-  }
-
   .hero-copy h1 {
-    font-size: 2rem;
+    font-size: 1.85rem;
+    margin-bottom: 0.4rem;
   }
 
   .hero-copy p {
-    font-size: 1.02rem;
-    margin-bottom: 1.15rem;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-slides {
+    width: 132px;
+    height: 176px;
+    max-height: none;
+    border-radius: 14px;
   }
 
   .hero-actions .whatsapp-direct-btn {
@@ -1739,12 +1736,12 @@ textarea:focus-visible {
   }
 
   .examples {
-    padding-top: 1.6rem;
+    padding-top: 0.55rem;
   }
 
   .entry-card img,
   .entry-sticker-mark {
-    height: 132px;
+    height: 76px;
   }
 
   .category-cta .whatsapp-direct-btn {
@@ -1779,8 +1776,8 @@ textarea:focus-visible {
 }
 
 .shipping-note {
-  margin: -0.6rem 0 1.2rem;
-  max-width: 36ch;
+  margin: 0.15rem 0 0.85rem;
+  max-width: 42ch;
   color: var(--anthrazit);
   font-size: 0.98rem;
 }

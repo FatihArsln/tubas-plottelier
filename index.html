@@ -42,20 +42,6 @@
     <main>
       <section id="uebersicht">
         <div class="hero">
-          <div class="hero-photo" id="heroSlideshow">
-            <div class="hero-slides">
-              <picture class="hero-slide is-active">
-                <source type="image/webp" srcset="img/standspiegel-hochzeit-640.webp 640w, img/standspiegel-hochzeit-1280.webp 1280w" sizes="(max-width: 720px) 64vw, 250px" />
-                <img src="img/standspiegel-hochzeit.jpg" width="711" height="1280" alt="Aufkleber mit Hochzeitsbeschriftung auf einem weißen Standspiegel" fetchpriority="high" decoding="async" />
-              </picture>
-            </div>
-            <div class="hero-slide-ui">
-              <button class="hero-nav" id="heroPrev" type="button" aria-label="Vorheriges Bild">‹</button>
-              <div class="hero-dots" id="heroDots" role="group" aria-label="Bild wählen"></div>
-              <button class="hero-nav" id="heroNext" type="button" aria-label="Nächstes Bild">›</button>
-              <button class="hero-pause" id="heroPause" type="button" aria-pressed="false">Pause</button>
-            </div>
-          </div>
           <div class="hero-copy">
             <h1>Personalisierte Plots</h1>
             <p>Taschen, Textilien, Geschenke, Events und Aufkleber. Schreib mir, was du dir vorstellst.</p>
@@ -72,10 +58,25 @@
           </div>
         </div>
 
-        <section class="examples" id="beispiele" aria-labelledby="examplesTitle">
-          <h2 id="examplesTitle">Beispiele</h2>
-          <p class="lede">Ein Beispiel aus jedem Bereich. Weitere Bilder öffnest du in der Kategorie.</p>
+        <section class="examples" id="kategorien" aria-label="Kategorien">
           <div class="entry-grid" id="entryGrid"></div>
+        </section>
+
+        <section class="glimpse" aria-label="Einblicke">
+          <div class="hero-photo" id="heroSlideshow">
+            <div class="hero-slides">
+              <picture class="hero-slide is-active">
+                <source type="image/webp" srcset="img/standspiegel-hochzeit-640.webp 640w, img/standspiegel-hochzeit-1280.webp 1280w" sizes="168px" />
+                <img src="img/standspiegel-hochzeit.jpg" width="711" height="1280" alt="Aufkleber mit Hochzeitsbeschriftung auf einem weißen Standspiegel" loading="lazy" decoding="async" />
+              </picture>
+            </div>
+            <div class="hero-slide-ui">
+              <button class="hero-nav" id="heroPrev" type="button" aria-label="Vorheriges Bild">‹</button>
+              <div class="hero-dots" id="heroDots" role="group" aria-label="Bild wählen"></div>
+              <button class="hero-nav" id="heroNext" type="button" aria-label="Nächstes Bild">›</button>
+              <button class="hero-pause" id="heroPause" type="button" aria-pressed="false">Pause</button>
+            </div>
+          </div>
         </section>
       </section>
 
@@ -84,7 +85,6 @@
         <h2 id="categoryTitle"></h2>
         <p class="lede" id="categoryLead"></p>
         <div class="category-offer" id="categoryOffer" hidden></div>
-        <div class="category-switch" id="categorySwitch" role="navigation" aria-label="Bereiche"></div>
         <div class="products-grid" id="productsGrid"></div>
       </section>
 
