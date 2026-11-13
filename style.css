@@ -1507,11 +1507,49 @@ footer {
   color: inherit;
 }
 
-.entry-card img {
+.entry-card img,
+.entry-sticker-mark {
   width: 100%;
   height: 128px;
   object-fit: contain;
   background: var(--creme-deep);
+}
+
+.entry-sticker-mark,
+.product-sticker-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-sticker-mark {
+  width: 100%;
+  height: 100%;
+}
+
+.sticker-glyph {
+  width: 76px;
+  height: 50px;
+  border: 2px solid var(--altrosa-dark);
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 4px 4px 0 rgba(212, 160, 174, 0.45);
+}
+
+.category-offer {
+  margin: 0 0 1.2rem;
+}
+
+.category-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.25rem;
+}
+
+.category-cta .whatsapp-direct-btn {
+  width: auto;
+  margin-top: 0;
 }
 
 .entry-body {
@@ -1642,6 +1680,10 @@ textarea:focus-visible {
   .entry-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .entry-card[data-category="aufkleber"] {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1677,8 +1719,13 @@ textarea:focus-visible {
     padding-top: 1.6rem;
   }
 
-  .entry-card img {
+  .entry-card img,
+  .entry-sticker-mark {
     height: 132px;
+  }
+
+  .category-cta .whatsapp-direct-btn {
+    width: 100%;
   }
 
   .products-grid {

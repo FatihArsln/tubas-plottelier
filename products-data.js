@@ -58,5 +58,8 @@ const products = [
   {id:52,name:"Platzkarten aus Marmor",description:"Platzkarten mit Namen für Hochzeit oder Feier",price:null,image:"img/IMG-20251108-WA0048.jpg",category:"events"},
   {id:53,name:"Event-Schild / Willkommenstafel",description:"Schild für Hochzeit, Verlobung oder Party – Namen, Datum, Spruch personalisierbar",price:22.99,image:"🪧",category:"events"},
   {id:54,name:"Hochzeits-Dekoration Plot",description:"Aufkleber und Schriften für Hochzeitsdeko",price:18.99,image:"💒",category:"events"},
-  {id:55,name:"Fotobox-Schild",description:"Schilder und Props für Fotobox oder Event",price:14.99,image:"📸",category:"events"}
+  {id:55,name:"Fotobox-Schild",description:"Schilder und Props für Fotobox oder Event",price:14.99,image:"📸",category:"events"},
+
+  {id:56,name:"Aufkleber fürs Auto",description:"Name, Spruch oder Logo, zum Beispiel für die Heckscheibe",price:null,image:"sticker",category:"aufkleber"},
+  {id:57,name:"Aufkleber fürs Zuhause",description:"Für Wand, Tür, Briefkasten, Fenster oder Waschmaschine",price:null,image:"sticker",category:"aufkleber"}
 ];

@@ -3,11 +3,14 @@ let currentCategory = null;
 const CONTACT_EMAIL = "service_7ke1md3@live.de";
 const WHATSAPP_NUMBER = "905388343974";
 
+const STICKER_REQUEST = "Hallo, ich möchte personalisierte Aufkleber zum Selbstanbringen anfragen.\n\nBereich: Auto oder Zuhause\nWunschtext oder Motiv:\nFarbe:\nGröße:\n";
+
 const CATEGORIES = [
   { id: "taschen", label: "Taschen", exampleId: 1 },
   { id: "textilien", label: "Textilien", exampleId: 18 },
   { id: "geschenke", label: "Geschenke", exampleId: 31 },
-  { id: "events", label: "Events", exampleId: 50 }
+  { id: "events", label: "Events", exampleId: 50 },
+  { id: "aufkleber", label: "Aufkleber", exampleId: 56, blurb: "Zum Selbstanbringen fürs Auto oder fürs Zuhause. Sag mir Wunschtext oder Motiv, Farbe und Größe. Du bekommst den Aufkleber mit Übertragungsfolie und eine kurze Anleitung.", offer: STICKER_REQUEST }
 ];
 
 function init() {
@@ -167,6 +170,8 @@ function renderEntries() {
       image.src = source;
       image.alt = "";
       button.append(image);
+    } else if (images.includes("sticker")) {
+      button.append(stickerMark("entry-sticker-mark"));
     }
     const body = element("span", "entry-body");
     body.append(
@@ -179,6 +184,37 @@ function renderEntries() {
     button.addEventListener("click", () => openCategory(category.id, { historyMode: "push", focusBack: true }));
     grid.append(button);
   });
+}
+
+function stickerMark(className) {
+  const wrap = element("div", className);
+  wrap.setAttribute("aria-hidden", "true");
+  wrap.append(element("span", "sticker-glyph"));
+  return wrap;
+}
+
+function renderOffer(category) {
+  const box = document.getElementById("categoryOffer");
+  if (!box) return;
+  box.replaceChildren();
+  if (!category.offer) {
+    box.hidden = true;
+    return;
+  }
+  const wa = document.createElement("a");
+  wa.className = "whatsapp-direct-btn";
+  wa.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(category.offer);
+  wa.target = "_blank";
+  wa.rel = "noopener";
+  wa.textContent = "Per WhatsApp anfragen";
+  const mail = document.createElement("a");
+  mail.className = "text-link";
+  mail.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Anfrage Aufkleber") + "&body=" + encodeURIComponent(category.offer);
+  mail.textContent = "Per E-Mail anfragen";
+  const actions = element("div", "category-cta");
+  actions.append(wa, mail);
+  box.append(actions);
+  box.hidden = false;
 }
 
 function renderSwitch(activeId) {
@@ -218,6 +254,8 @@ function renderProducts(list) {
         image.className = "product-img";
         frame.append(image);
         photos.push({ src: src, alt: alt });
+      } else if (src === "sticker") {
+        frame.append(stickerMark("product-sticker-mark"));
       } else {
         frame.append(element("span", "product-emoji", String(src)));
       }
@@ -338,7 +376,8 @@ function openCategory(id, options) {
   document.getElementById("kategorie").hidden = false;
   document.getElementById("categoryTitle").textContent = category.label;
   const countText = list.length === 1 ? "1 Beispiel" : list.length + " Beispiele";
-  document.getElementById("categoryLead").textContent = "Alle " + countText + " aus diesem Bereich.";
+  document.getElementById("categoryLead").textContent = category.blurb || ("Alle " + countText + " aus diesem Bereich.");
+  renderOffer(category);
   renderSwitch(id);
   renderProducts(list);
   if (settings.historyMode === "push") {
