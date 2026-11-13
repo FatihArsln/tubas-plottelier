@@ -25,22 +25,27 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   </head>
-  <body>
-    <header class="has-categories">
-      <div class="header-bar">
-        <a href="./" class="logo" id="homeLink">
-          <span class="logo-title">Plottelier</span>
-        </a>
-        <nav aria-label="Seite">
-          <a href="#anfrage">E-Mail</a>
-          <button class="selection-link" id="cartHeaderBtn" type="button" aria-label="Deine Auswahl, 0 Stücke">
-            Auswahl
-            <span class="cart-count" id="cartCount">0</span>
-          </button>
-        </nav>
-      </div>
-      <nav class="category-bar" id="kategorien" aria-label="Kategorien"></nav>
-    </header>
+  <body class="shop-home">
+    <div class="top-stack">
+      <header>
+        <div class="header-bar">
+          <a href="./" class="logo" id="homeLink">
+            <span class="logo-title">Plottelier</span>
+          </a>
+          <nav aria-label="Seite">
+            <a href="#anfrage">E-Mail</a>
+            <button class="selection-link" id="cartHeaderBtn" type="button" aria-label="Deine Auswahl, 0 Stücke">
+              Auswahl
+              <span class="cart-count" id="cartCount">0</span>
+            </button>
+          </nav>
+        </div>
+      </header>
+      <aside class="category-sidebar">
+        <p class="sidebar-label" id="sidebarLabel">Bereiche</p>
+        <nav class="category-bar" id="kategorien" aria-labelledby="sidebarLabel"></nav>
+      </aside>
+    </div>
 
     <main>
       <section id="uebersicht">
