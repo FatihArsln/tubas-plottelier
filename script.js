@@ -2,6 +2,7 @@ let cart = [];
 let currentCategory = null;
 const CONTACT_EMAIL = "service_7ke1md3@live.de";
 const WHATSAPP_NUMBER = "905388343974";
+const ORDER_HINT = "Die Bestellung erfolgt individuell per WhatsApp oder E\u2011Mail. Vor der Fertigung erhältst du einen Entwurf und ein verbindliches Angebot.";
 
 const CATEGORIES = [
   { id: "taschen", label: "Taschen", exampleId: 1 },
@@ -127,12 +128,16 @@ function setupSlideshow() {
     stage.tabIndex = 0;
     stage.setAttribute("role", "button");
     stage.setAttribute("aria-label", "Großansicht des Bildes");
-    const openHero = () => openLightbox({
-      images: slides.map(slideJpg),
-      alts: slides.map(slide => slide.querySelector("img")?.alt || slide.dataset.alt || ""),
-      name: slides[index].querySelector("img")?.alt || slides[index].dataset.alt || "",
-      index: index
-    }, stage);
+    const openHero = () => {
+      const name = slides[index].querySelector("img")?.alt || slides[index].dataset.alt || "";
+      openLightbox({
+        images: slides.map(slideJpg),
+        alts: slides.map(slide => slide.querySelector("img")?.alt || slide.dataset.alt || ""),
+        name: name,
+        inquiry: productInquiryText(name),
+        index: index
+      }, stage);
+    };
     stage.addEventListener("click", openHero);
     stage.addEventListener("keydown", event => {
       if (event.key === "Enter" || event.key === " ") {
@@ -585,7 +590,7 @@ function buildStickerPanel() {
   mail.id = "stickerMail";
   mail.className = "text-link";
   mail.textContent = "Per E-Mail anfragen";
-  actions.append(whatsapp, mail);
+  actions.append(whatsapp, element("p", "order-hint", ORDER_HINT), mail);
   form.append(quote, actions);
   panel.append(form);
   return panel;
@@ -650,10 +655,12 @@ function renderProducts(list) {
     info.append(element("h3", "product-name", product.name), element("p", "product-description", product.description));
     if (product.note) info.append(element("p", "product-note", product.note));
     if (!product.isSizeGuide) {
-      info.append(element("p", "product-price", formatPrice(product)));
+      const priceText = formatPrice(product);
+      info.append(element("p", "product-price", priceText));
+      info.append(whatsAppLink(productInquiryText(product.name, priceText), "product-whatsapp"));
       const add = document.createElement("button");
       add.type = "button";
-      add.className = "add-to-cart-btn";
+      add.className = "card-select-btn";
       add.dataset.id = String(product.id);
       add.textContent = "In die Auswahl";
       add.addEventListener("click", () => addToCart(product, add));
@@ -669,6 +676,7 @@ function renderProducts(list) {
         images: photos.map(photo => photo.src),
         alts: photos.map(photo => photo.alt),
         name: product.name,
+        inquiry: product.isSizeGuide ? "" : productInquiryText(product.name, formatPrice(product)),
         index: 0
       }, container);
       container.addEventListener("click", open);
@@ -687,6 +695,22 @@ function renderProducts(list) {
 let lightboxItems = [];
 let lightboxIndex = 0;
 let lightboxOpener = null;
+
+function productInquiryText(name, priceText) {
+  const lines = ["Hallo, ich möchte diesen Artikel anfragen.", "", "Artikel: " + (name || "—")];
+  if (priceText) lines.push("Preis: " + priceText);
+  return lines.join("\n");
+}
+
+function whatsAppLink(text, className) {
+  const link = document.createElement("a");
+  link.className = "whatsapp-direct-btn" + (className ? " " + className : "");
+  link.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.textContent = "Per WhatsApp anfragen";
+  return link;
+}
 
 function lightboxOpen() {
   return document.getElementById("imagePopup")?.classList.contains("active");
@@ -720,6 +744,16 @@ function openLightbox(detail, opener) {
   lightboxIndex = Math.min(Math.max(detail.index || 0, 0), items.length - 1);
   lightboxOpener = opener || null;
   document.getElementById("popupProductName").textContent = detail.name || items[lightboxIndex].alt;
+  const actions = document.getElementById("popupActions");
+  if (actions) {
+    actions.replaceChildren();
+    if (detail.inquiry) {
+      actions.append(
+        whatsAppLink(detail.inquiry),
+        element("p", "order-hint", ORDER_HINT)
+      );
+    }
+  }
   showLightboxImage();
   popup.classList.add("active");
   document.body.classList.add("popup-open");
@@ -731,6 +765,7 @@ function closeLightbox() {
   popup?.classList.remove("active");
   document.body.classList.remove("popup-open");
   document.getElementById("popupImage")?.replaceChildren();
+  document.getElementById("popupActions")?.replaceChildren();
   lightboxItems = [];
   if (lightboxOpener) lightboxOpener.focus();
   lightboxOpener = null;
