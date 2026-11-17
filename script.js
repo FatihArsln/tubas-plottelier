@@ -204,6 +204,8 @@ function photoElement(src, alt, options) {
   image.decoding = "async";
   image.loading = opts.eager ? "eager" : "lazy";
   if (opts.className) image.className = opts.className;
+  if (opts.width) image.width = opts.width;
+  if (opts.height) image.height = opts.height;
   picture.append(source, image);
   return picture;
 }
@@ -675,7 +677,13 @@ function renderProducts(list) {
     images.forEach((src, index) => {
       if (typeof src === "string" && src.startsWith("img/")) {
         const alt = (product.alts && product.alts[index]) || product.name;
-        frame.append(photoElement(src, alt, { className: "product-img", sizes: "(max-width: 720px) 92vw, 320px" }));
+        const photoOptions = { className: "product-img", sizes: "(max-width: 720px) 92vw, 320px" };
+        if (product.isSizeGuide) {
+          photoOptions.sizes = "(max-width: 768px) 92vw, 720px";
+          photoOptions.width = 1600;
+          photoOptions.height = 900;
+        }
+        frame.append(photoElement(src, alt, photoOptions));
         photos.push({ src: src, alt: alt });
       } else if (src === "sticker") {
         frame.append(stickerMark("product-sticker-mark"));
@@ -760,7 +768,11 @@ function showLightboxImage() {
   image.addEventListener("error", () => {
     if (image.getAttribute("src") !== item.src) image.src = item.src;
   }, { once: true });
-  image.className = "popup-img";
+  image.className = item.src.includes("groessenuebersicht") ? "popup-img is-size-guide" : "popup-img";
+  if (image.classList.contains("is-size-guide")) {
+    image.width = 1600;
+    image.height = 900;
+  }
   popupImage.replaceChildren(image);
   const multi = lightboxItems.length > 1;
   document.getElementById("prevImageBtn").hidden = !multi;

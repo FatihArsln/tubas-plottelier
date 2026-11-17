@@ -1,5 +1,5 @@
 const products = [
-  {id:0,name:"Größenübersicht",description:"Übersicht der verfügbaren Taschen-Größen",price:0,image:"img/groessenuebersicht.jpg",category:"taschen",isSizeGuide:true},
+  {id:0,name:"Größenübersicht",description:"Klein 26 × 22 × 14 cm, Mittel 30 × 30 × 19 cm, Groß 42 × 33 × 19 cm",price:0,image:"img/groessenuebersicht.jpg",category:"taschen",isSizeGuide:true,alts:["Größenübersicht Jutetaschen: Klein 26 × 22 × 14 cm, Mittel 30 × 30 × 19 cm, Groß 42 × 33 × 19 cm"]},
 
   {id:1,name:"Jutetasche klein",description:"Personalisierte Jutetasche mit Initiale und Namen",price:21.9,image:"img/IMG-20251108-WA0006.jpg",category:"taschen"},
   {id:2,name:"Jutetasche mit Herz",description:"Kleine Jutetasche mit Initiale, Namen und Herzanhänger",price:21.9,image:"img/IMG-20251108-WA0009.jpg",category:"taschen"},

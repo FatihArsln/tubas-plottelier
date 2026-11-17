@@ -908,10 +908,26 @@ button.submit:hover {
 }
 
 .size-guide-card .product-image {
-  aspect-ratio: auto;
-  height: 380px;
-  object-fit: contain;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  overflow: hidden;
   background: var(--white);
+}
+
+.size-guide-card .product-image picture,
+.size-guide-card .product-image img,
+.size-guide-card .product-img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  transform: none;
+}
+
+.size-guide-card:hover .product-image img,
+.size-guide-card:hover .product-img {
+  transform: none;
 }
 
 .size-guide-card .product-name {
@@ -1011,6 +1027,14 @@ body.popup-open {
   max-height: 58vh;
   object-fit: contain;
   border-radius: 12px;
+}
+
+.popup-image img.popup-img.is-size-guide {
+  width: min(100%, 960px);
+  height: auto;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 
 .popup-actions {
@@ -1493,7 +1517,8 @@ footer {
   }
 
   .size-guide-card .product-image {
-    height: 200px;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .size-guide-card .product-name {
@@ -1508,6 +1533,14 @@ footer {
   .popup-image,
   .popup-image img {
     max-height: 42vh;
+  }
+
+  .popup-image img.popup-img.is-size-guide {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
   }
 
   .image-nav-btn {
