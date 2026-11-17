@@ -1,0 +1,30 @@
+# Netlify führt kein Jekyll aus. Die interne Doku liegt in _doku und soll auch hier 404 liefern.
+[[redirects]]
+  from = "/_doku/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/GIT-ANLEITUNG.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/VERÖFFENTLICHUNG.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/VER%C3%96FFENTLICHUNG.md"
+  to = "/404"
+  status = 404
+  force = true

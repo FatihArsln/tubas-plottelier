@@ -1,0 +1,4 @@
+# GitHub Pages baut mit Jekyll, sobald .nojekyll fehlt.
+# Ordner mit Unterstrich, also _doku, landen nicht in der veröffentlichten Seite.
+exclude:
+  - netlify.toml

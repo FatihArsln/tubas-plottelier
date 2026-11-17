@@ -117,7 +117,7 @@
 ## Empfohlene Schritte vor Veröffentlichung
 
 1. **E-Mail-Adresse prüfen**
-   - Aktuell: `Fatih1106@live.de` ist im Code sichtbar
+   - Öffentliche Adresse: `info@plottelier.de`
    - Überlege, ob du diese öffentlich zeigen möchtest
 
 2. **Testen**

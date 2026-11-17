@@ -56,9 +56,9 @@ const products = [
   {id:50,name:"Verlobungstablett",description:"Personalisiertes Verlobungstablett mit Namen, Datum und Spruch",price:44.9,priceFrom:true,image:"img/IMG-20251108-WA0045.jpg",category:"events"},
   {id:51,name:"Verlobungsband",description:"Personalisiertes Band für den Verlobungsantrag",price:19.99,image:"img/IMG-20251108-WA0047.jpg",category:"events"},
   {id:52,name:"Platzkarten aus Marmor",description:"Platzkarten mit Namen für Hochzeit oder Feier",price:19.9,priceFrom:true,priceNote:"für 10 Stück",image:"img/IMG-20251108-WA0048.jpg",category:"events"},
-  {id:53,name:"Event-Schild / Willkommenstafel",description:"Schild für Hochzeit, Verlobung oder Party – Namen, Datum, Spruch personalisierbar",price:22.99,image:"🪧",category:"events"},
-  {id:54,name:"Hochzeits-Dekoration Plot",description:"Aufkleber und Schriften für Hochzeitsdeko",price:18.99,image:"💒",category:"events"},
-  {id:55,name:"Fotobox-Schild",description:"Schilder und Props für Fotobox oder Event",price:14.99,image:"📸",category:"events"},
+  {id:53,name:"Event-Schild / Willkommenstafel",description:"Schild für Hochzeit, Verlobung oder Party – Namen, Datum, Spruch personalisierbar",price:22.99,image:"🪧",category:"events",hidden:true},
+  {id:54,name:"Hochzeits-Dekoration Plot",description:"Aufkleber und Schriften für Hochzeitsdeko",price:18.99,image:"💒",category:"events",hidden:true},
+  {id:55,name:"Fotobox-Schild",description:"Schilder und Props für Fotobox oder Event",price:14.99,image:"📸",category:"events",hidden:true},
 
   {id:56,name:"Aufkleber fürs Auto",description:"Nach Maß, zum Beispiel Name oder Spruch für die Heckscheibe. Einfarbig, mit Transferfolie und Anleitung.",price:9.9,priceFrom:true,image:"sticker",category:"aufkleber"},
   {id:57,name:"Aufkleber fürs Zuhause",description:"Wandaufkleber nach Maß für Wand, Tür, Briefkasten oder Fenster. Einfarbig, mit Transferfolie und Anleitung.",price:14.9,priceFrom:true,image:"sticker",category:"aufkleber"}

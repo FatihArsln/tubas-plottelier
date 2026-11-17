@@ -43,7 +43,7 @@ function init() {
   } else {
     history.replaceState({ view: "overview" }, "", location.pathname + location.search);
     showOverview({ historyMode: "none" });
-    if (start === "anfrage" || start === "bestellung" || start === "faq") {
+    if (start === "anfrage" || start === "bestellung" || start === "faq" || start === "versand") {
       document.getElementById(start)?.scrollIntoView();
     }
   }
@@ -216,10 +216,27 @@ function getProductImages(product) {
 
 function formatPrice(value) {
   const product = value && typeof value === "object" ? value : { price: value };
+  if (product.isSizeGuide || product.price === 0) return "";
   if (typeof product.price !== "number") return "auf Anfrage";
   const amount = product.price.toFixed(2).replace(".", ",") + " €";
   const text = (product.priceFrom ? "ab " : "") + amount;
   return product.priceNote ? text + " " + product.priceNote : text;
+}
+
+function shippingHref() {
+  const path = location.pathname;
+  if (path.endsWith("/") || path.endsWith("index.html")) return "#versand";
+  return "index.html#versand";
+}
+
+function taxNoteElement() {
+  const note = element("p", "price-tax-note");
+  note.append(document.createTextNode("Endpreis, keine USt. gem. § 19 UStG, "));
+  const link = document.createElement("a");
+  link.href = shippingHref();
+  link.textContent = "zzgl. Versand";
+  note.append(link);
+  return note;
 }
 
 function element(tag, className, text) {
@@ -231,7 +248,7 @@ function element(tag, className, text) {
 
 function productsIn(categoryId) {
   return products
-    .filter(product => product.category === categoryId)
+    .filter(product => product.category === categoryId && !product.hidden)
     .sort((a, b) => (a.isSizeGuide ? -1 : 0) - (b.isSizeGuide ? -1 : 0) || a.id - b.id);
 }
 
@@ -325,8 +342,8 @@ function stickerQuote(input) {
       label: "auf Anfrage",
       parts: [],
       note: type === "auto"
-        ? "Über 80 cm Breite gibt es keinen Staffelpreis. Den Preis bekommst du auf Anfrage, vor der Fertigung."
-        : "Über 150 cm an der größeren Seite gibt es keinen Staffelpreis. Den Preis bekommst du auf Anfrage, vor der Fertigung."
+        ? "Über 80 cm Breite gibt es keinen Staffelpreis. Den Preis bekommst du auf Anfrage, vor der Fertigung. Der verbindliche Gesamtpreis steht im Angebot vor der Fertigung."
+        : "Über 150 cm an der größeren Seite gibt es keinen Staffelpreis. Den Preis bekommst du auf Anfrage, vor der Fertigung. Der verbindliche Gesamtpreis steht im Angebot vor der Fertigung."
     };
   }
 
@@ -370,7 +387,7 @@ function stickerQuote(input) {
   if (design === "motiv") {
     notes.push("In den 24,90 € sind 2 Korrekturen enthalten. Jede weitere kostet 10,00 € und fehlt in diesem Richtpreis.");
   }
-  notes.push("Unverbindlich. Der endgültige Preis kommt vor der Fertigung.");
+  notes.push("Unverbindlicher Richtpreis. Der verbindliche Gesamtpreis steht im Angebot vor der Fertigung.");
   return { kind: "price", label: "ab " + formatEuro(cents), parts: parts, note: notes.join(" ") };
 }
 
@@ -400,7 +417,7 @@ function stickerInquiry(input, quote) {
     "Richtpreis: " + quote.label
   ];
   if (quote.parts.length) lines.push("Zusammensetzung: " + quote.parts.join("; "));
-  lines.push("", "Der Richtpreis ist unverbindlich. Versand mit DHL kommt dazu.");
+  lines.push("", "Der Richtpreis ist unverbindlich. Der verbindliche Gesamtpreis steht im Angebot vor der Fertigung. Versand mit DHL innerhalb von 3 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.");
   return lines.join("\n");
 }
 
@@ -505,7 +522,18 @@ function stickerRule(title, items) {
 
 function buildStickerPanel() {
   const panel = element("div", "sticker-panel");
-  panel.append(element("p", "sticker-intro", "Einfarbig, inklusive Transferfolie und einer kurzen Anleitung. Alle Preise sind Endpreise in Euro, ohne Umsatzsteuer (Kleinunternehmer nach § 19 UStG). Versand mit DHL kommt dazu."));
+  const intro = element("p", "sticker-intro");
+  intro.append(
+    document.createTextNode("Einfarbig, inklusive Transferfolie und einer kurzen Anleitung. Endpreis, keine USt. gem. § 19 UStG, ")
+  );
+  const shippingLink = document.createElement("a");
+  shippingLink.href = shippingHref();
+  shippingLink.textContent = "zzgl. Versand";
+  intro.append(
+    shippingLink,
+    document.createTextNode(". Versand mit DHL innerhalb von 3 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.")
+  );
+  panel.append(intro);
 
   const tables = element("div", "sticker-tables");
   const auto = stickerPriceTable("auto", "Autoaufkleber", "Nach der Breite des Motivs");
@@ -577,7 +605,7 @@ function buildStickerPanel() {
   price.setAttribute("aria-live", "polite");
   const detail = element("p", "sticker-quote-detail");
   detail.id = "stickerQuoteDetail";
-  quote.append(element("p", "sticker-quote-kicker", "Richtpreis"), price, detail);
+  quote.append(element("p", "sticker-quote-kicker", "Unverbindlicher Richtpreis"), price, taxNoteElement(), detail);
 
   const actions = element("div", "category-cta sticker-actions");
   const whatsapp = document.createElement("a");
@@ -657,6 +685,7 @@ function renderProducts(list) {
     if (!product.isSizeGuide) {
       const priceText = formatPrice(product);
       info.append(element("p", "product-price", priceText));
+      info.append(taxNoteElement());
       info.append(whatsAppLink(productInquiryText(product.name, priceText), "product-whatsapp"));
       const add = document.createElement("button");
       add.type = "button";
@@ -676,6 +705,7 @@ function renderProducts(list) {
         images: photos.map(photo => photo.src),
         alts: photos.map(photo => photo.alt),
         name: product.name,
+        priceText: product.isSizeGuide ? "" : formatPrice(product),
         inquiry: product.isSizeGuide ? "" : productInquiryText(product.name, formatPrice(product)),
         index: 0
       }, container);
@@ -747,6 +777,8 @@ function openLightbox(detail, opener) {
   const actions = document.getElementById("popupActions");
   if (actions) {
     actions.replaceChildren();
+    if (detail.priceText) actions.append(element("p", "product-price", detail.priceText));
+    if (detail.priceText || detail.inquiry) actions.append(taxNoteElement());
     if (detail.inquiry) {
       actions.append(
         whatsAppLink(detail.inquiry),
@@ -855,7 +887,8 @@ function openCart() {
       const info = element("div", "cart-item-info");
       info.append(
         element("div", "cart-item-name", item.name),
-        element("div", "cart-item-price", formatPrice(item) + " × " + (item.quantity || 1))
+        element("div", "cart-item-price", formatPrice(item) + " × " + (item.quantity || 1)),
+        taxNoteElement()
       );
       row.append(info);
       items.append(row);
