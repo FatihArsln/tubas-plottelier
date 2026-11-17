@@ -531,8 +531,12 @@ function buildStickerPanel() {
   shippingLink.textContent = "zzgl. Versand";
   intro.append(
     shippingLink,
-    document.createTextNode(". Versand mit DHL innerhalb von 3–10 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.")
+    document.createTextNode(". Versand mit DHL innerhalb von 3–10 Werktagen nach Freigabe des Entwurfs und Zahlungseingang. Nur Aufkleber, ohne andere Artikel? Dann verschicken wir auf Wunsch günstig per Brief mit der Deutschen Post, zum Beispiel als Großbrief für 1,80 €. Ein Brief hat keine Bestätigung, dass er angekommen ist. ")
   );
+  const letterLink = document.createElement("a");
+  letterLink.href = shippingHref();
+  letterLink.textContent = "Preise und Quelle stehen beim Versand";
+  intro.append(letterLink, document.createTextNode("."));
   panel.append(intro);
 
   const tables = element("div", "sticker-tables");
