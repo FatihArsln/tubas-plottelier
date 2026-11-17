@@ -1,6 +1,6 @@
 let cart = [];
 let currentCategory = null;
-const CONTACT_EMAIL = "service_7ke1md3@live.de";
+const CONTACT_EMAIL = "info@plottelier.de";
 const WHATSAPP_NUMBER = "905388343974";
 const ORDER_HINT = "Die Bestellung erfolgt individuell per WhatsApp oder E\u2011Mail. Vor der Fertigung erhältst du einen Entwurf und ein verbindliches Angebot.";
 
