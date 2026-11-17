@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://plottelier.de/sitemap.xml
+Sitemap: https://fatiharsln.github.io/tubas-plottelier/sitemap.xml
