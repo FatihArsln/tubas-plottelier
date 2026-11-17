@@ -85,7 +85,7 @@ Deine Seite ist jetzt unter erreichbar:
 ## 🔒 Sicherheitstipps
 
 ### 1. E-Mail-Adresse schützen
-**Problem:** Deine E-Mail `Fatih1106@live.de` ist im JavaScript-Code sichtbar.
+**Problem:** Eine private E-Mail-Adresse sollte nicht im JavaScript-Code stehen. Die öffentliche Adresse ist `info@plottelier.de`.
 
 **Lösung:** Verwende EmailJS für das Kontaktformular (kostenlos)
 
