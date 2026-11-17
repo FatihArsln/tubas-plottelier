@@ -2425,14 +2425,6 @@ select:focus-visible {
   color: var(--altrosa-ink);
 }
 
-.legal-page .placeholder {
-  background: #fff3cd;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-weight: 600;
-  color: #5c4300;
-}
-
 .legal-page .back-link {
   display: inline-block;
   margin-bottom: 2rem;
