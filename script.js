@@ -417,7 +417,7 @@ function stickerInquiry(input, quote) {
     "Richtpreis: " + quote.label
   ];
   if (quote.parts.length) lines.push("Zusammensetzung: " + quote.parts.join("; "));
-  lines.push("", "Der Richtpreis ist unverbindlich. Der verbindliche Gesamtpreis steht im Angebot vor der Fertigung. Versand mit DHL innerhalb von 3 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.");
+  lines.push("", "Der Richtpreis ist unverbindlich. Der verbindliche Gesamtpreis steht im Angebot vor der Fertigung. Versand mit DHL innerhalb von 3–10 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.");
   return lines.join("\n");
 }
 
@@ -531,7 +531,7 @@ function buildStickerPanel() {
   shippingLink.textContent = "zzgl. Versand";
   intro.append(
     shippingLink,
-    document.createTextNode(". Versand mit DHL innerhalb von 3 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.")
+    document.createTextNode(". Versand mit DHL innerhalb von 3–10 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.")
   );
   panel.append(intro);
 
