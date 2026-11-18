@@ -61,5 +61,6 @@ const products = [
   {id:55,name:"Fotobox-Schild",description:"Schilder und Props für Fotobox oder Event",price:14.99,image:"📸",category:"events",hidden:true},
 
   {id:56,name:"Aufkleber fürs Auto",description:"Nach Maß, zum Beispiel Name oder Spruch für die Heckscheibe. Einfarbig, mit Transferfolie und Anleitung.",price:9.9,priceFrom:true,image:"sticker",category:"aufkleber"},
-  {id:57,name:"Aufkleber fürs Zuhause",description:"Wandaufkleber nach Maß für Wand, Tür, Briefkasten oder Fenster. Einfarbig, mit Transferfolie und Anleitung.",price:14.9,priceFrom:true,image:"sticker",category:"aufkleber"}
+  {id:57,name:"Aufkleber fürs Zuhause",description:"Wandaufkleber nach Maß für Wand, Tür, Briefkasten oder Fenster. Einfarbig, mit Transferfolie und Anleitung.",price:14.9,priceFrom:true,image:"sticker",category:"aufkleber"},
+  {id:58,name:"Verlobungstuch",description:"Willkommenstuch für Verlobung oder Hochzeit, mit euren Namen und eurem Datum",price:24.99,image:"img/verlobungstuch.jpg",alts:["Weißes Willkommenstuch zur Verlobung mit Namen und Datum, daneben Kerzen und ein Blumenstrauß"],category:"events"},
 ];
