@@ -8,7 +8,7 @@ const CATEGORIES = [
   { id: "taschen", label: "Taschen", exampleId: 1, blurb: "Jutetaschen und Beutel mit Namen, Initiale oder Motiv – als Geschenk, für die Kita oder für dich. Maße findest du in der Größenübersicht." },
   { id: "textilien", label: "Textilien", exampleId: 18, blurb: "Shirts, Bodys, Caps, Schürzen und Hüte mit Namen oder Motiv." },
   { id: "geschenke", label: "Geschenke", exampleId: 31, blurb: "Tassen, Flaschen, Kästchen und mehr – persönlich beschriftet für Geburt, Geburtstag, Lehrer oder einfach so." },
-  { id: "events", label: "Events", exampleId: 49, blurb: "Für Verlobung, Hochzeit und Feier: Spiegel-Beschriftung, Tablett und Band mit euren Namen und eurem Datum." },
+  { id: "events", label: "Events", exampleId: 49, blurb: "Für Verlobung, Hochzeit und Feier: Spiegel-Beschriftung, Tablett, Band und Verlobungstasse mit euren Namen und eurem Datum." },
   { id: "aufkleber", label: "Aufkleber", exampleId: 40, blurb: "Aufkleber zum Selbstanbringen. Nach Maß für Auto und Wand, ein einfacher Schriftzug samt Entwurf ist inklusive. Dazu Motive für Waschmaschine und Trockner." }
 ];
 const CART_KEY = "plottelier-auswahl";
