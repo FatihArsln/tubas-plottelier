@@ -3001,3 +3001,19 @@ select:focus-visible {
     border: 0;
   }
 }
+
+/* Über mich: Pusteblume */
+.about-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.25rem;
+  align-items: center;
+}
+.about-card .about-image { grid-column: 2; grid-row: 1; }
+.about-card .about-text { grid-column: 1; grid-row: 1; }
+.about-card .about-image img { display: block; width: 120px; height: auto; }
+@media (max-width: 640px) {
+  .about-card { grid-template-columns: 1fr; gap: .75rem; }
+  .about-card .about-image, .about-card .about-text { grid-column: 1; grid-row: auto; }
+  .about-card .about-image img { width: 96px; margin: 0 auto; }
+}
