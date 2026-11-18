@@ -1,16 +1,18 @@
 let cart = [];
 let currentCategory = null;
 const CONTACT_EMAIL = "info@plottelier.de";
-const WHATSAPP_NUMBER = "905388343974";
+const WHATSAPP_NUMBER = "491715222727";
 const ORDER_HINT = "Die Bestellung erfolgt individuell per WhatsApp oder E\u2011Mail. Vor der Fertigung erhältst du einen Entwurf und ein verbindliches Angebot.";
 
 const CATEGORIES = [
-  { id: "taschen", label: "Taschen", exampleId: 1 },
-  { id: "textilien", label: "Textilien", exampleId: 18 },
-  { id: "geschenke", label: "Geschenke", exampleId: 31 },
-  { id: "events", label: "Events", exampleId: 50 },
-  { id: "aufkleber", label: "Aufkleber", exampleId: 56, priceHint: "ab 9,90 €", blurb: "Auto- und Wandaufkleber nach Maß zum Selbstanbringen. Ein einfacher Schriftzug samt Entwurf ist inklusive." }
+  { id: "taschen", label: "Taschen", exampleId: 1, blurb: "Jutetaschen und Beutel mit Namen, Initiale oder Motiv – als Geschenk, für die Kita oder für dich. Maße findest du in der Größenübersicht." },
+  { id: "textilien", label: "Textilien", exampleId: 18, blurb: "Shirts, Bodys, Caps, Schürzen und Hüte mit Namen oder Motiv." },
+  { id: "geschenke", label: "Geschenke", exampleId: 31, blurb: "Tassen, Flaschen, Kästchen und mehr – persönlich beschriftet für Geburt, Geburtstag, Lehrer oder einfach so." },
+  { id: "events", label: "Events", exampleId: 49, blurb: "Für Verlobung, Hochzeit und Feier: Spiegel-Beschriftung, Tablett, Band und Verlobungstasse mit euren Namen und eurem Datum." },
+  { id: "aufkleber", label: "Aufkleber", exampleId: 40, blurb: "Aufkleber zum Selbstanbringen. Nach Maß für Auto und Wand, ein einfacher Schriftzug samt Entwurf ist inklusive. Dazu Motive für Waschmaschine und Trockner." }
 ];
+const CART_KEY = "plottelier-auswahl";
+const INQUIRY_FIELDS = "Name/Text: \nFarbe/Schrift: \nAnlass & Wunschtermin: \nPLZ für den Versand: ";
 
 const STICKER_TIERS = {
   auto: [
@@ -28,12 +30,16 @@ const STICKER_TIERS = {
 };
 
 function init() {
-  document.querySelectorAll("#whatsappDirectBtn, a.js-whatsapp").forEach(link => {
-    link.href = "https://wa.me/" + WHATSAPP_NUMBER;
+  const generalHref = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(generalInquiryText());
+  document.querySelectorAll("#whatsappDirectBtn, a.js-whatsapp, .sidebar-whatsapp, #waFloat").forEach(link => {
+    link.href = generalHref;
   });
+  loadCart();
   mountHeroSlides();
   setupSlideshow();
   renderCategoryBar();
+  renderAreaTiles();
+  setupFloatButton();
   setupEventListeners();
   updateCartDisplay();
   const start = location.hash.replace(/^#/, "");
@@ -43,7 +49,7 @@ function init() {
   } else {
     history.replaceState({ view: "overview" }, "", location.pathname + location.search);
     showOverview({ historyMode: "none" });
-    if (start === "anfrage" || start === "bestellung" || start === "faq" || start === "versand") {
+    if (start === "anfrage" || start === "bestellung" || start === "konditionen" || start === "faq" || start === "versand") {
       document.getElementById(start)?.scrollIntoView();
     }
   }
@@ -204,6 +210,8 @@ function photoElement(src, alt, options) {
   image.decoding = "async";
   image.loading = opts.eager ? "eager" : "lazy";
   if (opts.className) image.className = opts.className;
+  if (opts.width) image.width = opts.width;
+  if (opts.height) image.height = opts.height;
   picture.append(source, image);
   return picture;
 }
@@ -252,6 +260,20 @@ function productsIn(categoryId) {
     .sort((a, b) => (a.isSizeGuide ? -1 : 0) - (b.isSizeGuide ? -1 : 0) || a.id - b.id);
 }
 
+function categoryFromPrice(categoryId) {
+  const prices = products
+    .filter(product => product.category === categoryId && !product.hidden && typeof product.price === "number" && product.price > 0)
+    .map(product => product.price);
+  if (!prices.length) return "";
+  return "ab " + Math.min.apply(null, prices).toFixed(2).replace(".", ",") + " €";
+}
+
+function productAlt(product, index) {
+  if (product.alts && product.alts[index]) return product.alts[index];
+  if (product.description) return product.name + ": " + product.description.replace(/\.$/, "");
+  return product.name || "";
+}
+
 function renderCategoryBar() {
   const nav = document.getElementById("kategorien");
   if (!nav) return;
@@ -262,10 +284,38 @@ function renderCategoryBar() {
     button.className = "category-link";
     button.dataset.category = category.id;
     button.append(element("span", "category-name", category.label));
-    if (category.priceHint) button.append(element("span", "category-price", category.priceHint));
+    const hint = categoryFromPrice(category.id);
+    if (hint) button.append(element("span", "category-price", hint));
     button.addEventListener("click", () => {
       if (currentCategory !== category.id) openCategory(category.id, { historyMode: "push", focusBack: false });
     });
+    nav.append(button);
+  });
+}
+
+function renderAreaTiles() {
+  const nav = document.getElementById("areaTiles");
+  if (!nav) return;
+  nav.replaceChildren();
+  CATEGORIES.forEach(category => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "area-tile";
+    button.dataset.category = category.id;
+    const example = products.find(product => product.id === category.exampleId);
+    const frame = element("span", "area-tile-photo");
+    const src = example && (example.images && example.images[0] || example.image);
+    if (typeof src === "string" && src.startsWith("img/")) {
+      frame.append(photoElement(src, productAlt(example, 0), { className: "area-tile-img", sizes: "(max-width: 720px) 46vw, 240px", eager: true }));
+    } else if (src === "sticker") {
+      frame.append(stickerMark("product-sticker-mark"));
+    }
+    const caption = element("span", "area-tile-caption");
+    caption.append(element("span", "area-tile-name", category.label));
+    const hint = categoryFromPrice(category.id);
+    if (hint) caption.append(element("span", "area-tile-price", hint));
+    button.append(frame, caption);
+    button.addEventListener("click", () => openCategory(category.id, { historyMode: "push", focusBack: false }));
     nav.append(button);
   });
 }
@@ -417,7 +467,7 @@ function stickerInquiry(input, quote) {
     "Richtpreis: " + quote.label
   ];
   if (quote.parts.length) lines.push("Zusammensetzung: " + quote.parts.join("; "));
-  lines.push("", "Der Richtpreis ist unverbindlich. Der verbindliche Gesamtpreis steht im Angebot vor der Fertigung. Versand mit DHL innerhalb von 3 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.");
+  lines.push("", "Der Richtpreis ist unverbindlich. Der verbindliche Gesamtpreis steht im Angebot vor der Fertigung. Versand mit DHL innerhalb von 3–10 Werktagen nach Freigabe und Zahlung.");
   return lines.join("\n");
 }
 
@@ -531,8 +581,12 @@ function buildStickerPanel() {
   shippingLink.textContent = "zzgl. Versand";
   intro.append(
     shippingLink,
-    document.createTextNode(". Versand mit DHL innerhalb von 3 Werktagen nach Freigabe des Entwurfs und Zahlungseingang.")
+    document.createTextNode(". Versand mit DHL innerhalb von 3–10 Werktagen nach Freigabe und Zahlung. Nur Aufkleber, ohne andere Artikel? Dann verschicke ich auf Wunsch günstig per Brief mit der Deutschen Post, zum Beispiel als Großbrief für 1,80 €. Ein Brief hat keine Bestätigung, dass er angekommen ist. ")
   );
+  const letterLink = document.createElement("a");
+  letterLink.href = shippingHref();
+  letterLink.textContent = "Preise und Quelle stehen beim Versand";
+  intro.append(letterLink, document.createTextNode("."));
   panel.append(intro);
 
   const tables = element("div", "sticker-tables");
@@ -666,19 +720,28 @@ function renderProducts(list) {
     const card = document.createElement("article");
     card.className = product.isSizeGuide ? "product-card size-guide-card" : "product-card";
     const images = getProductImages(product);
-    const frame = element("div", images.length > 1 ? "product-image product-image-natural" : "product-image");
+    const frame = element("div", "product-image");
     const photos = [];
     images.forEach((src, index) => {
       if (typeof src === "string" && src.startsWith("img/")) {
-        const alt = (product.alts && product.alts[index]) || product.name;
-        frame.append(photoElement(src, alt, { className: "product-img", sizes: "(max-width: 720px) 92vw, 320px" }));
-        photos.push({ src: src, alt: alt });
-      } else if (src === "sticker") {
-        frame.append(stickerMark("product-sticker-mark"));
-      } else {
-        frame.append(element("span", "product-emoji", String(src)));
+        photos.push({ src: src, alt: productAlt(product, index) });
       }
     });
+    const first = images[0];
+    if (typeof first === "string" && first.startsWith("img/")) {
+      const photoOptions = { className: "product-img", sizes: "(max-width: 720px) 46vw, 320px" };
+      if (product.isSizeGuide) {
+        photoOptions.sizes = "(max-width: 768px) 92vw, 720px";
+        photoOptions.width = 1600;
+        photoOptions.height = 900;
+      }
+      frame.append(photoElement(first, photos[0].alt, photoOptions));
+      if (photos.length > 1) frame.append(element("span", "image-count-badge", String(photos.length)));
+    } else if (first === "sticker") {
+      frame.append(stickerMark("product-sticker-mark"));
+    } else if (first) {
+      frame.append(element("span", "product-emoji", String(first)));
+    }
     const info = element("div", "product-info");
     info.append(element("h3", "product-name", product.name), element("p", "product-description", product.description));
     if (product.note) info.append(element("p", "product-note", product.note));
@@ -691,8 +754,24 @@ function renderProducts(list) {
       add.type = "button";
       add.className = "card-select-btn";
       add.dataset.id = String(product.id);
-      add.textContent = "In die Auswahl";
-      add.addEventListener("click", () => addToCart(product, add));
+      add.setAttribute("aria-label", "In die Auswahl");
+      const icon = element("span", "select-icon", "+");
+      icon.setAttribute("aria-hidden", "true");
+      const label = element("span", "select-label", "In die Auswahl");
+      add.append(icon, label);
+      add.addEventListener("click", () => {
+        addToCart(product);
+        add.classList.add("added");
+        label.textContent = "Dabei";
+        icon.textContent = "✓";
+        add.setAttribute("aria-label", "Zur Auswahl hinzugefügt");
+        setTimeout(() => {
+          add.classList.remove("added");
+          label.textContent = "In die Auswahl";
+          icon.textContent = "+";
+          add.setAttribute("aria-label", "In die Auswahl");
+        }, 1200);
+      });
       info.append(add);
     }
     const container = element("div", "product-image-container");
@@ -726,10 +805,25 @@ let lightboxItems = [];
 let lightboxIndex = 0;
 let lightboxOpener = null;
 
+function generalInquiryText() {
+  return "Hallo, ich hätte gern: \n" + INQUIRY_FIELDS;
+}
+
 function productInquiryText(name, priceText) {
-  const lines = ["Hallo, ich möchte diesen Artikel anfragen.", "", "Artikel: " + (name || "—")];
-  if (priceText) lines.push("Preis: " + priceText);
-  return lines.join("\n");
+  const item = (name || "—") + (priceText ? " (" + priceText + ")" : "");
+  return "Hallo, ich interessiere mich für: " + item + "\n" + INQUIRY_FIELDS;
+}
+
+function selectionInquiryText() {
+  const lines = cart.map(item => {
+    const price = formatPrice(item);
+    const label = item.name + (price ? " (" + price + ")" : "");
+    return (item.quantity > 1 ? label + " × " + item.quantity : label);
+  });
+  if (lines.length <= 1) {
+    return "Hallo, ich interessiere mich für: " + (lines[0] || "") + "\n" + INQUIRY_FIELDS;
+  }
+  return "Hallo, ich interessiere mich für:\n" + lines.map(line => "- " + line).join("\n") + "\n" + INQUIRY_FIELDS;
 }
 
 function whatsAppLink(text, className) {
@@ -756,7 +850,11 @@ function showLightboxImage() {
   image.addEventListener("error", () => {
     if (image.getAttribute("src") !== item.src) image.src = item.src;
   }, { once: true });
-  image.className = "popup-img";
+  image.className = item.src.includes("groessenuebersicht") ? "popup-img is-size-guide" : "popup-img";
+  if (image.classList.contains("is-size-guide")) {
+    image.width = 1600;
+    image.height = 900;
+  }
   popupImage.replaceChildren(image);
   const multi = lightboxItems.length > 1;
   document.getElementById("prevImageBtn").hidden = !multi;
@@ -809,18 +907,53 @@ function stepLightbox(delta) {
   showLightboxImage();
 }
 
-function addToCart(product, button) {
+function addToCart(product) {
   const existing = cart.find(item => item.id === product.id);
   if (existing) existing.quantity += 1;
   else cart.push(Object.assign({}, product, { quantity: 1 }));
+  saveCart();
   updateCartDisplay();
-  if (!button) return;
-  button.classList.add("added");
-  button.textContent = "Hinzugefügt";
-  setTimeout(() => {
-    button.classList.remove("added");
-    button.textContent = "In die Auswahl";
-  }, 1200);
+}
+
+function loadCart() {
+  cart = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    if (!Array.isArray(saved)) return;
+    saved.forEach(entry => {
+      const product = products.find(item => item.id === entry.id && !item.hidden && !item.isSizeGuide);
+      const quantity = Math.max(1, Number(entry.quantity) || 1);
+      if (product) cart.push(Object.assign({}, product, { quantity: quantity }));
+    });
+  } catch (error) {
+    cart = [];
+  }
+}
+
+function saveCart() {
+  try {
+    const compact = cart.map(item => ({ id: item.id, quantity: item.quantity || 1 }));
+    localStorage.setItem(CART_KEY, JSON.stringify(compact));
+  } catch (error) {
+    /* Auswahl bleibt für diesen Besuch erhalten. */
+  }
+}
+
+let updateFloat = function () {};
+
+function setupFloatButton() {
+  const button = document.getElementById("waFloat");
+  const hero = document.querySelector(".hero");
+  const overview = document.getElementById("uebersicht");
+  if (!button || !hero) return;
+  updateFloat = () => {
+    const overviewOpen = overview && !overview.hidden;
+    const past = !overviewOpen || hero.getBoundingClientRect().bottom < 8;
+    button.classList.toggle("is-visible", past);
+  };
+  updateFloat();
+  window.addEventListener("scroll", updateFloat, { passive: true });
+  window.addEventListener("resize", updateFloat);
 }
 
 function openCategory(id, options) {
@@ -841,6 +974,7 @@ function openCategory(id, options) {
     history.pushState({ view: "category", category: id }, "", "#" + id);
   }
   window.scrollTo(0, 0);
+  updateFloat();
   if (settings.focusBack) document.getElementById("backToOverview")?.focus();
 }
 
@@ -857,6 +991,7 @@ function showOverview(options) {
   }
   if (returnTo) document.querySelector('.category-link[data-category="' + returnTo + '"]')?.focus();
   else window.scrollTo(0, 0);
+  updateFloat();
 }
 
 function updateCartDisplay() {
@@ -925,6 +1060,7 @@ function setupEventListeners() {
   document.getElementById("cartPopupBackground")?.addEventListener("click", closeCart);
   document.getElementById("clearCartBtn")?.addEventListener("click", () => {
     cart = [];
+    saveCart();
     updateCartDisplay();
     openCart();
   });
@@ -948,21 +1084,31 @@ function setupEventListeners() {
     const name = document.getElementById("contactName")?.value || "";
     const email = document.getElementById("contactEmail")?.value || "";
     const msg = document.getElementById("contactMessage")?.value || "";
+    const wish = (document.getElementById("contactWish")?.value || "").trim();
     const subject = encodeURIComponent("Anfrage von " + name);
-    const body = encodeURIComponent("Name: " + name + "\nE-Mail: " + email + "\n\n" + msg);
+    const body = encodeURIComponent("Name: " + name + "\nE-Mail: " + email + (wish ? "\nWunschtermin: " + wish : "") + "\n\n" + msg);
     window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
   });
   document.getElementById("sendRequestBtn")?.addEventListener("click", () => {
-    const lines = cart.map(item => "- " + item.name + " (" + formatPrice(item) + ") x" + (item.quantity || 1));
-    const body = encodeURIComponent("Hallo, ich möchte folgende Artikel anfragen:\n\n" + lines.join("\n") + "\n\nBitte um Rückmeldung zur Personalisierung.");
+    const body = encodeURIComponent(selectionInquiryText());
     window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Produktanfrage Plottelier") + "&body=" + body;
   });
   document.getElementById("whatsappRequestBtn")?.addEventListener("click", () => {
-    const lines = cart.map(item => "- " + item.name + " (" + formatPrice(item) + ") x" + (item.quantity || 1));
-    const text = encodeURIComponent("Hallo, ich möchte folgende Artikel anfragen:\n\n" + lines.join("\n"));
+    const text = encodeURIComponent(selectionInquiryText());
     const popup = window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text, "_blank", "noopener,noreferrer");
     if (popup) popup.opener = null;
   });
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// Pusteblume in "Über mich": antippen und die Samen fliegen los
+document.querySelectorAll(".dandelion").forEach(function (flower) {
+  flower.addEventListener("click", function () {
+    flower.classList.remove("blow");
+    void flower.offsetWidth;
+    flower.classList.add("blow");
+    clearTimeout(flower._blowTimer);
+    flower._blowTimer = setTimeout(function () { flower.classList.remove("blow"); }, 3000);
+  });
+});

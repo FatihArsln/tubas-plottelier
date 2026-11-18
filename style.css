@@ -45,7 +45,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', system-ui, -apple-system, sans-serif;
   background: var(--creme);
   color: var(--anthrazit);
   min-height: 100vh;
@@ -117,13 +117,13 @@ header .logo:hover .logo-icon {
 }
 
 header .script {
-  font-family: 'Allura', cursive;
+  font-family: 'Allura', 'Allura Fallback', cursive;
   font-size: 1.25rem;
   color: var(--altrosa-ink);
 }
 
 header .logo-subtitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   font-size: 1rem;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -138,7 +138,7 @@ header .logo-subtitle {
 }
 
 .logo-title {
-  font-family: 'Allura', cursive;
+  font-family: 'Allura', 'Allura Fallback', cursive;
   font-size: 1.85rem;
   color: var(--altrosa-ink);
   font-weight: 400;
@@ -166,7 +166,7 @@ header .logo-subtitle {
 
 .sidebar-label {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -196,7 +196,7 @@ header .logo-subtitle {
   border-radius: 12px;
   background: transparent;
   color: #FBF6F4;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
@@ -298,6 +298,11 @@ header .logo-subtitle {
     padding-top: 0.4rem;
   }
 
+  .shop-home .hero-copy .hero-slogan {
+    font-size: 2.15rem;
+    max-width: 14em;
+  }
+
   .shop-home header,
   .shop-home main,
   .shop-home footer {
@@ -357,7 +362,7 @@ header .btn,
   align-items: center;
   gap: 0.45rem;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   box-shadow: 0 4px 14px rgba(212, 160, 174, 0.35);
 }
 
@@ -474,7 +479,7 @@ main {
   border-radius: var(--radius-pill);
   font-weight: 600;
   transition: all var(--transition);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-size: 0.98rem;
 }
 
@@ -503,7 +508,7 @@ main {
 
 /* ---------- Typography ---------- */
 h1 {
-  font-family: 'Allura', cursive;
+  font-family: 'Allura', 'Allura Fallback', cursive;
   color: var(--altrosa);
   font-size: clamp(2.4rem, 5vw, 3.4rem);
   margin-bottom: 0.75rem;
@@ -512,7 +517,7 @@ h1 {
 }
 
 h1 span {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   text-transform: uppercase;
   color: var(--anthrazit);
   font-size: 1rem;
@@ -520,7 +525,7 @@ h1 span {
 }
 
 h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   color: var(--anthrazit);
   font-size: clamp(1.5rem, 3vw, 1.85rem);
   margin: 2.5rem 0 1.25rem;
@@ -581,7 +586,7 @@ h2 {
 
 .leistungen h3 {
   margin: 0.35rem 0 0.5rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   color: var(--anthrazit);
   font-size: 1.1rem;
   font-weight: 700;
@@ -630,7 +635,7 @@ textarea {
   border-radius: var(--radius-sm);
   border: 1.5px solid rgba(61, 61, 61, 0.1);
   font-size: 1rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   color: var(--anthrazit);
   background: var(--creme);
   transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
@@ -653,7 +658,7 @@ button.submit {
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-size: 1rem;
   box-shadow: 0 4px 16px rgba(212, 160, 174, 0.35);
 }
@@ -675,7 +680,7 @@ button.submit:hover {
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-weight: 600;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   margin-top: 1rem;
   width: 100%;
   transition: all var(--transition);
@@ -709,7 +714,7 @@ button.submit:hover {
   background: var(--white);
   color: var(--anthrazit-soft);
   border-radius: var(--radius-pill);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-weight: 600;
   font-size: 0.92rem;
   cursor: pointer;
@@ -830,7 +835,7 @@ button.submit:hover {
 }
 
 .product-name {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
   color: var(--anthrazit);
@@ -874,7 +879,7 @@ button.submit:hover {
   font-size: 0.9rem;
   cursor: pointer;
   transition: all var(--transition);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   margin-top: auto;
 }
 
@@ -908,10 +913,26 @@ button.submit:hover {
 }
 
 .size-guide-card .product-image {
-  aspect-ratio: auto;
-  height: 380px;
-  object-fit: contain;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  overflow: hidden;
   background: var(--white);
+}
+
+.size-guide-card .product-image picture,
+.size-guide-card .product-image img,
+.size-guide-card .product-img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  transform: none;
+}
+
+.size-guide-card:hover .product-image img,
+.size-guide-card:hover .product-img {
+  transform: none;
 }
 
 .size-guide-card .product-name {
@@ -1013,6 +1034,14 @@ body.popup-open {
   border-radius: 12px;
 }
 
+.popup-image img.popup-img.is-size-guide {
+  width: min(100%, 960px);
+  height: auto;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
 .popup-actions {
   display: flex;
   flex-direction: column;
@@ -1043,13 +1072,18 @@ body.popup-open {
 }
 
 .card-select-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
   align-self: center;
   min-height: 44px;
+  min-width: 44px;
   padding: 0.35rem 0.5rem;
   border: none;
   background: none;
   color: var(--anthrazit);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   text-decoration: underline;
@@ -1057,8 +1091,20 @@ body.popup-open {
   cursor: pointer;
 }
 
+.select-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
 .popup-product-name {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--anthrazit);
@@ -1302,7 +1348,7 @@ body.popup-open {
   color: white;
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-size: 0.95rem;
   transition: all var(--transition);
 }
@@ -1333,7 +1379,7 @@ body.popup-open {
   color: var(--anthrazit-soft);
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   transition: all var(--transition);
 }
 
@@ -1373,6 +1419,10 @@ footer {
 }
 
 .footer-content a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 0.15rem;
   color: var(--anthrazit-soft);
   text-decoration: none;
   font-size: 0.9rem;
@@ -1493,7 +1543,8 @@ footer {
   }
 
   .size-guide-card .product-image {
-    height: 200px;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .size-guide-card .product-name {
@@ -1508,6 +1559,14 @@ footer {
   .popup-image,
   .popup-image img {
     max-height: 42vh;
+  }
+
+  .popup-image img.popup-img.is-size-guide {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
   }
 
   .image-nav-btn {
@@ -1560,7 +1619,7 @@ footer {
   border: none;
   border-radius: var(--radius-pill);
   box-shadow: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 0.45rem 0.75rem;
@@ -1641,14 +1700,14 @@ footer {
   border: none;
   background: transparent;
   color: var(--anthrazit);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   cursor: pointer;
 }
 
 .hero-nav,
 .hero-pause {
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 1.35rem;
@@ -1676,22 +1735,48 @@ footer {
 }
 
 .hero-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.hero-dot::after {
+  content: "";
   width: 8px;
   height: 8px;
-  padding: 8px;
-  box-sizing: content-box;
-  background-clip: content-box;
   border-radius: 999px;
-  background-color: rgba(61, 61, 61, 0.28);
+  background: rgba(61, 61, 61, 0.28);
 }
 
 .hero-dot[aria-current="true"] {
+  width: 44px;
+  background: transparent;
+}
+
+.hero-dot[aria-current="true"]::after {
   width: 18px;
   background: var(--altrosa-ink);
 }
 
+.hero-copy .hero-slogan {
+  font-family: 'Allura', 'Allura Fallback', cursive;
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--altrosa-ink);
+  max-width: 12em;
+  margin: 0 0 0.05rem;
+  text-wrap: balance;
+}
+
 .hero-copy h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   font-weight: 600;
   font-size: clamp(2.1rem, 4.4vw, 3.35rem);
   line-height: 1.12;
@@ -1724,6 +1809,9 @@ footer {
 }
 
 .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--anthrazit);
   font-weight: 600;
   text-underline-offset: 0.2em;
@@ -1787,7 +1875,7 @@ footer {
 
 .sticker-panel h3 {
   margin: 0 0 0.25rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
 }
@@ -1899,7 +1987,7 @@ footer {
   border-radius: var(--radius-sm);
   border: 1.5px solid rgba(61, 61, 61, 0.1);
   font-size: 1rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   color: var(--anthrazit);
   background: var(--creme);
 }
@@ -1985,7 +2073,7 @@ footer {
 
 .sticker-quote-price {
   margin: 0.1rem 0 0.3rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   font-size: 1.55rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -2035,7 +2123,7 @@ footer {
   background: none;
   border: none;
   padding: 0.35rem 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: var(--anthrazit);
@@ -2054,7 +2142,7 @@ footer {
   border: none;
   border-bottom: 2px solid transparent;
   padding: 0.25rem 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--anthrazit-soft);
@@ -2133,10 +2221,25 @@ select:focus-visible {
     background: transparent;
     border-bottom: none;
     backdrop-filter: none;
+    padding: 0.2rem 0.7rem;
+    min-height: 0;
+    gap: 0.2rem;
+  }
+
+  .shop-home .logo-title {
+    font-size: 1.45rem;
+    line-height: 1;
+  }
+
+  .shop-home header nav a,
+  .shop-home .selection-link {
+    min-height: 36px;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.8rem;
   }
 
   .shop-home .category-sidebar {
-    padding: 0 0.9rem 0.7rem;
+    padding: 0 0 0.25rem;
     background: transparent;
     box-shadow: none;
   }
@@ -2155,12 +2258,18 @@ select:focus-visible {
 
   .shop-home .category-bar {
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.4rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    overflow-x: auto;
+    padding: 0 0.7rem 0.1rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   .shop-home .category-link {
+    flex: 0 0 auto;
     min-height: 44px;
+    padding: 0.3rem 0.7rem;
     color: var(--anthrazit);
     background: var(--white);
     border: 1px solid rgba(61, 61, 61, 0.08);
@@ -2253,7 +2362,7 @@ select:focus-visible {
 }
 
 .shop-home .info-block h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
   letter-spacing: -0.03em;
   margin-bottom: 0.9rem;
 }
@@ -2276,6 +2385,12 @@ select:focus-visible {
 @media (max-width: 720px) {
   .hero {
     padding-top: 0.35rem;
+  }
+
+  .hero-copy .hero-slogan {
+    font-size: 1.75rem;
+    line-height: 1.12;
+    margin-bottom: 0;
   }
 
   .hero-copy h1 {
@@ -2314,7 +2429,7 @@ select:focus-visible {
   }
 
   .products-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .product-image {
@@ -2324,8 +2439,8 @@ select:focus-visible {
 
 @media (max-width: 400px) {
   .products-grid {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
   }
 
   .product-image {
@@ -2401,6 +2516,9 @@ select:focus-visible {
 }
 
 .faq-list summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   cursor: pointer;
   font-weight: 700;
   color: var(--anthrazit);
@@ -2501,4 +2619,438 @@ select:focus-visible {
 .legal-page .important-notice h3 {
   color: #3d2e00;
   margin-top: 0;
+}
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin: 0.45rem 0 0.2rem;
+  padding: 0;
+  list-style: none;
+  color: var(--anthrazit);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.hero-points li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-points li::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--altrosa);
+  flex: 0 0 auto;
+}
+
+.area-tiles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.15rem 0 0.25rem;
+}
+
+.area-tile {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid rgba(61, 61, 61, 0.08);
+  border-radius: 16px;
+  background: var(--white);
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.area-tile-photo {
+  display: block;
+  aspect-ratio: 1;
+  background: var(--creme-deep);
+  overflow: hidden;
+}
+
+.area-tile-img,
+.area-tile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.area-tile-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.55rem 0.7rem 0.7rem;
+}
+
+.area-tile-name {
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--anthrazit);
+}
+
+.area-tile-price {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--altrosa-ink);
+}
+
+.shipping-details {
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.95rem 0.7rem;
+  border: 1px solid rgba(61, 61, 61, 0.08);
+  border-radius: 14px;
+  background: var(--white);
+}
+
+.shipping-details summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---------- Neue Struktur: Bereiche, Ablauf, Konditionen, Kontakt ---------- */
+.svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+#bestellung,
+#konditionen,
+#faq,
+#versand {
+  scroll-margin-top: 7.5rem;
+}
+
+.area-section {
+  margin-top: 2.5rem;
+}
+
+.area-section h2 {
+  margin: 0 0 0.35rem;
+  text-align: left;
+}
+
+.area-section .lede {
+  margin-bottom: 0;
+}
+
+.area-section .area-tiles {
+  margin-top: 1rem;
+}
+
+.steps-grid {
+  counter-reset: step;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin: 0.4rem 0 1rem;
+  padding: 0;
+}
+
+.steps-grid li {
+  counter-increment: step;
+  margin: 0;
+  padding: 1rem 1.05rem 1.1rem;
+  border-radius: 16px;
+  background: var(--creme);
+  line-height: 1.5;
+}
+
+.steps-grid li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.6rem;
+  border-radius: 50%;
+  background: var(--altrosa-ink);
+  color: var(--white);
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.steps-grid strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
+  font-size: 1rem;
+}
+
+.steps-note {
+  margin: 0;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.85rem;
+}
+
+.fact-card {
+  padding: 1.05rem 1.1rem 1.15rem;
+  border-radius: 16px;
+  background: var(--creme);
+}
+
+.info-block .fact-card h3 {
+  margin: 0 0 0.45rem;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
+  font-size: 1.02rem;
+}
+
+.info-block .fact-card p {
+  max-width: none;
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.info-block .fact-card p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-group + .faq-group {
+  margin-top: 1.5rem;
+}
+
+.info-block .faq-group h3 {
+  margin: 0 0 0.6rem;
+  font-family: 'Montserrat', 'Montserrat Fallback', sans-serif;
+  font-size: 1.05rem;
+}
+
+#anfrage.contact-section {
+  max-width: none;
+  margin: 3.25rem 0 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.5rem 3rem;
+  align-items: start;
+}
+
+.contact-intro p {
+  max-width: 36ch;
+  margin: 0 0 0.4rem;
+  color: var(--anthrazit-soft);
+}
+
+.contact-intro .whatsapp-direct-btn {
+  width: auto;
+  margin: 0.6rem 0 0.4rem;
+  padding: 0.95rem 1.35rem;
+}
+
+.contact-section form {
+  max-width: 520px;
+  margin-top: 0;
+}
+
+@media (max-width: 820px) {
+  #anfrage.contact-section {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 2.5rem;
+  }
+
+  .contact-intro .whatsapp-direct-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  header nav a.nav-secondary {
+    display: none;
+  }
+}
+
+.wa-float {
+  display: none;
+}
+
+@media (max-width: 959px) {
+  .wa-float {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    right: 0.85rem;
+    bottom: 0.85rem;
+    z-index: 90;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #128C7E;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(18, 140, 126, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+  }
+
+  .wa-float.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .shop-home footer {
+    padding-bottom: 5.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .area-tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .area-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+
+  .area-tiles .area-tile:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .area-tile-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.55rem;
+  }
+
+  .product-card:not(.size-guide-card) .product-description,
+  .product-card:not(.size-guide-card) .product-note {
+    display: none;
+  }
+
+  .product-card:not(.size-guide-card) .product-info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    align-items: end;
+    gap: 0.25rem 0.4rem;
+    padding: 0.55rem 0.5rem 0.65rem;
+  }
+
+  .product-card:not(.size-guide-card) .product-name,
+  .product-card:not(.size-guide-card) .product-price,
+  .product-card:not(.size-guide-card) .price-tax-note {
+    grid-column: 1 / -1;
+  }
+
+  .product-card:not(.size-guide-card) .product-name {
+    font-size: 0.86rem;
+    line-height: 1.25;
+  }
+
+  .product-card:not(.size-guide-card) .price-tax-note {
+    margin: 0;
+    font-size: 0.68rem;
+    line-height: 1.3;
+  }
+
+  .product-card:not(.size-guide-card) .product-whatsapp {
+    grid-column: 1;
+    margin-top: 0.15rem;
+    padding: 0.4rem 0.35rem;
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+
+  .product-card:not(.size-guide-card) .card-select-btn {
+    grid-column: 2;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(61, 61, 61, 0.16);
+    border-radius: 999px;
+    text-decoration: none;
+    background: var(--white);
+  }
+
+  .product-card:not(.size-guide-card) .select-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* Über mich: Pusteblume */
+.about-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.25rem;
+  align-items: center;
+}
+.about-card .about-image { grid-column: 2; grid-row: 1; }
+.about-card .about-text { grid-column: 1; grid-row: 1; }
+.about-card .dandelion { width: 120px; }
+@media (max-width: 640px) {
+  .about-card { grid-template-columns: 1fr; gap: .75rem; }
+  .about-card .about-image, .about-card .about-text { grid-column: 1; grid-row: auto; }
+  .about-card .dandelion { width: 110px; margin: 0 auto; }
+}
+
+.dandelion {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+}
+.dandelion:focus-visible { outline: 2px solid #8E4D63; outline-offset: 4px; border-radius: 8px; }
+.dandelion .dandelion-head { display: block; width: 100%; height: auto; }
+.dandelion .seed {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.dandelion .seed-a { left: 72%; top: 2.8%; width: 25.7%; --dx: 70px; --dy: -60px; --r: 35deg; }
+.dandelion .seed-b { left: 67.8%; top: 25.6%; width: 24.3%; --dx: 90px; --dy: -20px; --r: 50deg; --delay: .15s; }
+.dandelion .seed-c { left: 50%; top: 6%; width: 20%; --dx: 60px; --dy: -95px; --r: 25deg; --delay: .05s; opacity: 0; }
+.dandelion .seed-d { left: 52%; top: 22%; width: 19%; --dx: 105px; --dy: -55px; --r: 60deg; --delay: .25s; opacity: 0; }
+.dandelion .seed-e { left: 48%; top: 36%; width: 18%; --dx: 95px; --dy: -10px; --r: 40deg; --delay: .35s; opacity: 0; }
+.dandelion .seed-f { left: 34%; top: 2%; width: 18%; --dx: 35px; --dy: -110px; --r: 20deg; --delay: .45s; opacity: 0; }
+@keyframes seed-fly {
+  0%   { transform: translate(0, 0) rotate(0); opacity: 1; }
+  70%  { opacity: .9; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--r)); opacity: 0; }
+}
+.dandelion.blow .seed { animation: seed-fly 2.2s cubic-bezier(.25,.6,.35,1) var(--delay, 0s) both; }
+@media (hover: hover) {
+  .dandelion:hover .seed { animation: seed-fly 2.2s cubic-bezier(.25,.6,.35,1) var(--delay, 0s) both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dandelion .seed, .dandelion.blow .seed, .dandelion:hover .seed { animation: none !important; }
 }

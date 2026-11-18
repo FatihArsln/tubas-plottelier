@@ -61,3 +61,70 @@
   font-display: swap;
   src: url('fonts/open-sans-700.woff2') format('woff2');
 }
+
+/* Fallback-Metriken, damit der Schriftwechsel die Seite nicht verschiebt. */
+@font-face {
+  font-family: 'Allura Fallback';
+  font-style: normal;
+  font-weight: 100 900;
+  src: local('Arial');
+  size-adjust: 130.27%;
+  ascent-override: 61.41%;
+  descent-override: 34.54%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Allura Fallback';
+  font-style: normal;
+  font-weight: 100 900;
+  src: local('Liberation Sans');
+  size-adjust: 99.21%;
+  ascent-override: 80.64%;
+  descent-override: 45.36%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Montserrat Fallback';
+  font-style: normal;
+  font-weight: 100 900;
+  src: local('Arial');
+  size-adjust: 131.17%;
+  ascent-override: 73.80%;
+  descent-override: 19.14%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Montserrat Fallback';
+  font-style: normal;
+  font-weight: 100 900;
+  src: local('Liberation Sans');
+  size-adjust: 99.90%;
+  ascent-override: 96.90%;
+  descent-override: 25.13%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Open Sans Fallback';
+  font-style: normal;
+  font-weight: 100 900;
+  src: local('Arial');
+  size-adjust: 116.04%;
+  ascent-override: 92.11%;
+  descent-override: 25.25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Open Sans Fallback';
+  font-style: normal;
+  font-weight: 100 900;
+  src: local('Liberation Sans');
+  size-adjust: 88.37%;
+  ascent-override: 120.95%;
+  descent-override: 33.15%;
+  line-gap-override: 0%;
+}
