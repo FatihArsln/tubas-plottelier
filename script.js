@@ -1101,3 +1101,14 @@ function setupEventListeners() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// Pusteblume in "Über mich": antippen und die Samen fliegen los
+document.querySelectorAll(".dandelion").forEach(function (flower) {
+  flower.addEventListener("click", function () {
+    flower.classList.remove("blow");
+    void flower.offsetWidth;
+    flower.classList.add("blow");
+    clearTimeout(flower._blowTimer);
+    flower._blowTimer = setTimeout(function () { flower.classList.remove("blow"); }, 3000);
+  });
+});

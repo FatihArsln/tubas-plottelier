@@ -3011,9 +3011,46 @@ select:focus-visible {
 }
 .about-card .about-image { grid-column: 2; grid-row: 1; }
 .about-card .about-text { grid-column: 1; grid-row: 1; }
-.about-card .about-image img { display: block; width: 120px; height: auto; }
+.about-card .dandelion { width: 120px; }
 @media (max-width: 640px) {
   .about-card { grid-template-columns: 1fr; gap: .75rem; }
   .about-card .about-image, .about-card .about-text { grid-column: 1; grid-row: auto; }
-  .about-card .about-image img { width: 96px; margin: 0 auto; }
+  .about-card .dandelion { width: 110px; margin: 0 auto; }
+}
+
+.dandelion {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+}
+.dandelion:focus-visible { outline: 2px solid #8E4D63; outline-offset: 4px; border-radius: 8px; }
+.dandelion .dandelion-head { display: block; width: 100%; height: auto; }
+.dandelion .seed {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.dandelion .seed-a { left: 72%; top: 2.8%; width: 25.7%; --dx: 70px; --dy: -60px; --r: 35deg; }
+.dandelion .seed-b { left: 67.8%; top: 25.6%; width: 24.3%; --dx: 90px; --dy: -20px; --r: 50deg; --delay: .15s; }
+.dandelion .seed-c { left: 50%; top: 6%; width: 20%; --dx: 60px; --dy: -95px; --r: 25deg; --delay: .05s; opacity: 0; }
+.dandelion .seed-d { left: 52%; top: 22%; width: 19%; --dx: 105px; --dy: -55px; --r: 60deg; --delay: .25s; opacity: 0; }
+.dandelion .seed-e { left: 48%; top: 36%; width: 18%; --dx: 95px; --dy: -10px; --r: 40deg; --delay: .35s; opacity: 0; }
+.dandelion .seed-f { left: 34%; top: 2%; width: 18%; --dx: 35px; --dy: -110px; --r: 20deg; --delay: .45s; opacity: 0; }
+@keyframes seed-fly {
+  0%   { transform: translate(0, 0) rotate(0); opacity: 1; }
+  70%  { opacity: .9; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--r)); opacity: 0; }
+}
+.dandelion.blow .seed { animation: seed-fly 2.2s cubic-bezier(.25,.6,.35,1) var(--delay, 0s) both; }
+@media (hover: hover) {
+  .dandelion:hover .seed { animation: seed-fly 2.2s cubic-bezier(.25,.6,.35,1) var(--delay, 0s) both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dandelion .seed, .dandelion.blow .seed, .dandelion:hover .seed { animation: none !important; }
 }
