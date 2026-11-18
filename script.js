@@ -49,7 +49,7 @@ function init() {
   } else {
     history.replaceState({ view: "overview" }, "", location.pathname + location.search);
     showOverview({ historyMode: "none" });
-    if (start === "anfrage" || start === "bestellung" || start === "faq" || start === "versand") {
+    if (start === "anfrage" || start === "bestellung" || start === "konditionen" || start === "faq" || start === "versand") {
       document.getElementById(start)?.scrollIntoView();
     }
   }
@@ -1084,8 +1084,9 @@ function setupEventListeners() {
     const name = document.getElementById("contactName")?.value || "";
     const email = document.getElementById("contactEmail")?.value || "";
     const msg = document.getElementById("contactMessage")?.value || "";
+    const wish = (document.getElementById("contactWish")?.value || "").trim();
     const subject = encodeURIComponent("Anfrage von " + name);
-    const body = encodeURIComponent("Name: " + name + "\nE-Mail: " + email + "\n\n" + msg);
+    const body = encodeURIComponent("Name: " + name + "\nE-Mail: " + email + (wish ? "\nWunschtermin: " + wish : "") + "\n\n" + msg);
     window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
   });
   document.getElementById("sendRequestBtn")?.addEventListener("click", () => {
