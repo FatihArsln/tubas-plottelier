@@ -44,7 +44,7 @@ const products = [
   {id:39,name:"Fußmatte",description:"Fußmatte mit Spruch und Motiv",price:22.9,priceFrom:true,image:"img/IMG-20251108-WA0041.jpg",category:"geschenke"},
   {id:40,name:"Aufkleber Trockner",description:"Plot-Aufkleber für den Trockner",price:8.9,priceFrom:true,image:"img/IMG-20251108-WA0042.jpg",category:"aufkleber"},
   {id:41,name:"Aufkleber Waschmaschine",description:"Plot-Aufkleber für die Waschmaschine",price:8.9,priceFrom:true,image:"img/IMG-20251108-WA0043.jpg",category:"aufkleber"},
-  {id:42,name:"Tasse mit Untertasse",description:"Tasse mit beschrifteter Untertasse",price:16.9,priceFrom:true,image:"img/IMG-20251108-WA0049.jpg",note:"Vinyl-Plot ist nicht spülmaschinenfest, bitte von Hand spülen.",category:"events"},
+  {id:42,name:"Tasse mit Untertasse",description:"Für die Verlobung: Tasse mit beschrifteter Untertasse, personalisiert mit euren Namen, Datum oder Spruch",price:16.9,priceFrom:true,image:"img/IMG-20251108-WA0049.jpg",note:"Vinyl-Plot ist nicht spülmaschinenfest, bitte von Hand spülen.",category:"events"},
   {id:43,name:"Holzkästchen mit Motiv",description:"Holzkästchen mit persönlichem Motiv",price:null,image:"img/IMG-20251108-WA0050.jpg",category:"geschenke"},
   {id:44,name:"Stoffkörbchen",description:"Stoffkörbchen mit Namen",price:16.9,priceFrom:true,image:"img/IMG-20251108-WA0052.jpg",category:"geschenke"},
   {id:45,name:"Danke-Tassen",description:"Tassen mit persönlichem Dankesspruch",price:12.9,priceFrom:true,image:"img/IMG-20251108-WA0053.jpg",note:"Vinyl-Plot ist nicht spülmaschinenfest, bitte von Hand spülen.",category:"geschenke"},
