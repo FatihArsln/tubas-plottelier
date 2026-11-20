@@ -855,7 +855,8 @@ function showLightboxImage() {
     image.width = 1600;
     image.height = 900;
   }
-  popupImage.replaceChildren(image);
+  popupImage.replaceChildren(image, element("span", "zoom-hint", "Zum Vergrößern antippen"));
+  setupImageZoom(popupImage, image);
   const multi = lightboxItems.length > 1;
   document.getElementById("prevImageBtn").hidden = !multi;
   document.getElementById("nextImageBtn").hidden = !multi;
@@ -1112,3 +1113,71 @@ document.querySelectorAll(".dandelion").forEach(function (flower) {
     flower._blowTimer = setTimeout(function () { flower.classList.remove("blow"); }, 3000);
   });
 });
+
+
+/* Zoom in der Großansicht: Antippen/Klicken vergrößert, Ziehen oder Mausbewegung verschiebt, erneutes Antippen verkleinert */
+function setupImageZoom(box, image) {
+  const SCALE = 2.5;
+  let zoomed = false;
+  let origin = { x: 50, y: 50 };
+  let drag = null;
+  let moved = false;
+
+  const apply = () => {
+    image.style.transformOrigin = origin.x + "% " + origin.y + "%";
+    image.style.transform = zoomed ? "scale(" + SCALE + ")" : "";
+    box.classList.toggle("is-zoomed", zoomed);
+  };
+  const baseRect = () => {
+    const b = box.getBoundingClientRect();
+    return { left: b.left + image.offsetLeft, top: b.top + image.offsetTop, width: image.offsetWidth, height: image.offsetHeight };
+  };
+  const pointAt = event => {
+    const rect = baseRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    return { x: Math.min(100, Math.max(0, x)), y: Math.min(100, Math.max(0, y)) };
+  };
+
+  image.addEventListener("pointerdown", event => {
+    moved = false;
+    if (zoomed && event.pointerType !== "mouse") {
+      drag = { x: event.clientX, y: event.clientY, ox: origin.x, oy: origin.y };
+      image.setPointerCapture?.(event.pointerId);
+    }
+  });
+  image.addEventListener("pointermove", event => {
+    if (!zoomed) return;
+    if (event.pointerType === "mouse") {
+      origin = pointAt(event);
+      apply();
+      return;
+    }
+    if (!drag) return;
+    const rect = baseRect();
+    const dx = event.clientX - drag.x;
+    const dy = event.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+    const factor = 100 / (SCALE - 1);
+    origin = {
+      x: Math.min(100, Math.max(0, drag.ox - (dx / rect.width) * factor)),
+      y: Math.min(100, Math.max(0, drag.oy - (dy / rect.height) * factor))
+    };
+    apply();
+  });
+  const endDrag = () => { drag = null; };
+  image.addEventListener("pointerup", endDrag);
+  image.addEventListener("pointercancel", endDrag);
+  image.addEventListener("click", event => {
+    event.stopPropagation();
+    if (moved) { moved = false; return; }
+    if (!zoomed) {
+      origin = pointAt(event);
+      zoomed = true;
+    } else {
+      zoomed = false;
+    }
+    apply();
+  });
+  image.addEventListener("dragstart", event => event.preventDefault());
+}
