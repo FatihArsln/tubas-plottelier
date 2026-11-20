@@ -3054,3 +3054,44 @@ select:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .dandelion .seed, .dandelion.blow .seed, .dandelion:hover .seed { animation: none !important; }
 }
+
+
+/* Zoom in der Großansicht */
+.popup-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.popup-image img {
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+.popup-image.is-zoomed img {
+  cursor: zoom-out;
+  touch-action: none;
+  transition: transform 0.25s ease, transform-origin 0.05s linear;
+}
+.zoom-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.6rem;
+  transform: translateX(-50%);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(40, 28, 22, 0.65);
+  color: #fff;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.popup-image.is-zoomed .zoom-hint {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .popup-image img,
+  .popup-image.is-zoomed img {
+    transition: none;
+  }
+}
