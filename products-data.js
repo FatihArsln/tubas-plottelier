@@ -14,7 +14,7 @@ const products = [
   {id:12,name:"Jutetasche mit großer Initiale",description:"Jutetasche mit großer Initiale und Namen",price:21.9,image:"img/IMG-20251108-WA0029.jpg",category:"taschen"},
   {id:13,name:"Jutetasche mit Gebäude-Motiv",description:"Kleine Jutetasche mit Motiv und Schriftzug",price:21.9,image:"img/IMG-20251108-WA0039.jpg",category:"taschen"},
   {id:14,name:"Bayram-Umhängetasche",description:"Kleine Umhängetasche mit Mond, Laternen und Namen",price:19.9,priceFrom:true,image:"img/IMG-20251108-WA0044.jpg",category:"taschen"},
-  {id:15,name:"Bayram-Beutel",description:"Umhängebeutel mit Mond, Laternen und Namen",price:19.9,priceFrom:true,image:"img/IMG-20251108-WA0046.jpg",category:"taschen"},
+  {id:15,name:"Bayram-Beutel",description:"Umhängebeutel mit Mond, Laternen und Namen",price:9.9,image:"img/IMG-20251108-WA0046.jpg",category:"taschen"},
   {id:16,name:"Jutetaschen mit Schleife",description:"Kleine Jutetaschen mit Initiale, Namen und Spitzenschleife",price:36.9,priceFrom:true,image:"img/IMG-20251108-WA0051.jpg",category:"taschen"},
   {id:17,name:"Jutetaschen natur",description:"Zwei Jutetaschen mit weißer Initiale und Namen",price:36.9,priceFrom:true,image:"img/IMG-20251108-WA0056.jpg",category:"taschen"},
   {id:59,name:"Filztasche mit Wildblumen",description:"Helle Filztasche mit geplottetem Wildblumen-Motiv",price:29.9,image:"img/filztasche-wildblumen.jpg",alts:["Helle Filztasche mit schwarzem Wildblumen-Motiv"],category:"taschen"},
