@@ -39,6 +39,8 @@ const products = [
   {id:34,name:"Mäppchen mit goldenem Herz",description:"Mäppchen mit Namen und Herzmotiv",price:14.9,priceFrom:true,image:"img/IMG-20251108-WA0034.jpg",category:"geschenke"},
   {id:35,name:"Schmuckkästchen",description:"Schmuckkästchen mit Blumenmotiv, innen mit Namen im Deckel",price:19.9,priceFrom:true,images:["img/IMG-20251108-WA0035.jpg","img/IMG-20251108-WA0036.jpg"],alts:["Schmuckkästchen mit Blumenmotiv","Schmuckkästchen geöffnet, innen mit Namen im Deckel"],category:"geschenke"},
   {id:36,name:"Schmuckkästchen geöffnet",description:"Innenansicht mit Namen im Deckel",price:19.9,priceFrom:true,image:"img/IMG-20251108-WA0036.jpg",category:"geschenke",hidden:true},
+  {id:60,name:"Schmuckkasten mit Namen",description:"Schmuckkasten mit Wunschnamen und Rankenmotiv, in Schwarz, Creme oder Bordeaux",price:19.9,priceFrom:true,image:"img/schmuckkasten-farben.jpg",alts:["Drei Schmuckkästen in Schwarz, Creme und Bordeaux mit goldenen Namen"],category:"geschenke"},
+  {id:61,name:"Geschenkbox Mr. & Mrs.",description:"Bilderrahmen-Geschenkbox für Geldgeschenke mit Namen und Datum",price:19.9,priceFrom:true,image:"img/geschenkbox-mr-mrs.jpg",alts:["Weißer Rahmen mit Mr. & Mrs., Namen, Datum und Geldschein-Schmetterlingen"],category:"geschenke"},
   {id:37,name:"Trinkflasche mit Blumen",description:"Trinkflasche mit Blumenmotiv",price:16.9,priceFrom:true,image:"img/IMG-20251108-WA0037.jpg",category:"geschenke"},
   {id:38,name:"Kissen zur Geburt",description:"Rundes Kissen mit Namen, Datum und Motiv",price:24.9,priceFrom:true,image:"img/IMG-20251108-WA0040.jpg",category:"geschenke"},
   {id:39,name:"Fußmatte",description:"Fußmatte mit Spruch und Motiv",price:22.9,priceFrom:true,image:"img/IMG-20251108-WA0041.jpg",category:"geschenke"},
