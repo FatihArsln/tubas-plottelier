@@ -11,7 +11,6 @@ const products = [
   {id:8,name:"Jutetasche mit Blumenkranz",description:"Jutetasche mit Initiale im Blumenkranz",price:21.9,image:"img/IMG-20251108-WA0021.jpg",category:"taschen"},
   {id:9,name:"Jutetasche mit Namenskranz",description:"Kleine Jutetasche mit Namen im Blumenkranz",price:21.9,image:"img/IMG-20251108-WA0022.jpg",category:"taschen"},
   {id:10,name:"Jutetasche mit Silhouette",description:"Kleine Jutetasche mit Silhouette und Namen",price:21.9,image:"img/IMG-20251108-WA0024.jpg",category:"taschen"},
-  {id:11,name:"Kindergarten-Set",description:"Rucksack, Brotdose und Beutel mit Namen und Motiv",price:49.9,priceFrom:true,image:"img/IMG-20251108-WA0025.jpg",category:"taschen"},
   {id:12,name:"Jutetasche mit großer Initiale",description:"Jutetasche mit großer Initiale und Namen",price:21.9,image:"img/IMG-20251108-WA0029.jpg",category:"taschen"},
   {id:13,name:"Jutetasche mit Gebäude-Motiv",description:"Kleine Jutetasche mit Motiv und Schriftzug",price:21.9,image:"img/IMG-20251108-WA0039.jpg",category:"taschen"},
   {id:14,name:"Bayram-Umhängetasche",description:"Kleine Umhängetasche mit Mond, Laternen und Namen",price:19.9,priceFrom:true,image:"img/IMG-20251108-WA0044.jpg",category:"taschen"},
