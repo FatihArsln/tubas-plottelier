@@ -208,38 +208,31 @@
     <main id="inhalt">
       <section id="uebersicht">
         <div class="hero">
-          <div class="hero-copy">
-            <p class="hero-slogan">Mit Liebe geplottet in Bielefeld.</p>
-            <h1>Personalisierte Geschenke, Taschen & Deko aus Bielefeld</h1>
-            <p>Mit deinem Namen, Datum oder Spruch. Du siehst vorher einen Entwurf.</p>
-            <ul class="hero-points">
-              <li>Entwurf vor der Fertigung</li>
-              <li>3–10 Werktage nach Freigabe und Zahlung</li>
-              <li>Versand deutschlandweit mit DHL</li>
-              <li>PayPal oder Überweisung</li>
-            </ul>
-            <div class="hero-actions">
-              <a href="https://wa.me/491715222727" class="whatsapp-direct-btn" id="whatsappDirectBtn" target="_blank" rel="noopener">
-                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-whatsapp" /></svg>
-                <span>Per WhatsApp anfragen</span>
-              </a>
-              <a href="#anfrage" class="text-link">Lieber per E-Mail</a>
-            </div>
-          </div>
-          <div class="hero-photo" id="heroSlideshow">
-            <div class="hero-slides">
-              <picture class="hero-slide is-active">
-                <source type="image/webp" srcset="img/standspiegel-hochzeit-640.webp 640w, img/standspiegel-hochzeit-1280.webp 1280w" sizes="(max-width: 959px) 92vw, 460px" />
-                <img src="img/standspiegel-hochzeit.jpg" width="960" height="1280" alt="Aufkleber mit Hochzeitsbeschriftung auf einem weißen Standspiegel" decoding="async" fetchpriority="high" />
+          <div class="hero-intro">
+            <div class="hero-photo">
+              <picture>
+                <source type="image/webp" srcset="img/geschenkbox-mr-mrs-640.webp 640w, img/geschenkbox-mr-mrs-1280.webp 1280w" sizes="(max-width: 959px) 120px, 200px" />
+                <img src="img/geschenkbox-mr-mrs.jpg" width="1200" height="1600" alt="Weißer Rahmen mit Mr. & Mrs., Namen, Datum und Geldschein-Schmetterlingen" decoding="async" fetchpriority="high" />
               </picture>
             </div>
-            <div class="hero-slide-ui">
-              <button class="hero-nav" id="heroPrev" type="button" aria-label="Vorheriges Bild">‹</button>
-              <div class="hero-dots" id="heroDots" role="group" aria-label="Bild wählen"></div>
-              <button class="hero-nav" id="heroNext" type="button" aria-label="Nächstes Bild">›</button>
-              <button class="hero-pause" id="heroPause" type="button" aria-pressed="false">Pause</button>
+            <div class="hero-copy">
+              <h1><span class="hero-hello">Hallo!</span> Persönliche Geschenke, mit Liebe geplottet in Bielefeld.</h1>
             </div>
           </div>
+          <ul class="hero-points">
+            <li>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 12.2 12 4h7.2v7.2L11 19.4a1.5 1.5 0 0 1-2.1 0L3.8 14.3a1.5 1.5 0 0 1 0-2.1Z"/><circle cx="16.2" cy="7.8" r="1.15"/></svg>
+              <span>Mit deinem Wunschnamen</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.2 5.2 18.8 9.8"/><path d="M4 20.2 8.2 19 19.4 7.8a1.6 1.6 0 0 0 0-2.3L18.5 4.6a1.6 1.6 0 0 0-2.3 0L5.1 15.8 4 20.2Z"/></svg>
+              <span>Entwurf vorab, kostenlos</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8.2V12l2.8 1.8"/></svg>
+              <span>3–10 Werktage Lieferzeit</span>
+            </li>
+          </ul>
         </div>
 
         <section class="area-section" aria-labelledby="areasTitle">
@@ -254,6 +247,7 @@
         <h2 id="categoryTitle"></h2>
         <p class="lede" id="categoryLead"></p>
         <div class="category-offer" id="categoryOffer" hidden></div>
+        <p class="grid-tax-note">Alle Preise sind Endpreise, keine USt. gem. § 19 UStG, <a href="#versand">zzgl. Versand</a>.</p>
         <div class="products-grid" id="productsGrid"></div>
       </section>
 
