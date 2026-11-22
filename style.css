@@ -1555,6 +1555,27 @@ footer {
   color: var(--altrosa-dark);
 }
 
+.footer-credit {
+  margin: 0.35rem 0 0;
+  color: var(--anthrazit-soft);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.footer-credit a {
+  min-height: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer-credit a:hover {
+  color: var(--altrosa-dark);
+}
+
+
 .display-none {
   display: flex !important;
   flex-wrap: wrap;
