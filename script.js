@@ -1007,32 +1007,112 @@ function updateCartDisplay() {
   }
 }
 
-function openCart() {
-  const popup = document.getElementById("cartPopup");
+function cartQuantity(item) {
+  return Math.max(1, Number(item && item.quantity) || 1);
+}
+
+function setCartQuantity(id, nextQuantity, focusSelector) {
+  const item = cart.find(entry => entry.id === id);
+  if (!item) return;
+  if (nextQuantity < 1) cart = cart.filter(entry => entry.id !== id);
+  else item.quantity = Math.min(99, nextQuantity);
+  saveCart();
+  updateCartDisplay();
+  renderCart();
+  if (nextQuantity < 1) {
+    const fallback = document.querySelector(".cart-item-remove") || document.getElementById("closeCartBtn");
+    fallback?.focus();
+    return;
+  }
+  const row = document.querySelector('.cart-item[data-id="' + String(id) + '"]');
+  row?.querySelector(focusSelector || ".cart-qty-minus")?.focus();
+}
+
+function cartQtyButton(label, className, ariaLabel, onClick) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "cart-qty-btn " + className;
+  button.setAttribute("aria-label", ariaLabel);
+  button.textContent = label;
+  button.addEventListener("click", onClick);
+  return button;
+}
+
+function cartTrashIcon() {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("width", "18");
+  svg.setAttribute("height", "18");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("fill", "none");
+  svg.setAttribute("stroke", "currentColor");
+  svg.setAttribute("stroke-width", "2");
+  svg.setAttribute("stroke-linecap", "round");
+  svg.setAttribute("stroke-linejoin", "round");
+  svg.setAttribute("aria-hidden", "true");
+  const parts = [
+    ["polyline", { points: "3 6 5 6 21 6" }],
+    ["path", { d: "M8 6V4h8v2" }],
+    ["path", { d: "M19 6l-1 14H6L5 6" }],
+    ["line", { x1: "10", y1: "11", x2: "10", y2: "17" }],
+    ["line", { x1: "14", y1: "11", x2: "14", y2: "17" }]
+  ];
+  parts.forEach(([tag, attrs]) => {
+    const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+    svg.append(node);
+  });
+  return svg;
+}
+
+function renderCartItem(item) {
+  const quantity = cartQuantity(item);
+  const row = element("div", "cart-item");
+  row.dataset.id = String(item.id);
+  const info = element("div", "cart-item-info");
+  info.append(
+    element("div", "cart-item-name", item.name),
+    element("div", "cart-item-price", formatPrice(item) + " × " + quantity)
+  );
+  const actions = element("div", "cart-item-actions");
+  const stepper = element("div", "cart-item-stepper");
+  const minusLabel = quantity === 1 ? "Entfernen" : "Anzahl verringern";
+  stepper.append(
+    cartQtyButton("−", "cart-qty-minus", minusLabel, () => setCartQuantity(item.id, quantity - 1, ".cart-qty-minus")),
+    element("span", "cart-item-quantity", String(quantity)),
+    cartQtyButton("+", "cart-qty-plus", "Anzahl erhöhen", () => setCartQuantity(item.id, quantity + 1, ".cart-qty-plus"))
+  );
+  stepper.querySelector(".cart-item-quantity")?.setAttribute("aria-live", "polite");
+  stepper.querySelector(".cart-item-quantity")?.setAttribute("aria-label", "Anzahl " + quantity);
+  const remove = document.createElement("button");
+  remove.type = "button";
+  remove.className = "cart-item-remove";
+  remove.setAttribute("aria-label", "Entfernen");
+  remove.setAttribute("title", "Entfernen");
+  remove.append(cartTrashIcon());
+  remove.addEventListener("click", () => setCartQuantity(item.id, 0));
+  actions.append(stepper, remove);
+  row.append(info, actions);
+  return row;
+}
+
+function renderCart() {
   const items = document.getElementById("cartItems");
-  if (!popup || !items) return;
+  const footer = document.getElementById("cartFooter");
+  if (!items) return;
   if (!cart.length) {
     items.replaceChildren(element("p", "empty-cart", "Deine Auswahl ist leer"));
-    document.getElementById("cartNotice").hidden = true;
-    document.getElementById("requestButtons").hidden = true;
-    document.getElementById("clearCartBtn").hidden = true;
-  } else {
-    items.replaceChildren();
-    cart.forEach(item => {
-      const row = element("div", "cart-item");
-      const info = element("div", "cart-item-info");
-      info.append(
-        element("div", "cart-item-name", item.name),
-        element("div", "cart-item-price", formatPrice(item) + " × " + (item.quantity || 1)),
-        taxNoteElement()
-      );
-      row.append(info);
-      items.append(row);
-    });
-    document.getElementById("cartNotice").hidden = false;
-    document.getElementById("requestButtons").hidden = false;
-    document.getElementById("clearCartBtn").hidden = false;
+    if (footer) footer.hidden = true;
+    return;
   }
+  items.replaceChildren();
+  cart.forEach(item => items.append(renderCartItem(item)));
+  if (footer) footer.hidden = false;
+}
+
+function openCart() {
+  const popup = document.getElementById("cartPopup");
+  if (!popup) return;
+  renderCart();
   popup.classList.add("active");
   document.getElementById("closeCartBtn")?.focus();
 }
@@ -1063,7 +1143,11 @@ function setupEventListeners() {
     cart = [];
     saveCart();
     updateCartDisplay();
-    openCart();
+    renderCart();
+  });
+  document.getElementById("cartFooter")?.addEventListener("click", event => {
+    const link = event.target.closest('a[href="#versand"], a[href$="#versand"]');
+    if (link) closeCart();
   });
   document.getElementById("closeLightboxBtn")?.addEventListener("click", closeLightbox);
   document.getElementById("popupBackground")?.addEventListener("click", closeLightbox);
