@@ -1711,7 +1711,27 @@ footer {
   box-shadow: none;
 }
 
+.selection-link {
+  position: relative;
+}
+
+.selection-link .cart-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .selection-link .cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  font-size: 0.7rem;
+  line-height: 18px;
+  text-align: center;
   background: var(--creme-deep);
   color: var(--anthrazit);
 }
@@ -3169,4 +3189,12 @@ select:focus-visible {
   .popup-image.is-zoomed img {
     transition: none;
   }
+}
+
+.selection-link:not(.has-items) .cart-count {
+  display: none;
+}
+
+.shop-home .selection-link {
+  padding: 0.35rem 0.5rem;
 }
