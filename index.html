@@ -22,24 +22,142 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Plottelier",
-        "url": "https://plottelier.de/",
-        "telephone": "+491715222727",
-        "email": "info@plottelier.de",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bielefeld",
-          "postalCode": "33605",
-          "addressCountry": "DE"
-        },
-        "areaServed": "DE",
-        "priceRange": "8,90–49,90 €",
-        "image": "https://plottelier.de/img/standspiegel-hochzeit.jpg",
-        "founder": {
-          "@type": "Person",
-          "name": "Fatih Arslan"
-        }
+        "@graph": [
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Plottelier",
+            "url": "https://plottelier.de/",
+            "telephone": "+491715222727",
+            "email": "info@plottelier.de",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bielefeld",
+              "postalCode": "33605",
+              "addressCountry": "DE"
+            },
+            "areaServed": "DE",
+            "priceRange": "8,90–49,90 €",
+            "image": "https://plottelier.de/img/standspiegel-hochzeit.jpg",
+            "founder": {
+              "@type": "Person",
+              "name": "Fatih Arslan"
+            },
+            "@id": "https://plottelier.de/#organization"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://plottelier.de/#faq",
+            "inLanguage": "de",
+            "url": "https://plottelier.de/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Was kann ich bei Plottelier bestellen?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Bei Plottelier gibt es personalisierte Jutetaschen, Tassen, Textilien, Hochzeitsdeko und Aufkleber – mit deinem Namen, Datum oder Spruch. Jedes Stück wird von Hand geplottet, in Bielefeld."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Sehe ich vorher einen Entwurf?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ja. Du siehst den Entwurf vor der Fertigung und sagst, ob er so stimmt. Die Bestellung erfolgt individuell per WhatsApp oder E-Mail. Vor der Fertigung erhältst du einen Entwurf und ein verbindliches Angebot."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Was kosten personalisierte Geschenke bei Plottelier?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Die Beispielpreise stehen bei den Stücken auf der Seite, zum Beispiel Jutetaschen ab 19,90 € und Aufkleber ab 8,90 €. Alle genannten Preise sind Endpreise; als Kleinunternehmer nach § 19 UStG wird keine Umsatzsteuer ausgewiesen, zuzüglich Versand."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Versendet ihr deutschlandweit – und wie lange dauert es?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ja, der Versand erfolgt deutschlandweit mit DHL, innerhalb von 3–10 Werktagen nach Freigabe des Entwurfs und Zahlungseingang. Päckchen gibt es ab 4,19 €, nur Aufkleber auf Wunsch per Brief ab 1,10 €. Der genaue Preis richtet sich nach Größe und Gewicht; feste Versandkosten gibt es hier nicht."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wo wird gefertigt?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Plottelier ist ein kleiner Familienbetrieb aus Bielefeld. Jedes Stück wird von Hand geplottet, mit Liebe. Der Versand geht deutschlandweit."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wie bestelle und bezahle ich?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Schreib uns per WhatsApp oder E-Mail an info@plottelier.de, was du dir vorstellst. Du siehst den Entwurf und gibst ihn frei. Nach der Freigabe zahlst du per PayPal oder Überweisung; Bankdaten und die PayPal-Adresse bekommst du mit der Freigabe. Danach wird das Stück gefertigt."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Kann ich personalisierte Ware widerrufen?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Kein Widerrufsrecht besteht bei Waren nach individuellen Vorgaben, also mit Namen, Texten, Daten, individuellen Motiven oder Maßen (§ 312g Abs. 2 Nr. 1 BGB). Die bloße Auswahl einer angebotenen Farbe oder Größe zählt nicht dazu. Details stehen in der Widerrufsbelehrung."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Sitzt etwas nicht wie abgesprochen – was dann?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sitzt etwas nicht wie abgesprochen, arbeite ich nach oder ich finde eine Lösung."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wie wasche ich Textilien?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Am besten auf links und schonend. Wie heiß und wie oft, hängt vom jeweiligen Stoff ab."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wie spüle ich Tassen?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Vinyl-Plot ist nicht spülmaschinenfest. Bitte spüle Tassen von Hand."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wie bringe ich Aufkleber an?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Zum Selbstanbringen bekommst du den Aufkleber mit Übertragungsfolie und eine kurze Anleitung. Die Fläche sollte sauber, trocken und möglichst glatt sein. Für Aufkleber auf Waschmaschine oder Trockner gilt dasselbe."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wie messe ich einen Aufkleber?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Miss die Stelle in Zentimetern, Breite und Höhe. Beim Autoaufkleber richtet sich die Preisstaffel nach der Breite des Motivs, beim Wandaufkleber nach der größeren Seite. Über 80 cm Breite beim Auto und über 150 cm an der Wand gibt es keinen Staffelpreis, das ist auf Anfrage. Lass etwas Abstand zu Kanten, Nähten und starken Rundungen."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wie lange hält ein Aufkleber?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Auf sauberem, trockenem und möglichst glattem Untergrund, zum Beispiel Glas oder lackiertem Blech, hält die Folie im Alltag. Draußen kommt es auf Sonne, Wetter und den Untergrund an. Zum Anbringen liegen Transferfolie und eine kurze Anleitung bei."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
     <link rel="preload" href="fonts/open-sans-400.woff2" as="font" type="font/woff2" crossorigin />
@@ -225,7 +343,46 @@
       </section>
 
       <section id="faq" class="info-block" aria-labelledby="faqTitle">
-        <h2 id="faqTitle">Fragen zu Pflege und Aufklebern</h2>
+        <h2 id="faqTitle">Häufige Fragen</h2>
+        <p class="lede">Antworten zu Bestellung, Versand, Preisen, Pflege und Aufklebern.</p>
+        <div class="faq-group">
+          <h3>Bestellung und Versand</h3>
+          <div class="faq-list">
+            <details>
+              <summary>Was kann ich bei Plottelier bestellen?</summary>
+              <p>Bei Plottelier gibt es personalisierte Jutetaschen, Tassen, Textilien, Hochzeitsdeko und Aufkleber – mit deinem Namen, Datum oder Spruch. Jedes Stück wird von Hand geplottet, in Bielefeld.</p>
+            </details>
+            <details>
+              <summary>Sehe ich vorher einen Entwurf?</summary>
+              <p>Ja. Du siehst den Entwurf vor der Fertigung und sagst, ob er so stimmt. Die Bestellung erfolgt individuell per WhatsApp oder E-Mail. Vor der Fertigung erhältst du einen Entwurf und ein verbindliches Angebot.</p>
+            </details>
+            <details>
+              <summary>Was kosten personalisierte Geschenke bei Plottelier?</summary>
+              <p>Die Beispielpreise stehen bei den Stücken auf der Seite, zum Beispiel Jutetaschen ab 19,90 € und Aufkleber ab 8,90 €. Alle genannten Preise sind Endpreise; als Kleinunternehmer nach § 19 UStG wird keine Umsatzsteuer ausgewiesen, zuzüglich Versand.</p>
+            </details>
+            <details>
+              <summary>Versendet ihr deutschlandweit – und wie lange dauert es?</summary>
+              <p>Ja, der Versand erfolgt deutschlandweit mit DHL, innerhalb von 3–10 Werktagen nach Freigabe des Entwurfs und Zahlungseingang. Päckchen gibt es ab 4,19 €, nur Aufkleber auf Wunsch per Brief ab 1,10 €. Der genaue Preis richtet sich nach Größe und Gewicht; feste Versandkosten gibt es hier nicht.</p>
+            </details>
+            <details>
+              <summary>Wo wird gefertigt?</summary>
+              <p>Plottelier ist ein kleiner Familienbetrieb aus Bielefeld. Jedes Stück wird von Hand geplottet, mit Liebe. Der Versand geht deutschlandweit.</p>
+            </details>
+            <details>
+              <summary>Wie bestelle und bezahle ich?</summary>
+              <p>Schreib uns per WhatsApp oder E-Mail an info@plottelier.de, was du dir vorstellst. Du siehst den Entwurf und gibst ihn frei. Nach der Freigabe zahlst du per PayPal oder Überweisung; Bankdaten und die PayPal-Adresse bekommst du mit der Freigabe. Danach wird das Stück gefertigt.</p>
+            </details>
+            <details>
+              <summary>Kann ich personalisierte Ware widerrufen?</summary>
+              <p>Kein Widerrufsrecht besteht bei Waren nach individuellen Vorgaben, also mit Namen, Texten, Daten, individuellen Motiven oder Maßen (§ 312g Abs. 2 Nr. 1 BGB). Die bloße Auswahl einer angebotenen Farbe oder Größe zählt nicht dazu. Details stehen in der Widerrufsbelehrung.</p>
+              <p><a href="widerruf.html">Zur Widerrufsbelehrung</a></p>
+            </details>
+            <details>
+              <summary>Sitzt etwas nicht wie abgesprochen – was dann?</summary>
+              <p>Sitzt etwas nicht wie abgesprochen, arbeite ich nach oder ich finde eine Lösung.</p>
+            </details>
+          </div>
+        </div>
         <div class="faq-group">
           <h3>Pflege</h3>
           <div class="faq-list">
