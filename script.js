@@ -748,8 +748,22 @@ function renderProducts(list) {
     if (!product.isSizeGuide) {
       const priceText = formatPrice(product);
       info.append(element("p", "product-price", priceText));
-      info.append(taxNoteElement());
-      info.append(whatsAppLink(productInquiryText(product.name, priceText), "product-whatsapp"));
+      const actions = element("div", "card-actions");
+      const wa = document.createElement("a");
+      wa.className = "card-whatsapp";
+      wa.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(productInquiryText(product.name, priceText));
+      wa.target = "_blank";
+      wa.rel = "noopener";
+      wa.setAttribute("aria-label", "Per WhatsApp anfragen");
+      const waIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      waIcon.setAttribute("width", "18");
+      waIcon.setAttribute("height", "18");
+      waIcon.setAttribute("viewBox", "0 0 24 24");
+      waIcon.setAttribute("aria-hidden", "true");
+      const waUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      waUse.setAttribute("href", "#icon-whatsapp");
+      waIcon.append(waUse);
+      wa.append(waIcon);
       const add = document.createElement("button");
       add.type = "button";
       add.className = "card-select-btn";
@@ -772,7 +786,8 @@ function renderProducts(list) {
           add.setAttribute("aria-label", "In die Auswahl");
         }, 1200);
       });
-      info.append(add);
+      actions.append(wa, add);
+      info.append(actions);
     }
     const container = element("div", "product-image-container");
     container.append(frame);
