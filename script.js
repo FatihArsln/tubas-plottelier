@@ -1003,7 +1003,7 @@ function updateCartDisplay() {
   if (button) {
     button.classList.toggle("has-items", count > 0);
     const piece = count === 1 ? "Stück" : "Stücke";
-    button.setAttribute("aria-label", "Deine Auswahl, " + count + " " + piece);
+    button.setAttribute("aria-label", "Warenkorb, " + count + " " + piece);
   }
 }
 
