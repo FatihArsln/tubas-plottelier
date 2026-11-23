@@ -18,6 +18,7 @@ const products = [
   {id:16,name:"Jutetaschen mit Schleife",description:"Kleine Jutetaschen mit Initiale, Namen und Spitzenschleife",price:36.9,priceFrom:true,image:"img/IMG-20251108-WA0051.jpg",category:"taschen"},
   {id:17,name:"Jutetaschen natur",description:"Zwei Jutetaschen mit weißer Initiale und Namen",price:36.9,priceFrom:true,image:"img/IMG-20251108-WA0056.jpg",category:"taschen"},
   {id:59,name:"Filztasche mit Wildblumen",description:"Helle Filztasche mit geplottetem Wildblumen-Motiv",price:29.9,image:"img/filztasche-wildblumen.jpg",alts:["Helle Filztasche mit schwarzem Wildblumen-Motiv"],category:"taschen"},
+  {id:62,name:"Filztasche mit Hijab-Motiv",description:"Graue Filztasche mit Hijab-Silhouette und Wunschnamen",price:24.9,images:["img/filztasche-hijab.jpg","img/filztasche-hijab-seite.jpg"],alts:["Graue Filztasche mit weißer Hijab-Silhouette und dem Namen Halime","Filztasche mit Hijab-Motiv von der Seite"],category:"taschen"},
 
   {id:18,name:"Babybody mit Blumen",description:"Babybody mit Namen und Blumenmotiv",price:19.9,priceFrom:true,image:"img/IMG-20251108-WA0008.jpg",category:"textilien"},
   {id:19,name:"T-Shirt mit Motiv",description:"T-Shirt mit individuellem Plot-Motiv",price:22.9,priceFrom:true,image:"img/IMG-20251108-WA0012.jpg",category:"textilien"},
