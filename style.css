@@ -1575,6 +1575,44 @@ footer {
   color: var(--altrosa-dark);
 }
 
+.paypal-logo {
+  display: inline-block;
+  width: auto;
+  height: 18px;
+  vertical-align: middle;
+}
+
+.pay-methods {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.4rem;
+  margin: 0;
+  color: var(--anthrazit-soft);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.cart-pay-methods {
+  margin: 0.1rem 0 0.2rem;
+  font-size: 0.78rem;
+}
+
+.cart-pay-methods .paypal-logo {
+  height: 16px;
+}
+
+.footer-pay-methods {
+  margin: 0.45rem 0 0;
+  font-size: 0.8rem;
+}
+
+.fact-card .paypal-logo {
+  height: 18px;
+  margin: 0 0.12em;
+  vertical-align: -0.2em;
+}
+
 
 .display-none {
   display: flex !important;
@@ -1743,6 +1781,10 @@ footer {
 
   .footer-copyright {
     text-align: center;
+  }
+
+  .footer-pay-methods {
+    justify-content: center;
   }
 
   .display-none,
