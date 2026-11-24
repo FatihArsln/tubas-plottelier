@@ -3071,10 +3071,46 @@ select:focus-visible {
   color: var(--anthrazit-soft);
 }
 
-.contact-intro .whatsapp-direct-btn {
-  width: auto;
+.contact-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
   margin: 0.6rem 0 0.4rem;
+}
+
+.contact-intro .whatsapp-direct-btn,
+.contact-intro .instagram-direct-btn {
+  width: auto;
+  margin: 0;
   padding: 0.95rem 1.35rem;
+}
+
+.instagram-direct-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: var(--white);
+  color: var(--anthrazit);
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(212, 160, 174, 0.7);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
+  transition: all var(--transition);
+}
+
+.instagram-direct-btn:hover {
+  color: var(--altrosa-dark);
+  border-color: var(--altrosa-dark);
+  transform: translateY(-2px);
+}
+
+.instagram-direct-btn svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 
 .contact-section form {
@@ -3088,7 +3124,8 @@ select:focus-visible {
     margin-top: 2.5rem;
   }
 
-  .contact-intro .whatsapp-direct-btn {
+  .contact-intro .whatsapp-direct-btn,
+  .contact-intro .instagram-direct-btn {
     width: 100%;
   }
 }
