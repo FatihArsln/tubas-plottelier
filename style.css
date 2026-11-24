@@ -3084,18 +3084,9 @@ select:focus-visible {
   color: var(--anthrazit-soft);
 }
 
-.contact-cta {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 0.65rem;
-  margin: 0.6rem 0 0.4rem;
-}
-
 .contact-intro .whatsapp-direct-btn {
   width: auto;
-  flex: 1 1 auto;
-  margin: 0;
+  margin: 0.6rem 0 0.4rem;
   padding: 0.95rem 1.35rem;
 }
 
@@ -3103,7 +3094,6 @@ select:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 auto;
   width: 44px;
   height: 44px;
   min-width: 44px;
@@ -3128,18 +3118,6 @@ select:focus-visible {
   flex-shrink: 0;
 }
 
-.contact-intro .instagram-logo-link {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  min-height: 48px;
-}
-
-.contact-intro .instagram-logo-link svg {
-  width: 36px;
-  height: 36px;
-}
-
 .contact-section form {
   max-width: 520px;
   margin-top: 0;
@@ -3152,8 +3130,7 @@ select:focus-visible {
   }
 
   .contact-intro .whatsapp-direct-btn {
-    width: auto;
-    flex: 1 1 auto;
+    width: 100%;
   }
 }
 
