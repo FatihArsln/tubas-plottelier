@@ -801,6 +801,7 @@ function renderProducts(list) {
         name: product.name,
         priceText: product.isSizeGuide ? "" : formatPrice(product),
         inquiry: product.isSizeGuide ? "" : productInquiryText(product.name, formatPrice(product)),
+        product: product.isSizeGuide ? null : product,
         index: 0
       }, container);
       container.addEventListener("click", open);
@@ -893,6 +894,31 @@ function openLightbox(detail, opener) {
     actions.replaceChildren();
     if (detail.priceText) actions.append(element("p", "product-price", detail.priceText));
     if (detail.priceText || detail.inquiry) actions.append(taxNoteElement());
+    if (detail.product && !detail.product.isSizeGuide && detail.product.id != null) {
+      const add = document.createElement("button");
+      add.type = "button";
+      add.className = "add-to-cart-btn popup-select-btn";
+      add.dataset.id = String(detail.product.id);
+      add.setAttribute("aria-label", "In die Auswahl");
+      const icon = element("span", "select-icon", "+");
+      icon.setAttribute("aria-hidden", "true");
+      const label = element("span", "select-label", "In die Auswahl");
+      add.append(icon, label);
+      add.addEventListener("click", () => {
+        addToCart(detail.product);
+        add.classList.add("added");
+        label.textContent = "Dabei";
+        icon.textContent = "✓";
+        add.setAttribute("aria-label", "Zur Auswahl hinzugefügt");
+        setTimeout(() => {
+          add.classList.remove("added");
+          label.textContent = "In die Auswahl";
+          icon.textContent = "+";
+          add.setAttribute("aria-label", "In die Auswahl");
+        }, 1200);
+      });
+      actions.append(add);
+    }
     if (detail.inquiry) {
       actions.append(
         whatsAppLink(detail.inquiry),
