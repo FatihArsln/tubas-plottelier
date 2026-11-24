@@ -1575,6 +1575,19 @@ footer {
   color: var(--altrosa-dark);
 }
 
+.footer-links .instagram-logo-link {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+}
+
+.footer-links .instagram-logo-link svg {
+  width: 24px;
+  height: 24px;
+}
+
 .paypal-logo {
   display: inline-block;
   width: auto;
@@ -3073,44 +3086,58 @@ select:focus-visible {
 
 .contact-cta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 0.75rem;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.65rem;
   margin: 0.6rem 0 0.4rem;
 }
 
-.contact-intro .whatsapp-direct-btn,
-.contact-intro .instagram-direct-btn {
+.contact-intro .whatsapp-direct-btn {
   width: auto;
+  flex: 1 1 auto;
   margin: 0;
   padding: 0.95rem 1.35rem;
 }
 
-.instagram-direct-btn {
+.instagram-logo-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
-  background: var(--white);
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
   color: var(--anthrazit);
-  padding: 0.85rem 1.5rem;
-  border-radius: var(--radius-pill);
-  border: 1.5px solid rgba(212, 160, 174, 0.7);
   text-decoration: none;
-  font-weight: 600;
-  font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
-  transition: all var(--transition);
+  border-radius: 50%;
+  transition: color var(--transition), background var(--transition);
 }
 
-.instagram-direct-btn:hover {
+.instagram-logo-link:hover,
+.instagram-logo-link:focus-visible {
   color: var(--altrosa-dark);
-  border-color: var(--altrosa-dark);
-  transform: translateY(-2px);
+  background: var(--altrosa-soft);
 }
 
-.instagram-direct-btn svg {
-  width: 22px;
-  height: 22px;
+.instagram-logo-link svg {
+  display: block;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
+}
+
+.contact-intro .instagram-logo-link {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.contact-intro .instagram-logo-link svg {
+  width: 36px;
+  height: 36px;
 }
 
 .contact-section form {
@@ -3124,9 +3151,9 @@ select:focus-visible {
     margin-top: 2.5rem;
   }
 
-  .contact-intro .whatsapp-direct-btn,
-  .contact-intro .instagram-direct-btn {
-    width: 100%;
+  .contact-intro .whatsapp-direct-btn {
+    width: auto;
+    flex: 1 1 auto;
   }
 }
 
