@@ -30,7 +30,7 @@ const products = [
   {id:25,name:"Sonnenhut mit Namen",description:"Sonnenhut mit persönlichem Namen",price:16.9,priceFrom:true,image:"img/IMG-20251108-WA0054.jpg",category:"textilien"},
 
   {id:26,name:"Kosmetiktasche",description:"Kosmetiktasche mit Initiale, Namen und Blumen",price:16.9,priceFrom:true,image:"img/IMG-20251108-WA0007.jpg",category:"geschenke"},
-  {id:27,name:"Kerzen im Glas",description:"Kerzen mit persönlichem Schriftzug",price:17.9,priceFrom:true,image:"img/IMG-20251108-WA0018.jpg",category:"geschenke"},
+  {id:27,name:"Kerzen im Glas",description:"Kerzen mit persönlichem Schriftzug",price:9.9,priceNote:"pro Kerze",image:"img/IMG-20251108-WA0018.jpg",category:"geschenke"},
   {id:28,name:"Reiseorganizer",description:"Reiseorganizer mit Familiennamen und Weltkarte. Innen mit Fächern für Pässe, Ausweise, Karten, Bargeld und Stift.",price:34.9,images:["img/IMG-20251108-WA0026.jpg","img/reiseorganizer-familie.jpg","img/reiseorganizer-innen.jpg"],alts:["Reiseorganizer mit Familiennamen und Weltkarte","Grauer Reiseorganizer mit Namen Familie, Weltkarte und Flugzeug","Reiseorganizer geöffnet mit Fächern für Pässe, Karten, Bargeld und Stift"],category:"geschenke"},
   {id:29,name:"Geschenkset Flasche, Tasse und Tasche",description:"Persönliches Set aus Trinkflasche, Tasse und Kulturtasche",price:44.9,priceFrom:true,image:"img/IMG-20251108-WA0028.jpg",category:"geschenke"},
   {id:30,name:"Trinkflasche mit Namen",description:"Trinkflasche mit persönlichem Schriftzug",price:16.9,priceFrom:true,image:"img/IMG-20251108-WA0030.jpg",category:"geschenke"},
